@@ -1,11 +1,14 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar.component';
 
-@NgModule({
+@NgModule  ({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule
