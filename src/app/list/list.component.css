@@ -1,0 +1,29 @@
+.nav-link{
+    font-size: 1.5em;
+    color: #2C3C5B;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.nav{
+    background-color: #869CB8;
+}
+
+.row{
+    background-color: #2C3C5B;
+}
+
+.card{
+    background-color: #C4C4C4;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.form-inline{
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar{
+    background-color: #2C3C5B;
+}
