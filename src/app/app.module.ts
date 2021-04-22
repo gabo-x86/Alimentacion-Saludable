@@ -2,16 +2,23 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar.component';
+
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule  ({
   declarations: [
     AppComponent,
-    NavbarComponent
+    HeaderComponent,
+    FooterComponent,
+    ListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

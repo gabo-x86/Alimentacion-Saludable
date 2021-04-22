@@ -1,0 +1,82 @@
+/*Navbar format*/
+.nav-link{
+    font-size: 1.5em;
+    color: #2C3C5B;
+    padding-left: 1em;
+    padding-right: 1em;
+
+}
+.nav-item:hover{
+    background-color: #0AC5A8;
+}
+
+.nav{
+    background-color: #869CB8;
+}
+
+/*main section*/
+.row{
+    background-color: #2C3C5B;
+    height: min-content;
+    
+}
+.main-list{
+    /*height:fit-content;/*63vh al 100%*/
+    height: 65vh;
+    overflow:auto;
+
+    background-image: url("../../assets/img-backgroundMainList.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+}
+
+/*Search bar*/
+.form-inline{
+    display: flex;
+    flex-direction: row;
+    padding-right: 1em;
+}
+.btn{
+    background-color: #A8A8A8;
+    border: #A8A8A8;
+}
+.btn img{
+    width: 1em;
+    height: 1em;
+}
+
+
+
+/*Card format*/
+.card{
+    background-color: #C4C4C4;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+}
+
+.item{
+    display: flex;
+    flex-direction: row;
+}
+.image-slot{
+    width: 6em;
+    height: 6em;
+    background-color: blueviolet;
+}
+.description-slot{
+    width:fit-content;/*Autoajuste restante de la descripcion*/
+    height: 6em;
+    padding-right: 1em;
+    padding-left: 1em;
+    overflow: hidden;/*Oculta partes para que no sean visibles*/
+}
+.item button{
+    height: 3em;
+    font-size: 1em;
+    align-content: center;
+    
+    background-color: #0AC5A8;
+}
