@@ -22,7 +22,7 @@
 }
 .main-list{
     /*height:fit-content;/*63vh al 100%*/
-    height: 65vh;
+    height: 63vh;
     overflow:auto;
 
     background-image: url("../../assets/img-backgroundMainList.png");
@@ -73,10 +73,13 @@
     padding-left: 1em;
     overflow: hidden;/*Oculta partes para que no sean visibles*/
 }
-.item button{
+.item .btn{
+    position: absolute;
     height: 3em;
     font-size: 1em;
     align-content: center;
-    
     background-color: #0AC5A8;
+
+    bottom: 0.5em;
+    right: 0.5em;
 }
