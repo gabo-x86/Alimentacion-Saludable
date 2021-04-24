@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+//Servicio
+import { ProductService } from '../services/product.service';
+
+//Modelo de datos
+import { Product } from '../models/product';
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -7,9 +13,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  productList:Product[];
 
-  ngOnInit(): void {
+  constructor(private productService:ProductService) { }
+
+  ngOnInit() {
+    this.productService.getProducts()//Escucha la BD
+    .snapshotChanges()
+    .subscribe(item=>{
+      this.productList=[];
+      item.forEach(element=>{
+        let x = element.payload.toJSON();//Convertir a JSON
+        x["$key"]=element.key;
+        this.productList.push(x as Product);
+        
+      });
+    });
   }
 
 }

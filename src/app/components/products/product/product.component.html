@@ -1,58 +1,58 @@
 <div class="card">
     <div class="card-body">
-        <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
-            <inpu type="hidden" name="$key" #$key="ngModel" [(ngModel)]="productService.selectedProduct.$key">
-            <div class="form-group">
-                <input
-                 type="text"
-                 class="form-control"
-                 name="name"
-                 #name="ngModel"
-                 [(ngModel)]="productService.selectedProduct.name"
-                 placeholder="Add Product Name"
-                 >
-            </div>
-            <div class="form-group">
-            <input
-                 type="text"
-                 class="form-control"
-                 name="category"
-                 #category="ngModel"
-                 [(ngModel)]="productService.selectedProduct.category"
-                 placeholder="Add Product Category"
-                 >
+        <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)"><!--Guarda form en #productForm cuando haya un submit-->
+            <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="productService.selectedProduct.$key">
+                <div class="form-group">
+                    <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    #name="ngModel"
+                    [(ngModel)]="productService.selectedProduct.name"
+                    placeholder="Add Product Name"
+                    >
                 </div>
                 <div class="form-group">
                     <input
-                         type="text"
-                         class="form-control"
-                         name="description"
-                         #description="ngModel"
-                         [(ngModel)]="productService.selectedProduct.description"
-                         placeholder="Add Product Description"
-                         >
-                     </div>
-                    <!-- <div class="form-group">
-                        <input
-                             type="text"
-                             class="form-control"
-                             name="image"
-                             #image="ngModel"
-                             [(ngModel)]="productService.selectedProduct.image"
-                             placeholder="Add Product Imagen"
-                             >
-                             <img src="">
-                             <button class="btn btn-image"
-                             ></button>-->>
-                     <div class="form-group">
-                         <button class="btn btn-primary" type="submit">
-                            <i class="fas fa-plus-cicle"></i>Add A Product
-                         </button>
-                         <button class="btn btn-secundary" type="reset" (click)="resetForm(productForm)">
-                             <i class="fas fa-sync-alt"></i>Reset
-                         </button>
-                     </div>
-                </inpu>
+                        type="text"
+                        class="form-control"
+                        name="category"
+                        #category="ngModel"
+                        [(ngModel)]="productService.selectedProduct.category"
+                        placeholder="Add Product Category"
+                    >
+                </div>
+                <div class="form-group">
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="description"
+                        #description="ngModel"
+                        [(ngModel)]="productService.selectedProduct.description"
+                        placeholder="Add Product Description"
+                    >
+                </div>
+                        <!-- <div class="form-group">
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="image"
+                                #image="ngModel"
+                                [(ngModel)]="productService.selectedProduct.image"
+                                placeholder="Add Product Imagen"
+                                >
+                                <img src="">
+                                <button class="btn btn-image"
+                                ></button>-->>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-plus-cicle"></i>Add A Product
+                    </button>
+                    <button class="btn btn-secundary" type="reset" (click)="resetForm(productForm)">
+                        <i class="fas fa-sync-alt"></i>Reset
+                    </button>
+                </div>
+            
         </form>
 
     </div>
