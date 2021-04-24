@@ -21,7 +21,6 @@
     
 }
 .main-list{
-    /*height:fit-content;/*63vh al 100%*/
     height: fit-content;
     overflow:auto;
 
@@ -45,7 +44,6 @@
     width: 1em;
     height: 1em;
 }
-
 
 
 /*Card format*/
