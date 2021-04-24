@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { from } from 'rxjs';
-import {FormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';//Data binding
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

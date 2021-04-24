@@ -67,9 +67,10 @@
 .description-slot{
     width:fit-content;/*Autoajuste restante de la descripcion*/
     height: 6em;
-    padding-right: 1em;
+    padding-right: 3em;
     padding-left: 1em;
     overflow: hidden;/*Oculta partes para que no sean visibles*/
+    text-overflow: ellipsis;
 }
 .item .btn{
     position: absolute;

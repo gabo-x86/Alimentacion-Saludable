@@ -14,10 +14,10 @@ import { element } from 'protractor';
 })
 export class ProductLisComponent implements OnInit {
   productList:Product[];
+
     constructor(private productService: ProductService) {
       
     }
-
 
   ngOnInit() {
     this.productService.getProducts()
@@ -32,6 +32,7 @@ export class ProductLisComponent implements OnInit {
       });
     });
   }
+  
   onEdit(product: Product){
    this.productService.selectedProduct=Object.assign({},product); 
   }

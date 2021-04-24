@@ -20,7 +20,7 @@
 
 <section>
     <div class="row"><!-- main list -->
-        <div class="col-md-1"></div>
+      <div class="col-md-1"></div>
         <div class="col-md-10">
             <div class="main-list">
               <nav class="navbar navbar-light justify-content-between"><!--Search bar-->
@@ -31,66 +31,24 @@
                 </form>
               </nav>
 
-              <div class="card"><!--Card format-->
+              <div class="card" *ngFor="let product of productList"><!--Card format-->
                 <div class="card-body">
                   <div class="item">
                     <div class="image-slot">
                     </div>
                     <div class="description-slot">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum perspiciatis incidunt hic quasi, dignissimos molestias voluptas asperiores omnis optio possimus saepe minus assumenda, magnam, dolore id suscipit iusto porro vero?
+                      <h2>{{product.name}}</h2>
+                      <p>{{product.description}}</p>
                     </div>
-                    <button class="btn btn-outline-success " type="submit" routerLink="/detail">Ver más</button>
+                    <button class="btn btn-outline-success " type="submit">Ver más</button>
                   </div>
                 </div>
               </div>
-
-              <div class="card"><!--Card format-->
-                <div class="card-body">
-                  <div class="item">
-                    <div class="image-slot">
-                    </div>
-                    <div class="description-slot">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum perspiciatis incidunt hic quasi, dignissimos molestias voluptas asperiores omnis optio possimus saepe minus assumenda, magnam, dolore id suscipit iusto porro vero?
-                    </div>
-                    <button class="btn btn-outline-success " type="submit" routerLink="/detail">Ver más</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card"><!--Card format-->
-                <div class="card-body">
-                  <div class="item">
-                    <div class="image-slot">
-                    </div>
-                    <div class="description-slot">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum perspiciatis incidunt hic quasi, dignissimos molestias voluptas asperiores omnis optio possimus saepe minus assumenda, magnam, dolore id suscipit iusto porro vero?
-                    </div>
-                    <button class="btn btn-outline-success " type="submit" routerLink="/detail">Ver más</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card"><!--Card format-->
-                <div class="card-body">
-                  <div class="item">
-                    <div class="image-slot">
-                    </div>
-                    <div class="description-slot">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum perspiciatis incidunt hic quasi, dignissimos molestias voluptas asperiores omnis optio possimus saepe minus assumenda, magnam, dolore id suscipit iusto porro vero?
-                    </div>
-                    <button class="btn btn-outline-success " type="submit" routerLink="/detail">Ver más</button>
-                  </div>
-                </div>
-              </div>
-
-              
-
-
 
 
             </div>
         </div>
-        <div class="col-md-1"></div>
+      <div class="col-md-1"></div>
     </div>
 </section>
 
