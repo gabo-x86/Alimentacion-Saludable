@@ -31,6 +31,9 @@ import { importType } from '@angular/compiler/src/output/output_ast';
     AppComponent,
     ProductsComponent,
     ProductLisComponent,
+    HeaderComponent,
+    FooterComponent,
+    ListComponent,
     ProductComponent
   ],
   imports: [
@@ -41,10 +44,7 @@ import { importType } from '@angular/compiler/src/output/output_ast';
     AppRoutingModule
   ],
   providers: [
-    ProductService,
-    HeaderComponent,
-    FooterComponent,
-    ListComponent
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
