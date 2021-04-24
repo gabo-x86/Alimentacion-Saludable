@@ -3,6 +3,6 @@
 </header>
 <main>
   <h2>Instalación de dependencias<h2>
-  <p><br>Angular: </br>npm install</p>
-  <p><br>Firebase: </br>npm i firebase@7.24.0 angularfire2 --save</p>
+  <p><b>Angular: </b>npm install</p>
+  <p><b>Firebase: </b>npm i firebase@7.24.0 angularfire2 --save</p>
 </main>
