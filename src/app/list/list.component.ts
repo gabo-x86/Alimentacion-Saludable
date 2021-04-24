@@ -18,8 +18,8 @@ export class ListComponent implements OnInit {
   constructor(private productService:ProductService) { }
 
   ngOnInit() {
-    this.productService.getProducts()//Escucha la BD
-    .snapshotChanges()
+    this.productService.getProducts()
+    .snapshotChanges()//Escucha la BD
     .subscribe(item=>{
       this.productList=[];
       item.forEach(element=>{
