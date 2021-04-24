@@ -3,7 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { from } from 'rxjs';
 import {FormsModule} from '@angular/forms';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { ListComponent } from './list/list.component';
+
 
 //firebase
 import {AngularFireModule} from 'angularfire2';
@@ -23,6 +28,7 @@ import { importType } from '@angular/compiler/src/output/output_ast';
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
     ProductsComponent,
     ProductLisComponent,
     ProductComponent
@@ -35,6 +41,16 @@ import { importType } from '@angular/compiler/src/output/output_ast';
   ],
   providers: [
     ProductService
+=======
+    HeaderComponent,
+    FooterComponent,
+    ListComponent
+
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+>>>>>>> f7688fec3e2b26fa3b8e309abbaaf7835904d67c
   ],
   bootstrap: [AppComponent]
 })
