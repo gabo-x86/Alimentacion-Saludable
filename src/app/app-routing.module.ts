@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FooterComponent } from './footer/footer.component';
+import { DetailComponent } from './detail/detail.component';
 import { ListComponent } from './list/list.component';
 
 
 const routes: Routes = [
 
-  {path: 'detail', component: FooterComponent},
+  {path: 'detail', component: DetailComponent},
   {path: '', component: ListComponent}
 ];
 
