@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-body">
         <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
-            <inpu type="hidden" name="$key" #$key="ngModel" [(ngModel)]="productService.selectedProduct.$key">
+            <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="productService.selectedProduct.$key">
             <div class="form-group">
                 <input
                  type="text"
@@ -32,6 +32,187 @@
                          placeholder="Add Product Description"
                          >
                      </div>
+                     <!-- asdasasda -->
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="energy"
+                         #energy="ngModel"
+                         [(ngModel)]="productService.selectedProduct.energy"
+                         placeholder="Add Product energy"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="carbohydrates"
+                         #carbohydrates="ngModel"
+                         [(ngModel)]="productService.selectedProduct.carbohydrates"
+                         placeholder="Add Product carbohydrates"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="protein"
+                         #protein="ngModel"
+                         [(ngModel)]="productService.selectedProduct.protein"
+                         placeholder="Add Product protein"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="grease"
+                         #grease="ngModel"
+                         [(ngModel)]="productService.selectedProduct.grease"
+                         placeholder="Add Product grease"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="cholesterol"
+                         #cholesterol="ngModel"
+                         [(ngModel)]="productService.selectedProduct.cholesterol"
+                         placeholder="Add Product cholesterol"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="sodium"
+                         #sodium="ngModel"
+                         [(ngModel)]="productService.selectedProduct.sodium"
+                         placeholder="Add Product sodium"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="fiber"
+                         #fiber="ngModel"
+                         [(ngModel)]="productService.selectedProduct.fiber"
+                         placeholder="Add Product fiber"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="calcium"
+                         #calcium="ngModel"
+                         [(ngModel)]="productService.selectedProduct.calcium"
+                         placeholder="Add Product calcium"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="vitaminA"
+                         #vitaminA="ngModel"
+                         [(ngModel)]="productService.selectedProduct.vitaminA"
+                         placeholder="Add Product vitaminA"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="vitaminB1"
+                         #vitaminB1="ngModel"
+                         [(ngModel)]="productService.selectedProduct.vitaminB1"
+                         placeholder="Add Product vitaminB1"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="vitaminB2"
+                         #vitaminB2="ngModel"
+                         [(ngModel)]="productService.selectedProduct.vitaminB2"
+                         placeholder="Add Product vitaminB2"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="vitaminB3"
+                         #vitaminB3="ngModel"
+                         [(ngModel)]="productService.selectedProduct.vitaminB3"
+                         placeholder="Add Product vitaminB3"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="vitaminB5"
+                         #vitaminB5="ngModel"
+                         [(ngModel)]="productService.selectedProduct.vitaminB5"
+                         placeholder="Add Product vitaminB5"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="vitaminC"
+                         #vitaminC="ngModel"
+                         [(ngModel)]="productService.selectedProduct.vitaminC"
+                         placeholder="Add Product vitaminC"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="vitaminD"
+                         #vitaminD="ngModel"
+                         [(ngModel)]="productService.selectedProduct.vitaminD"
+                         placeholder="Add Product vitaminD"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="vitaminE"
+                         #vitaminE="ngModel"
+                         [(ngModel)]="productService.selectedProduct.vitaminE"
+                         placeholder="Add Product vitaminE"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="vitaminK"
+                         #vitaminK="ngModel"
+                         [(ngModel)]="productService.selectedProduct.vitaminK"
+                         placeholder="Add Product vitaminK"
+                         >
+                     </div>
+                <div class="form-group">
+                    <input
+                         type="text"
+                         class="form-control"
+                         name="image"
+                         #image="ngModel"
+                         [(ngModel)]="productService.selectedProduct.image"
+                         placeholder="Add Product image"
+                         >
+                     </div>
                     <!-- <div class="form-group">
                         <input
                              type="text"
@@ -52,7 +233,6 @@
                              <i class="fas fa-sync-alt"></i>Reset
                          </button>
                      </div>
-                </inpu>
         </form>
 
     </div>
