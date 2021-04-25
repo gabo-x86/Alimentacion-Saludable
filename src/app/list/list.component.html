@@ -1,19 +1,19 @@
 <section>
     <ul class="nav nav-pills nav-fill">
-        <li class="nav-item">
-          <a class="nav-link" href="#">CEREALES</a>
+        <li class="nav-item" [ngClass]="{'hoverOn':hoverList[0]}">
+          <a class="nav-link" href="#" (click)="changeHover(0); categorySearch('Cereal')">CEREALES</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">FRUTAS</a>
+        <li class="nav-item" [ngClass]="{'hoverOn':hoverList[1]}">
+          <a class="nav-link" href="#" (click)="changeHover(1); categorySearch('Fruta')">FRUTAS</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">VERDURAS</a>
+        <li class="nav-item" [ngClass]="{'hoverOn':hoverList[2]}">
+          <a class="nav-link" href="#" (click)="changeHover(2); categorySearch('Verdura')">VERDURAS</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">CARNE</a>
+        <li class="nav-item" [ngClass]="{'hoverOn':hoverList[3]}">
+          <a class="nav-link" href="#" (click)="changeHover(3); categorySearch('Carne')">CARNE</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">LÁCTEOS</a>
+        <li class="nav-item" [ngClass]="{'hoverOn':hoverList[4]}">
+            <a class="nav-link" href="#" (click)="changeHover(4); categorySearch('Lacteo')">LÁCTEOS</a>
         </li>
     </ul>
 </section>

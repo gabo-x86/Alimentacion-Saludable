@@ -4,11 +4,15 @@
     color: #2C3C5B;
     padding-left: 1em;
     padding-right: 1em;
-
 }
+
 .nav-item:hover{
     background-color: #0AC5A8;
 }
+.hoverOn{
+    background-color: #0AC5A8;
+}
+
 
 .nav{
     background-color: #869CB8;
