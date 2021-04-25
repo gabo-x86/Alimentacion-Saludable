@@ -2,45 +2,48 @@
     <div class="row">
         <div class="col-md-12">
             <img src="../../assets/img-backgroundDetail.png" alt="">
-            
         </div>
     </div>    
 </section>
 
 <section>
     <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-9">
-            <div class="food-image">
+        <div class="col-md-3">
+            <img src={{productSelected.image}} alt=""/>
+            <div class="back-button">
                 <img src="../../assets/icon-backButton.png" alt="" routerLink="/">
+                <h2>{{productSelected.name}}</h2>
             </div>
-            <h2>NOMBRE FRUTA</h2>
-            <p>Descripcion:</p>
-
+        </div>
+        <div class="col-md-9">
+                      
+            
+            <br><h2>CATEGORÍA: {{productSelected.category}}</h2>
+            <p><strong>Descripcion:</strong></p>
+            <p>{{productSelected.description}}</p>
             <div class="row">
                 <div class="col-md-6">
-                    <p><b>Energía: </b></p>
-                    <p><b>Carbohidratos: </b></p>
-                    <p><b>Proteínas: </b></p>
-                    <p><b>Grasas: </b></p>
-                    <p><b>Colesterol: </b></p>
-                    <p><b>Sodio: </b></p>
-                    <p><b>Fibra: </b></p>
-                    <p><b>Calcio: </b></p>
+                    <p><strong>Energía:</strong> {{productSelected.energy}}</p>
+                    <p><strong>Carbohidratos:</strong> {{productSelected.carbohydrates}}</p>
+                    <p><strong>Proteínas:</strong> {{productSelected.protein}}</p>
+                    <p><strong>Grasas:</strong> {{productSelected.grease}}</p>
+                    <p><strong>Colesterol:</strong> {{productSelected.cholesterol}}</p>
+                    <p><strong>Sodio:</strong> {{productSelected.sodium}}</p>
+                    <p><strong>Fibra:</strong> {{productSelected.fiber}}</p>
+                    <p><strong>Calcio:</strong> {{productSelected.calcium}}</p>
                 </div>
                 <div class="col-md-6">
-                    <p><b>Vitamina A: </b></p>
-                    <p><b>Vitamina B1: </b></p>
-                    <p><b>Vitamina B2: </b></p>
-                    <p><b>Vitamina B3: </b></p>
-                    <p><b>Vitamina B5: </b></p>
-                    <p><b>Vitamina C: </b></p>
-                    <p><b>Vitamina D: </b></p>
-                    <p><b>Vitamina E: </b></p>
-                    <p><b>Vitamina K: </b></p>
+                    <p><strong>Vitamina A:</strong> {{productSelected.vitaminA}}</p>
+                    <p><strong>Vitamina B1:</strong> {{productSelected.vitaminB1}}</p>
+                    <p><strong>Vitamina B2:</strong> {{productSelected.vitaminB2}}</p>
+                    <p><strong>Vitamina B3:</strong> {{productSelected.vitaminB3}}</p>
+                    <p><strong>Vitamina B5:</strong> {{productSelected.vitaminB5}}</p>
+                    <p><strong>Vitamina C:</strong> {{productSelected.vitaminC}}</p>
+                    <p><strong>Vitamina D:</strong> {{productSelected.vitaminD}}</p>
+                    <p><strong>Vitamina E:</strong> {{productSelected.vitaminE}}</p>
+                    <p><strong>Vitamina K:</strong> {{productSelected.vitaminK}}</p>
                 </div>
             </div>
-
 
         </div>
     </div>

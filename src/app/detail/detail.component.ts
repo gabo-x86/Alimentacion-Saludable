@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-detail',
@@ -7,10 +7,19 @@ import {Router} from '@angular/router'
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-
-  constructor(private router:Router) { }
+  productSelected;
+  constructor(private router:Router) {
+  }
 
   ngOnInit(): void {
+    this.getProduct();
   }
+
+  getProduct(){
+    this.productSelected = JSON.parse( localStorage.getItem("productSelected") );
+    console.log(this.productSelected);
+  }
+
+
 
 }

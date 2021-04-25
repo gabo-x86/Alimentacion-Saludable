@@ -16,7 +16,6 @@ export class ListComponent implements OnInit {
   productList:Product[];
   hoverList=[false, false, false, false, false];
   prevHover:number;
-  copia:Product[];
 
   constructor(private productService:ProductService) { }
 
@@ -62,5 +61,8 @@ export class ListComponent implements OnInit {
 
   }
 
+  saveFood(product:Product){
+    localStorage.setItem("productSelected", JSON.stringify(product));
+  }
 
 }
