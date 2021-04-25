@@ -26,8 +26,10 @@
               <nav class="navbar navbar-light justify-content-between"><!--Search bar-->
                 <a class="navbar-brand"></a>
                 <form class="form-inline">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" id="buscar" [(ngModel)]='buscar' [ngModelOptions]="{standalone: true}">
-                  <button class="btn btn-outline-success my-2 my-sm-0" (click)='consulProductos();' type="submit"><img src="../../assets/icon-searchMainList.png"></button>
+                  <input class="form-control mr-sm-2" type="text" placeholder="Buscar un alimento" #searchValue 
+                  maxlength="25"  aria-label="Search" id="buscar" [(ngModel)]='buscar' [ngModelOptions]="{standalone: true}"
+                  onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))" min="1">
+                  <button class="btn btn-outline-success my-2 my-sm-0" (click)='consulProductos(searchValue);'><img src="../../assets/icon-searchMainList.png"></button>
                 </form>
               </nav>
 

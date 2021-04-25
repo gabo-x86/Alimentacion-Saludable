@@ -16,7 +16,7 @@ export class ListComponent implements OnInit {
   productList:Product[];
   hoverList=[false, false, false, false, false];
   prevHover:number;
-  buscar: string;//ri
+  buscar: string;
 
   constructor(private productService:ProductService) { }
 
@@ -38,41 +38,44 @@ export class ListComponent implements OnInit {
       });
     });
   }
-  consulProductos(){
+  consulProductos(searchValue){
+    let itsFind:Boolean;
+    itsFind=false;
     this.productService.getProducts()
     .snapshotChanges()//Escucha la BD
     .subscribe(item=>{
       this.productList=[];
       item.forEach(element=>{
         let x = element.payload.toJSON();//Convertir a JSON
-        x["$key"]=element.key;
-        this.productList.push(x as Product);
+        x["$key"]=element.key;        
+        if(x["name"]==searchValue.value.toString().toUpperCase()){
+          this.productList.push(x as Product);
+          itsFind=true;
+        }
       });
-      const Swal = require('sweetalert2')
-  this.productList=this.productList.filter(data=>{
-    return data.$key.toString().trim()==this.buscar;
-  })
-  if(this.productList.length==0){
-    this.getValues();
-    Swal.fire({
-      position: 'top-center',
-      type: 'success',
-      title: 'No se ha encontrado ese alimento',
-      showConfirmButton:false,
-      timer: 2000
-  
-    })
-  }else{
-    
-    Swal.fire({
-      position: 'top-center',
-      type:'success',
-      title: 'Alimento encontrado!',
-      showConfirmButton: false,
-      timer: 2000
+      
+      const Swal = require('sweetalert2');
+      if(this.productList.length==0 || !itsFind){
+        this.getValues();
+        Swal.fire({
+          position: 'top-center',
+          type: 'success',
+          title: 'No se ha encontrado ese alimento',
+          showConfirmButton:false,
+          timer: 2000
+      
+        })
+      }else{
+          Swal.fire({
+          position: 'top-center',
+          type:'success',
+          title: 'Alimento encontrado!',
+          showConfirmButton: false,
+          timer: 2000
+          })
+      }
+      this.changeHover(-1);
 
-    })
-    }
     })};
 
   changeHover(index){

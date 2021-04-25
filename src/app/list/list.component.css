@@ -21,7 +21,7 @@
 /*main section*/
 .row{
     background-color: #2C3C5B;
-    height: min-content;
+    height: auto;
     
 }
 .main-list{
