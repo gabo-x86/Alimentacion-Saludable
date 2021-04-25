@@ -5,4 +5,5 @@
   <h2>Instalación de dependencias<h2>
   <p><b>Angular: </b>npm install</p>
   <p><b>Firebase: </b>npm i firebase@7.24.0 angularfire2 --save</p>
+  <p><b>PopUp Boxes: </b>npm install sweetalert2</p>
 </main>
