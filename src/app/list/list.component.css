@@ -21,24 +21,21 @@
 /*main section*/
 .row{
     background-color: #2C3C5B;
-    height: auto;
-    
-}
-.main-list{
-    height: fit-content;
-    overflow:auto;
-
     background-image: url("../../assets/img-backgroundMainList.png");
     background-repeat: no-repeat;
     background-position: center top;
     background-attachment: fixed;
+    
+}
+.main-list{
+    overflow:auto;
 }
 
 /*Search bar*/
 .form-inline{
     display: flex;
     flex-direction: row;
-    padding-right: 1em;
+    padding-top: 1em;
 }
 .btn{
     background-color: #A8A8A8;
@@ -54,9 +51,10 @@
 .card{
     background-color: #C4C4C4;
     margin-top: 1.5em;
-    margin-bottom: 1.5em;
+    margin-bottom: 2.5em;
     padding-left: 0.8em;
     padding-right: 0.8em;
+    cursor: default;
 }
 
 .item{
@@ -66,7 +64,6 @@
 .image-slot{
     width: 6em;
     height: 6em;
-    /*background-color: blueviolet;*/
 }
 .description-slot{
     width:fit-content;/*Autoajuste restante de la descripcion*/

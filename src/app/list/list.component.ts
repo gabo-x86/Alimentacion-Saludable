@@ -53,7 +53,7 @@ export class ListComponent implements OnInit {
           itsFind=true;
         }
       });
-      
+
       const Swal = require('sweetalert2');
       if(this.productList.length==0 || !itsFind){
         this.getValues();
@@ -69,7 +69,7 @@ export class ListComponent implements OnInit {
           Swal.fire({
           position: 'top-center',
           type:'success',
-          title: 'Alimento encontrado!',
+          title: '¡Alimento encontrado!',
           showConfirmButton: false,
           timer: 2000
           })
@@ -103,4 +103,5 @@ export class ListComponent implements OnInit {
   saveFood(product:Product){
     localStorage.setItem("productSelected", JSON.stringify(product));
   }
+  
 }

@@ -28,13 +28,17 @@
                 <form class="form-inline">
                   <input class="form-control mr-sm-2" type="text" placeholder="Buscar un alimento" #searchValue 
                   maxlength="25"  aria-label="Search" id="buscar" [(ngModel)]='buscar' [ngModelOptions]="{standalone: true}"
-                  onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))" min="1">
+                  onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || 
+                  (event.charCode >= 97 && event.charCode <= 122) || event.charCode == 209 || 
+                  event.charCode == 241 || event.charCode==193 || event.charCode==225 || event.charCode==201 ||
+                  event.charCode==233 || event.charCode==205 || event.charCode==237 || event.charCode==211 ||
+                  event.charCode==243 || event.charCode==218 || event.charCode==250)">
+
                   <button class="btn btn-outline-success my-2 my-sm-0" (click)='consulProductos(searchValue);'><img src="../../assets/icon-searchMainList.png"></button>
                 </form>
               </nav>
 
               <div class="card" *ngFor="let product of productList"><!--Card format-->
-                
                 <div class="card-body">
                   <div class="item">
                     
