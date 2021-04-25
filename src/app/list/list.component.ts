@@ -34,6 +34,7 @@ export class ListComponent implements OnInit {
         let x = element.payload.toJSON();//Convertir a JSON
         x["$key"]=element.key;
         this.productList.push(x as Product);
+        this.productList.sort((a,b)=>a.name.toString().localeCompare(b.name.toString()));//Ordena por cada vez que pushea un valor
       });
     });
   }
