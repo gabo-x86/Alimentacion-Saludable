@@ -34,8 +34,8 @@
               <div class="card" *ngFor="let product of productList"><!--Card format-->
                 <div class="card-body">
                   <div class="item">
-                    <div class="image-slot">
-                    </div>
+                    
+                    <img class="image-slot" src={{product.image}} alt="Imagen">
                     <div class="description-slot">
                       <h2>{{product.name}}</h2>
                       <p>{{product.description}}</p>

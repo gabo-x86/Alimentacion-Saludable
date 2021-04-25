@@ -16,6 +16,7 @@ export class ListComponent implements OnInit {
   productList:Product[];
   hoverList=[false, false, false, false, false];
   prevHover:number;
+  copia:Product[];
 
   constructor(private productService:ProductService) { }
 
@@ -53,9 +54,11 @@ export class ListComponent implements OnInit {
         x["$key"]=element.key;
         if(x["category"]==category){
           this.productList.push(x as Product);
+          this.productList.sort((a,b)=>a.name.toString().localeCompare(b.name.toString()));//Ordena por cada vez que pushea un valor
         }        
       });
     });
+
   }
 
 
