@@ -54,21 +54,21 @@ export class ListComponent implements OnInit {
   if(this.productList.length==0){
     this.getValues();
     Swal.fire({
-      position: 'top-end',
+      position: 'top-center',
       type: 'success',
       title: 'No se ha encontrado ese alimento',
       showConfirmButton:false,
-      timer: 1500
+      timer: 2000
   
     })
   }else{
     
     Swal.fire({
-      position: 'top-end',
+      position: 'top-center',
       type:'success',
       title: 'Alimento encontrado!',
       showConfirmButton: false,
-      timer: 1500
+      timer: 2000
 
     })
     }
