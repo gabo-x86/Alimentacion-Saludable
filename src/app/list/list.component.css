@@ -27,9 +27,9 @@
     background-attachment: fixed;
     
 }
-.main-list{
-    overflow:auto;
-}
+/* .main-list{
+   height: max-content;
+} */
 
 /*Search bar*/
 .form-inline{
@@ -52,8 +52,8 @@
     background-color: #C4C4C4;
     margin-top: 1.5em;
     margin-bottom: 2.5em;
-    padding-left: 0.8em;
-    padding-right: 0.8em;
+    padding-left: 2%;
+    padding-right: 2%;
     cursor: default;
 }
 
@@ -64,22 +64,28 @@
 .image-slot{
     width: 6em;
     height: 6em;
+    cursor: pointer;
+    border-radius: 20px;
 }
 .description-slot{
     width:fit-content;/*Autoajuste restante de la descripcion*/
     height: 6em;
-    padding-right: 3em;
+    padding-right: 5%;
     padding-left: 1em;
     overflow: hidden;/*Oculta partes para que no sean visibles*/
     text-overflow: ellipsis;
 }
-.item .btn{
-    position: absolute;
-    height: 3em;
+.card-body .btn{
+    position: relative;
+    height: 2em;
     font-size: 1em;
     align-content: center;
     background-color: #0AC5A8;
 
-    bottom: 0.5em;
-    right: 0.5em;
+    /* bottom: 0.5em; */
+    float: right;
+}
+
+.col-md-10{
+    height: max-content;
 }

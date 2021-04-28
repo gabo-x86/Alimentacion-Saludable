@@ -22,17 +22,13 @@
     <div class="row"><!-- main list -->
       <div class="col-md-1"></div>
         <div class="col-md-10">
-            <div class="main-list">
+            <div class="main-list" [ngStyle]="{'height':searchSuccess()}">
               <nav class="navbar navbar-light justify-content-between"><!--Search bar-->
                 <a class="navbar-brand"></a>
                 <form class="form-inline">
                   <input class="form-control mr-sm-2" type="text" placeholder="Buscar un alimento" #searchValue 
-                  maxlength="25"  aria-label="Search" id="buscar" [(ngModel)]='buscar' [ngModelOptions]="{standalone: true}"
-                  onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || 
-                  (event.charCode >= 97 && event.charCode <= 122) || event.charCode == 209 || 
-                  event.charCode == 241 || event.charCode==193 || event.charCode==225 || event.charCode==201 ||
-                  event.charCode==233 || event.charCode==205 || event.charCode==237 || event.charCode==211 ||
-                  event.charCode==243 || event.charCode==218 || event.charCode==250)">
+                  maxlength="25"  aria-label="Search" id="buscar" [(ngModel)]='buscar' [ngModelOptions]="{standalone: true}" 
+                  (keypress)="charValidator($event)"/><!--(paste)="false"-->
 
                   <button class="btn btn-outline-success my-2 my-sm-0" (click)='consulProductos(searchValue);'><img src="../../assets/icon-searchMainList.png"></button>
                 </form>
@@ -42,13 +38,14 @@
                 <div class="card-body">
                   <div class="item">
                     
-                    <img class="image-slot" src={{product.image}} alt="Imagen">
+                    <img class="image-slot" src={{product.image}} alt="Imagen" routerLink="/detail">
                     <div class="description-slot">
                       <h2>{{product.name}}</h2>
                       <p>{{product.description}}</p>
                     </div>
-                    <button class="btn btn-outline-success" (click)="saveFood(product)" routerLink="/detail">Ver más</button><!--[routerLink]="['/detail',product]"-->
+                    
                   </div>
+                  <button class="btn btn-outline-success" (click)="saveFood(product)" routerLink="/detail">Ver más</button><!--[routerLink]="['/detail',product]"-->
                 </div>
               </div>
 

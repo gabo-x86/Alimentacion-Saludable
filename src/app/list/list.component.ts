@@ -17,12 +17,14 @@ export class ListComponent implements OnInit {
   hoverList=[false, false, false, false, false];
   prevHover:number;
   buscar: string;
+  success:boolean
 
   constructor(private productService:ProductService) { }
 
   ngOnInit() {
     this.getValues();
     this.prevHover=-1;
+    this.success=false;
   }
 
   getValues(){
@@ -50,7 +52,7 @@ export class ListComponent implements OnInit {
         x["$key"]=element.key;        
         if(x["name"]==searchValue.value.toString().toUpperCase()){
           this.productList.push(x as Product);
-          itsFind=true;
+          itsFind=true;          
         }
       });
 
@@ -65,6 +67,7 @@ export class ListComponent implements OnInit {
           timer: 2000
       
         })
+        this.success=false;
       }else{
           Swal.fire({
           position: 'top-center',
@@ -73,6 +76,7 @@ export class ListComponent implements OnInit {
           showConfirmButton: false,
           timer: 2000
           })
+          this.success=true;
       }
       this.changeHover(-1);
 
@@ -103,5 +107,19 @@ export class ListComponent implements OnInit {
   saveFood(product:Product){
     localStorage.setItem("productSelected", JSON.stringify(product));
   }
-  
+
+  charValidator(event){
+    return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || event.charCode == 209 || 
+            event.charCode == 241 || event.charCode==193 || event.charCode==225 || event.charCode==201 ||
+            event.charCode==233 || event.charCode==205 || event.charCode==237 || event.charCode==211 ||
+            event.charCode==243 || event.charCode==218 || event.charCode==250)
+  }
+
+  searchSuccess(){
+    if(this.success){
+      return "80vh"
+    }else return "max-content"
+  }
+
+
 }
