@@ -28,7 +28,7 @@
                 <form class="form-inline">
                   <input class="form-control mr-sm-2" type="text" placeholder="Buscar un alimento" #searchValue 
                   maxlength="25"  aria-label="Search" id="buscar" [(ngModel)]='buscar' [ngModelOptions]="{standalone: true}" 
-                  (keypress)="charValidator($event)"/><!--(paste)="false"-->
+                  (keypress)="charValidator($event)" (paste)="false"/><!--(paste)="false"-->
 
                   <button class="btn btn-outline-success my-2 my-sm-0" (click)='consulProductos(searchValue);'><img src="../../assets/icon-searchMainList.png"></button>
                 </form>

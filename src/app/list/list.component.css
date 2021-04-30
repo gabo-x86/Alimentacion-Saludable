@@ -6,6 +6,9 @@
     padding-right: 1em;
 }
 
+.nav-item{
+    cursor:pointer;
+}
 .nav-item:hover{
     background-color: #0AC5A8;
 }
