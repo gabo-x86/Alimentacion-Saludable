@@ -61,7 +61,7 @@ export class ListComponent implements OnInit {
       });
 
       const Swal = require('sweetalert2');
-      if(this.productList.length==0 || !itsFind){
+      if(this.productList.length==0 || !itsFind || searchValue.value==""){
         this.getValues();
         Swal.fire({
           position: 'top-center',
@@ -137,9 +137,9 @@ export class ListComponent implements OnInit {
 
   charValidator(event){
     return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || event.charCode == 209 || 
-            event.charCode == 241 || event.charCode==193 || event.charCode==225 || event.charCode==201 ||
+            event.charCode==241 || event.charCode==193 || event.charCode==225 || event.charCode==201 ||
             event.charCode==233 || event.charCode==205 || event.charCode==237 || event.charCode==211 ||
-            event.charCode==243 || event.charCode==218 || event.charCode==250)
+            event.charCode==243 || event.charCode==218 || event.charCode==250 || event.charCode==32)
   }
 
   listLength(){
