@@ -1,19 +1,19 @@
 <section>
     <ul class="nav nav-pills nav-fill">
         <li class="nav-item" [ngClass]="{'hoverOn':hoverList[0]}">
-          <a class="nav-link" href="#" (click)="changeHover(0); categorySearch('CEREALES')">CEREALES</a>
+          <a class="nav-link" (click)="changeHover(0); categorySearch('CEREALES')">CEREALES</a>
         </li>
         <li class="nav-item" [ngClass]="{'hoverOn':hoverList[1]}">
-          <a class="nav-link" href="#" (click)="changeHover(1); categorySearch('FRUTAS')">FRUTAS</a>
+          <a class="nav-link" (click)="changeHover(1); categorySearch('FRUTAS')">FRUTAS</a>
         </li>
         <li class="nav-item" [ngClass]="{'hoverOn':hoverList[2]}">
-          <a class="nav-link" href="#" (click)="changeHover(2); categorySearch('VERDURAS')">VERDURAS</a>
+          <a class="nav-link" (click)="changeHover(2); categorySearch('VERDURAS')">VERDURAS</a>
         </li>
         <li class="nav-item" [ngClass]="{'hoverOn':hoverList[3]}">
-          <a class="nav-link" href="#" (click)="changeHover(3); categorySearch('CARNES')">CARNE</a>
+          <a class="nav-link" (click)="changeHover(3); categorySearch('CARNES')">CARNE</a>
         </li>
         <li class="nav-item" [ngClass]="{'hoverOn':hoverList[4]}">
-            <a class="nav-link" href="#" (click)="changeHover(4); categorySearch('LÁCTEOS')">LÁCTEOS</a>
+            <a class="nav-link" (click)="changeHover(4); categorySearch('LÁCTEOS')">LÁCTEOS</a>
         </li>
     </ul>
 </section>
@@ -22,7 +22,7 @@
     <div class="row"><!-- main list -->
       <div class="col-md-1"></div>
         <div class="col-md-10">
-            <div class="main-list" [ngStyle]="{'height':searchSuccess()}">
+            <div class="main-list" [ngStyle]="{'height':listLength()}">
               <nav class="navbar navbar-light justify-content-between"><!--Search bar-->
                 <a class="navbar-brand"></a>
                 <form class="form-inline">
