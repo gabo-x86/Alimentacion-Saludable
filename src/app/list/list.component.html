@@ -39,7 +39,7 @@
                 <div class="card-body">
                   <div class="item">
                     
-                    <img class="image-slot" src={{product.image}} alt="Imagen" routerLink="/detail">
+                    <img class="image-slot" src={{product.image}} alt="Imagen" (click)="saveFood(product)" routerLink="/detail">
                     <div class="description-slot">
                       <h2>{{product.name}}</h2>
                       <p>{{product.description}}</p>
