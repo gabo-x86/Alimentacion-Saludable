@@ -25,6 +25,7 @@ import { ProductComponent } from './components/products/product/product.componen
 //services
 import {ProductService} from './services/product.service';
 import { importType } from '@angular/compiler/src/output/output_ast';
+import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
 
 
 
@@ -37,7 +38,8 @@ import { importType } from '@angular/compiler/src/output/output_ast';
     FooterComponent,
     ListComponent,
     ProductComponent,
-    DetailComponent
+    DetailComponent,
+    IniciarSesionComponent
   ],
   imports: [
     BrowserModule,

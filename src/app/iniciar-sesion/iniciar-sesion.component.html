@@ -1,0 +1,25 @@
+< div class = "container">
+<div class = "template">
+<form [formGroup] = "iniciar" (ngSubmit)= "onSubmit()">
+  <h3 class="text-center text-info">Iniciar Sesion</h3>
+
+      <div class="form-group">
+         
+        <label  class="text-info">Correo Electronico</label><br>
+              <input type="email" formControlName="email" class="form-control" [ngClass]= "{'is-invalid': submitted && f.email.errors}">
+              <div *ngIf = "submitted && f.email.errors" class="invalid-feedback">
+                 <div *ngIf="f.email.error.required"> campo requerido</div> 
+              </div>>
+      </div>
+
+      <div class="form-group">
+          <label class="text-info">Contraseña</label><br>
+              <input type="password" forControlName="password"  class="form-control" [ngClass]= "{'is-invalid': submitted && f.password.errors}">
+              <div *ngIf = "submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.error.required"> campo requerido</div> 
+      </div>
+      <div class="form-group">
+                              
+       <input type="submit" name="submit" class="btn btn-info btn-md" value="Iniciar">
+      </div>
+</form>
