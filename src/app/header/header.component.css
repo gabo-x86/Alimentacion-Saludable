@@ -1,21 +1,20 @@
 
-
-.navbar{
+.navbar {
     background-color: #2C3C5B;
 }
 
-.navbar-brand{
+.navbar-brand {
     padding-top: 1.75em;
     padding-bottom: 1.75em;
 }
-.navbar-brand a{
-    text-decoration:none;
+
+.navbar-brand a {
+    text-decoration: none;
     font-family: Courgette, monospace;
     color: whitesmoke;
-    font-size: 2.5em;    
+    font-size: 2.5em;
 }
 .boton_reg{
-    
     text-decoration: none;
     padding:0.8em;
     font-family: Arial;
@@ -25,12 +24,25 @@
     border-radius: 1em;
     position: relative;
     left: auto;
-  }
-  .boton_reg:hover{
+}
+.boton_reg:hover{
     opacity: 0.6;
     text-decoration: none;
-  }
+}
 
-  
- 
-  
+.boton_ini {
+    text-decoration: none;
+    padding: 0.8em;
+    font-family: Arial;
+    font-size: 1em;
+    color: #000804;
+    background-color: #A8A8A8;
+    border-radius: 1em;
+    position: fixed;
+    right: 200px;
+}
+
+.boton_ini:hover {
+    opacity: 0.6;
+    text-decoration: none;
+}
