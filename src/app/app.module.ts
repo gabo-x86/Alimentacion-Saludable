@@ -16,6 +16,7 @@ import { DetailComponent } from './detail/detail.component';
 import {AngularFireModule} from 'angularfire2';
 import{AngularFireDatabaseModule} from 'angularfire2/database';
 import {environment} from '../environments/environment';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 //components
 import { ProductsComponent } from './components/products/products.component';
@@ -47,7 +48,8 @@ import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.componen
     AngularFireDatabaseModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireAuthModule
   ],
   providers: [
     ProductService
