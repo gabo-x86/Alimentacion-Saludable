@@ -32,21 +32,7 @@ export class IniciarSesionComponent implements OnInit {
       })
       this.router.navigate(['/']);
     })
-    .catch(err=>{
-      Swal.fire({
-        position: 'top-center',
-        type: 'success',
-        title: 'Datos Incorrectos',
-        showConfirmButton:false,
-        timer: 2000      
-      })
-      console.log("Error: ",err)
-    });
   }
-  
-        
-
-
 
   async onLogOut(){
     this.auth.auth.signOut();
