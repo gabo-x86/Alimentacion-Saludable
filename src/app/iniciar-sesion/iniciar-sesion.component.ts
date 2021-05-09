@@ -42,6 +42,17 @@ export class IniciarSesionComponent implements OnInit {
         timer: 2000
       })
   }
+     if(email!=this.loginForm.value || password!=this.loginForm.value)
+     {
+       Swal.fire({
+        position: 'top-center',
+        type: 'success',
+        title: 'Datos Incorrectos',
+        showConfirmButton:false,
+        timer: 2000
+      })
+
+     }
   }
   
 
