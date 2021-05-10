@@ -27,6 +27,7 @@ import { ProductComponent } from './components/products/product/product.componen
 import {ProductService} from './services/product.service';
 import { importType } from '@angular/compiler/src/output/output_ast';
 import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
+import { RegistroComponent } from './registro/registro.component';
 
 
 
@@ -40,7 +41,8 @@ import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.componen
     ListComponent,
     ProductComponent,
     DetailComponent,
-    IniciarSesionComponent
+    IniciarSesionComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
