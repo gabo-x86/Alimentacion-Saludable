@@ -3,28 +3,29 @@
   <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
 
     <!-- [formGroup] = "iniciar (ngSubmit)= "onSubmit() -->
-    <h3 class="text-center ">Iniciar Sesion</h3>
+    <h3 class="text-center ">Iniciar Sesión</h3><br/>
 
 
 
     <div class="form-group">
 
-      <label>Correo Electronico</label><br>
+      <label>Correo Electronico</label><br />
       <input type="email" formControlName="email" class="form-control">
 
-    </div>
+    </div><br />
 
     <div class="form-group">
-      <label>Contraseña</label><br>
+      <label>Contraseña</label> <br/>
       <input type="password" formControlName="password" class="form-control">
       <!-- <div *ngIf = "submitted && f.password.errors" class="invalid-feedback">
                 <div *ngIf="f.password.error.required"> campo requerido</div>  -->
-    </div><br />
+    </div><br /><br/>
 
     <div class="form-group" class="center-content">
 
-      <input type="submit" name="submit" class="btn btn-info btn-md" value="Iniciar">
+      <a type="submit" name="submit" value="Iniciar"> Iniciar</a>
     </div>
 
   </form>
 </div>
+<!--class="btn btn-info btn-md"-->
