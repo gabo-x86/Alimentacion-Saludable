@@ -1,7 +1,7 @@
 <app-header [input]=false></app-header>
 <div class="fondo">
 
-  <form>
+  <form [formGroup]="formularioRegistro" (ngSubmit)="getFormularioRegistro()" no validate >
     <h3>Registro de Usuario</h3>
 
     <div class="form-group">
@@ -44,7 +44,7 @@
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group row">
           <label for="fechaDeNacimiento" class="col-form-label ">Fecha de nacimiento <label class="signos">*</label></label>
-          <input type="date" name="nacimiento" class="form-control">
+          <input type="date" ForControlName="nacimiento" class="form-control">
 
         </div>
       </div>
@@ -52,7 +52,7 @@
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group row">
           <label for="Sexo" class="col-form-label col-sm-4">Sexo <label class="signos">*</label></label>
-          <select name="sexo"  class="form-control">
+          <select ForControlName="sexo"  class="form-control">
             <option value="">Femenino</option>
             <option value="">Masculino</option>
           </select>
@@ -63,7 +63,7 @@
         <div class="form-group row">
           <label for="peso" class="col-form-label col-sm-4">Peso <label class="signos">*</label></label>
 
-          <input type="number" name="peso" id="nombre" class="form-control" tabindex="1">
+          <input type="number" ForControlName="peso" id="nombre" class="form-control" tabindex="1">
 
         </div>
       </div>
@@ -71,15 +71,15 @@
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group row">
           <label for="apellido" class="col-form-label col-sm-4">Altura <label class="signos">*</label></label>
-          <input type="number" name="altura" class="form-control" tabindex="2">
+          <input type="number" ForControlName="altura" class="form-control" tabindex="2">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="form-group" class="center-content">
         <div class="col-md-3">
-          <button class="cancelar row" class="col-xs-6 col-sm-6 col-md-6">Cancelar</button>
-          <button class="aceptar row" class="col-xs-6 col-sm-6 col-md-6">Aceptar</button>
+          <button class="cancelar row" class="col-xs-6 col-sm-6 col-md-6" type="submit" [disabled]="!formularioRegistro.valid">Cancelar</button>
+          <button class="aceptar row" class="col-xs-6 col-sm-6 col-md-6" type="submit">Aceptar</button>
         </div>
 
       </div>
