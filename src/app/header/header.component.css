@@ -22,8 +22,8 @@
     color: #000804;
     background-color: #0AC5A8;
     border-radius: 1em;
-    position: relative;
-    left: auto;
+    position: initial;
+    /*left: auto;*/
 }
 .boton_reg:hover{
     opacity: 0.6;
@@ -38,8 +38,8 @@
     color: #000804;
     background-color: #A8A8A8;
     border-radius: 1em;
-    position: fixed;
-    right: 200px;
+    position:absolute;
+    right: 170px;
 }
 
 .boton_ini:hover {
