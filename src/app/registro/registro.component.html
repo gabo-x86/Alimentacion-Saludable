@@ -1,0 +1,59 @@
+<form [formGroup] = "iniciar" (ngSubmit)= "onSubmit()">
+    <h3 class="text-center text-info">Registro de Usuario</h3>
+  
+        <div class="form-group">
+           
+          <label  class="text-info">Alias *</label><br>
+                <input type="text" formControlName="alias" class="form-control" [ngClass]= "{'is-invalid': submitted && f.alias.errors}">
+                <!-- <div *ngIf = "submitted && f.name.errors" class="invalid-feedback">
+                   <div *ngIf="f.alias.error.required"> campo requerido</div> 
+                </div>
+            -->
+        </div>
+  
+        <div class="form-group">
+            <label class="text-info">Contraseña *</label><br>
+                <input type="password" forControlName="password"  class="form-control" [ngClass]= "{'is-invalid': submitted && f.password.errors}">
+                <div *ngIf = "submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.error.required"> campo requerido</div> 
+        </div>
+        <div class="form-group">
+            <label class="text-info">Confirmar contraseña* </label><br>
+                <input type="password" forControlName="password"  class="form-control" [ngClass]= "{'is-invalid': submitted && f.password.errors}">
+                <!-- <div *ngIf = "submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.error.required"> campo requerido</div> 
+                  -->
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group row">
+                    <label for="nombre" class="col-form-label col-sm-4">Nombre:</label>
+                  <div class="col-sm-8">
+                <input type="text" name="nombre" id="nombre" class="form-control"  tabindex="1">
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group row">
+                    <label for="apellido" class="col-form-label col-sm-4">Apellidos:</label>
+                  <div class="col-sm-8">
+                    <input type="text" name="apellido" id="apellido" class="form-control" tabindex="2">
+                  </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            
+            <div class="col-xs-6 col-md-6"><input type="submit" value="Cancelar" class="btn btn-block btn-lg" tabindex="8">
+            </div>
+            <div class="col-xs-6 col-md-6"><input type="submit" value="Registrar" class="btn btn-danger btn-block btn-lg" tabindex="7"
+                title="Guardar datos ingresados"></div>
+
+        </div>
+  </form>
+  
