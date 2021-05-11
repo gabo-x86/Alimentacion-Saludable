@@ -1,7 +1,7 @@
 <app-header [input]=false></app-header>
 <div class="fondo">
 
-  <form [formGroup]="formularioRegistro" (ngSubmit)="getFormularioRegistro()" no validate >
+  <form [formGroup]="formularioRegistro" (ngSubmit)="getFormularioRegistro()" no validate>
     <h3>Registro de Usuario</h3>
 
     <div class="form-group">
@@ -43,7 +43,8 @@
 
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group row">
-          <label for="fechaDeNacimiento" class="col-form-label ">Fecha de nacimiento <label class="signos">*</label></label>
+          <label for="fechaDeNacimiento" class="col-form-label ">Fecha de nacimiento <label
+              class="signos">*</label></label>
           <input type="date" ForControlName="nacimiento" class="form-control">
 
         </div>
@@ -52,7 +53,7 @@
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group row">
           <label for="Sexo" class="col-form-label col-sm-4">Sexo <label class="signos">*</label></label>
-          <select ForControlName="sexo"  class="form-control">
+          <select ForControlName="sexo" class="form-control">
             <option value="">Femenino</option>
             <option value="">Masculino</option>
           </select>
@@ -78,13 +79,15 @@
     <div class="row">
       <div class="form-group" class="center-content">
         <div class="col-md-3">
-          <button class="cancelar row" class="col-xs-6 col-sm-6 col-md-6" type="submit" [disabled]="!formularioRegistro.valid">Cancelar</button>
-          <button class="aceptar row" class="col-xs-6 col-sm-6 col-md-6" type="submit">Aceptar</button>
+
         </div>
+
+        <button type="submit" class="btn btn-danger  btn-space">Cancelar</button>
+        <button type="submit" class="btn btn-success  btn-space">Registrar</button>
 
       </div>
     </div>
-    
-    
+
+
   </form>
 </div>
