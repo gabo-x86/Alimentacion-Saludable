@@ -51,5 +51,19 @@ form{
         color: #cf0000;
         font-weight: 1000;
     }
+    .btn-space{
+        margin-right: 15px;
+    }
+    .btn-success
+    {
+        width: 250px;
+        border-radius: 8px;
+        color: #131212;
+        background-color:#0AC5A8
+    }
+    .btn-danger
+    {
+        border-radius: 10px;
+    }
     
       
