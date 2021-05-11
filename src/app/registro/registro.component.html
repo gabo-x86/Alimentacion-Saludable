@@ -1,10 +1,10 @@
-<form [formGroup] = "iniciar" (ngSubmit)= "onSubmit()">
+<form > <!-- [formGroup] = "iniciar" (ngSubmit)= "onSubmit()" -->
     <h3 class="text-center text-info">Registro de Usuario</h3>
   
         <div class="form-group">
            
           <label  class="text-info">Alias *</label><br>
-                <input type="text" formControlName="alias" class="form-control" [ngClass]= "{'is-invalid': submitted && f.alias.errors}">
+                <input type="text" formControlName="alias" class="form-control"><!-- [ngClass]= "{'is-invalid': submitted && f.alias.errors}" -->
                 <!-- <div *ngIf = "submitted && f.name.errors" class="invalid-feedback">
                    <div *ngIf="f.alias.error.required"> campo requerido</div> 
                 </div>
@@ -13,13 +13,13 @@
   
         <div class="form-group">
             <label class="text-info">Contraseña *</label><br>
-                <input type="password" forControlName="password"  class="form-control" [ngClass]= "{'is-invalid': submitted && f.password.errors}">
-                <div *ngIf = "submitted && f.password.errors" class="invalid-feedback">
-                  <div *ngIf="f.password.error.required"> campo requerido</div> 
+                <input type="password" forControlName="password"  class="form-control" ><!-- [ngClass]= "{'is-invalid': submitted && f.password.errors}" -->
+                <!-- <div *ngIf = "submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.error.required"> campo requerido</div>  -->
         </div>
         <div class="form-group">
             <label class="text-info">Confirmar contraseña* </label><br>
-                <input type="password" forControlName="password"  class="form-control" [ngClass]= "{'is-invalid': submitted && f.password.errors}">
+                <input type="password" forControlName="password"  class="form-control" ><!-- [ngClass]= "{'is-invalid': submitted && f.password.errors}" -->
                 <!-- <div *ngIf = "submitted && f.password.errors" class="invalid-feedback">
                   <div *ngIf="f.password.error.required"> campo requerido</div> 
                   -->
