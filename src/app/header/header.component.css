@@ -1,3 +1,4 @@
+
 .navbar {
     background-color: #2C3C5B;
 }
@@ -13,6 +14,21 @@
     color: whitesmoke;
     font-size: 2.5em;
 }
+.boton_reg{
+    text-decoration: none;
+    padding:0.8em;
+    font-family: Arial;
+    font-size: 1em;
+    color: #000804;
+    background-color: #0AC5A8;
+    border-radius: 1em;
+    position: initial;
+    /*left: auto;*/
+}
+.boton_reg:hover{
+    opacity: 0.6;
+    text-decoration: none;
+}
 
 .boton_ini {
     text-decoration: none;
@@ -22,8 +38,8 @@
     color: #000804;
     background-color: #A8A8A8;
     border-radius: 1em;
-    position: fixed;
-    right: 200px;
+    position:absolute;
+    right: 170px;
 }
 
 .boton_ini:hover {
