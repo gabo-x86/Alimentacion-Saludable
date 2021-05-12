@@ -4,8 +4,8 @@
 }
 
 .navbar-brand {
-    padding-top: 1.75em;
-    padding-bottom: 1.75em;
+    padding-top: 5vh;/*1.75em;*/
+    padding-bottom: 5vh;
 }
 
 .navbar-brand a {
