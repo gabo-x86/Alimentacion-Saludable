@@ -20,22 +20,33 @@ export class RegistroComponent implements OnInit {
     this.createFormularioRegistro();
 
   }
+  
+
+  public isInvalid(formControlName: string): boolean {
+    let control = this.formularioRegistro.controls[formControlName];
+    return !control.valid && (control.dirty || control.touched);
+  }
+  
+  public hasErrorControl(formControlName, errorType) {
+    return this.formularioRegistro.controls[formControlName].errors[errorType];
+  }
+
   private createFormularioRegistro() {
     this.formularioRegistro = this.formBuilder.group({
       alias: ['', [ Validators.required, Validators.maxLength(20), Validators.minLength(3) ]],
-      password: ['',[Validators.required]],
-      ConfirmarPassword:['',[Validators.required]],
+      password: ['',[Validators.required, Validators.minLength(7), Validators.maxLength(16)]],
+      ConfirmarPassword:['',[Validators.required, Validators.minLength(7), Validators.maxLength(16)]],
       email: ['',[Validators.required]],
-      nombre:['',[Validators.required]],
-      apellido: ['',[Validators.required]],
+      nombre:['',[Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      apellido: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       nacimiento: ['',[Validators.required]],
       sexo:['',[Validators.required]],
       peso:['',[Validators.required]],
       altura:['',[Validators.required]]
     })
   }
- getFormularioRegistro(event: Event){
-    event.preventDefault();
+ getFormularioRegistro(){
+    //event.preventDefault();
     console.log(this.formularioRegistro.value);
   }
   

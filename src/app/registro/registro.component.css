@@ -9,6 +9,7 @@ form{
     padding: 40px 100px;
     margin: 10px 520px;
     width: 1000px ;
+    
   }
 .fondo{
     background: url(../../assets/img-backgroundSideSignUp.png);
@@ -16,6 +17,7 @@ form{
     background-attachment: fixed;
     height:1000px;
     width:1000px;
+    
 
 }
 .form-control{
@@ -64,6 +66,10 @@ form{
     .btn-danger
     {
         border-radius: 10px;
+    }
+    .errores{
+        background-color:#ffffff;
+       color: #cf0000;
     }
     
       
