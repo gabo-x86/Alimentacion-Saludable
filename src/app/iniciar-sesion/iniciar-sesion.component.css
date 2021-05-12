@@ -18,6 +18,9 @@ body {
     padding: 30px;
     margin: 0 auto;
     width: 350px;
+    position: relative;
+    top: 8vh;
+
   }.center-content{
     text-align: center;
     background:#0AC5A8;
@@ -27,7 +30,7 @@ body {
     padding: 10px 0px;
     width:150px;
     border-radius: 10px; 
-   
+    
   }
   .form-control{
     background-color:#A8A8A8
@@ -35,9 +38,17 @@ body {
   .row{
     
     background: url(../../assets/img-backgroundLogIn.png);
-    background-position: center top;
+    background-position: center bottom;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
+    background-size: cover;
+    /*height: 70vh;*/
+  }
+
+  #row2{
+    background-color: #2C3C5B;
+    height: 16vh;
+    width: 100%;
   }
     
  /* #login .container #login-row #login-column #login-box {

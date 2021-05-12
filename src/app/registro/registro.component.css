@@ -8,16 +8,24 @@ form{
     font-size: 17px;
     padding: 40px 100px;
     margin: 10px 520px;
+    margin-top: 0;
     width: 1000px ;
     
   }
 .fondo{
     background: url(../../assets/img-backgroundSideSignUp.png);
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;/*
+<<<<<<< HEAD
     background-attachment: fixed;
     height:1000px;
     width:1000px;
     
+=======
+   */ background-attachment: scroll;
+    background-size: contain;
+    height:100vh;
+    /*width:auto;*/
+
 
 }
 .form-control{
