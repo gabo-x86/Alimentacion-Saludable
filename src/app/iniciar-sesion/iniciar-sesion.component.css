@@ -18,7 +18,17 @@ body {
     padding: 30px;
     margin: 0 auto;
     width: 350px;
-  }.center-content{
+  }
+  /*button {
+    font: 700 1em Tahoma, Arial, Verdana, sans-serif;
+    color: #fff; background-color: #59B0E5;
+    border: 1px solid #0074a5;
+    border-top: 1px solid #004370;
+    border-left: 1px solid #004370;
+    cursor: pointer;
+  }*/
+
+  .center-content{
     text-align: center;
     background:#0AC5A8;
     color:#2C3C5B;
