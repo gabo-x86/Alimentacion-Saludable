@@ -34,7 +34,7 @@ export class RegistroComponent implements OnInit {
       altura:['',[Validators.required]]
     })
   }
- getFormularioRegistro(event: Event){
+ getFormularioRegistro(event?: Event){
     event.preventDefault();
     console.log(this.formularioRegistro.value);
   }
