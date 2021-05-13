@@ -33,25 +33,24 @@ export class RegistroComponent implements OnInit {
 
   private createFormularioRegistro() {
     this.formularioRegistro = this.formBuilder.group({
-      alias: ['', [ Validators.required, Validators.maxLength(20), Validators.minLength(3) ]],
+      alias: ['', [ Validators.required, Validators.maxLength(20), Validators.minLength(3), Validators.pattern('^\w+')]],
       password: ['',[Validators.required, Validators.minLength(7), Validators.maxLength(16)]],
-      ConfirmarPassword:['',[Validators.required, Validators.minLength(7), Validators.maxLength(16)]],
-      email: ['',[Validators.required]],
-      nombre:['',[Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      ConfirmarPassword:['',[Validators.required]],
+      email: ['',[Validators.required, Validators.email,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      nombre:['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('/^[a-z][a-z\s]*$/')]],
       apellido: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       nacimiento: ['',[Validators.required]],
       sexo:['',[Validators.required]],
-      peso:['',[Validators.required]],
-      altura:['',[Validators.required]]
+      peso:['',[Validators.required, Validators.min(10), Validators.max(120)]],
+      altura:['',[Validators.required, Validators.min(50), Validators.max(150)]]
     })
   }
 
  getFormularioRegistro(){
-    //event.preventDefault();
-
- 
+    //event.preventDefault(); 
     console.log(this.formularioRegistro.value);
   }
+ 
   
 
 }
