@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Registro} from 'src/app/models/models.module';
 import {AngularFireAuth} from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
+import { UserService } from './../services/user.service';
+import { User } from './../models/user';
 
 @Component({
   selector: 'app-registro',
@@ -14,13 +16,31 @@ import { Router } from '@angular/router';
 export class RegistroComponent implements OnInit {
   private registro: Registro;
   formularioRegistro: FormGroup;
-  constructor(public formBuilder: FormBuilder) { }
+  constructor(public formBuilder: FormBuilder, public userService: UserService) { }
 
   ngOnInit(){
     this.createFormularioRegistro();
-
+    this.userService.getUsers();
   }
-  
+  onSubmit(){      
+      let usr = {
+        alias: this.formularioRegistro.value.alias,
+        pass: this.formularioRegistro.value.password,
+        email: this.formularioRegistro.value.email,
+        name: this.formularioRegistro.value.nombre,
+        lastName: this.formularioRegistro.value.apellido,
+        bornDate: this.formularioRegistro.value.nacimiento,
+        gender: this.formularioRegistro.value.sexo,
+        weight: this.formularioRegistro.value.peso,
+        height: this.formularioRegistro.value.altura
+      }
+      this.userService.insertUser(usr as User);
+  }
+
+  resetForm(){
+    this.formularioRegistro=new FormGroup({});
+  }
+
 
   public isInvalid(formControlName: string): boolean {
     let control = this.formularioRegistro.controls[formControlName];
