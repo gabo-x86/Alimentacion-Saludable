@@ -7,13 +7,30 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() input:boolean;
+  public user;
   constructor() { }
 
   ngOnInit(): void {
+    /* this.user=JSON.parse(localStorage.getItem('user')); */
+    if(localStorage.getItem('user')==undefined){
+      this.user=undefined;
+    }else{
+      this.user=JSON.parse(localStorage.getItem('user'));
+    } 
+    console.log("DEBUG: "+this.user);
+    
   }
+  
+
   refresh(){
     if(this.input){
       window.location.reload();
     }    
+  }
+
+  onLogOut(){
+    //this.auth.auth.signOut();
+    localStorage.setItem("user", undefined);
+    window.location.reload();
   }
 }
