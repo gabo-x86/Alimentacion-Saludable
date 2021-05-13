@@ -21,7 +21,14 @@ body {
     position: relative;
     top: 8vh;
 
-  }.center-content{
+  }
+  .center-content{
+     display: flex;
+    align-items: center;
+  }
+  .center-content button{
+    
+    border: 0;
     text-align: center;
     background:#0AC5A8;
     color:#2C3C5B;
