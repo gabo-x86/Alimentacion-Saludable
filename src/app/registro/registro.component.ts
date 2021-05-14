@@ -33,19 +33,19 @@ export class RegistroComponent implements OnInit {
 
   private createFormularioRegistro() {
     this.formularioRegistro = this.formBuilder.group({
-      alias: ['', [ Validators.required, Validators.maxLength(20), Validators.minLength(3), Validators.pattern('^\w+')]],
-      password: ['',[Validators.required, Validators.minLength(7), Validators.maxLength(16)]],
+      alias: ['', [ Validators.required, Validators.maxLength(20), Validators.minLength(3), Validators.pattern(/^([a-zA-Z0-9]){1,16}$/)]],
+      password: ['',[Validators.required, Validators.minLength(7), Validators.maxLength(16), Validators.pattern(/^(?:\D*\d){3}\D*$/)]],
       ConfirmarPassword:['',[Validators.required]],
-      email: ['',[Validators.required, Validators.email,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-      nombre:['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('/^[a-z][a-z\s]*$/')]],
-      apellido: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      email: ['',[Validators.required, Validators.email,Validators.pattern(/^([a-zA-Z0-9_\.\-])+\@+([a-zA-Z\.\-])+$/)]],
+      nombre:['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[a-zA-Z\s\u00f1\u00d1]+$/)]],
+      apellido: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[a-zA-Z\s\u00f1\u00d1]+$/)]],
       nacimiento: ['',[Validators.required]],
       sexo:['',[Validators.required]],
       peso:['',[Validators.required, Validators.min(10), Validators.max(120)]],
       altura:['',[Validators.required, Validators.min(50), Validators.max(150)]]
     })
   }
-
+  
  getFormularioRegistro(){
     //event.preventDefault(); 
     console.log(this.formularioRegistro.value);

@@ -6,7 +6,7 @@
 
     <div class="form-group">
       <label>Alias <label class="signos">*</label> </label>
-      <input type="text" formControlName="alias" class="form-control">
+      <input type="text" formControlName="alias" class="form-control" ng-trim="false">
     </div>
     <label class="errores" color="danger" *ngIf="isInvalid('alias')">
       <h6 *ngIf="hasErrorControl('alias', 'minlength')">
@@ -16,6 +16,7 @@
         Debe tener máximo 20 caracteres
       </h6>
       <h6 *ngIf="hasErrorControl('alias', 'required')">Este campo es obligatorio</h6>
+      <h6 *ngIf="hasErrorControl('alias', 'pattern')">no se aceptan simbolos ni espacios</h6>
     </label>
 
     <div class="form-group">
@@ -30,6 +31,7 @@
         Debe tener máximo 16 caracteres
       </h6>
       <h6 *ngIf="hasErrorControl('password', 'required')">Este campo es obligatorio</h6>
+      <h6 *ngIf="hasErrorControl('password', 'pattern')">debe contener tres numeros</h6>
     </label>
 
     <div class="form-group">
@@ -47,7 +49,10 @@
     </div>
     <label class="errores" color="danger" *ngIf="isInvalid('email')">
       <h6 *ngIf="hasErrorControl('email', 'required')">Este campo es obligatorio</h6>
-      <h6 *ngIf="hasErrorControl('email', 'email')">no es un email correcto</h6>
+      <h6 *ngIf="hasErrorControl('email', 'email', 'pattern')">no es un email correcto</h6>
+      
+      
+
     </label>
 
     <div class="row">
@@ -67,7 +72,7 @@
           </h6>
           <h6 *ngIf="hasErrorControl('nombre', 'required')">Este campo es obligatorio</h6>
           <h6 *ngIf="hasErrorControl('nombre', 'pattern')">
-            no se aceptan numeros</h6>
+            no se aceptan numeros, ni simbolos</h6>
         </label>
       </div>
 
@@ -85,6 +90,8 @@
             Debe tener máximo 20 caracteres
           </h6>
           <h6 *ngIf="hasErrorControl('apellido', 'required')">Este campo es obligatorio</h6>
+          <h6 *ngIf="hasErrorControl('apellido', 'pattern')">
+            no se aceptan numeros, ni simbolos</h6>
         </label>
       </div>
 
