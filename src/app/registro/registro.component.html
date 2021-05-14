@@ -1,0 +1,94 @@
+<app-header [input]=false></app-header>
+<div class="fondo">
+
+  <form>
+    <h3>Registro de Usuario</h3>
+
+    <div class="form-group">
+
+      <label>Alias <label class="signos">*</label> </label><br>
+      <input type="text" formControlName="alias" class="form-control">
+
+    </div>
+
+    <div class="form-group">
+      <label>Contraseña <label class="signos">*</label></label><br>
+      <input type="password" forControlName="password" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Confirmar contraseña<label class="signos">*</label></label><br>
+      <input type="password" forControlName="ConfirmarPassword" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Correo Electronico<label class="signos">*</label></label><br>
+      <input type="email" forControlName="email" class="form-control">
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="form-group row">
+          <label for="nombre" class="col-form-label col-sm-4">Nombre <label class="signos">*</label></label>
+          <input type="text" ForControlName="nombre" class="form-control">
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="form-group row">
+          <label for="apellido" class="col-form-label col-sm-4">Apellidos <label class="signos">*</label></label>
+          <input type="text" ForControlName="apellido" class="form-control">
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="form-group row">
+          <label for="fechaDeNacimiento" class="col-form-label ">Fecha de nacimiento <label class="signos">*</label></label>
+          <input type="date" name="nacimiento" class="form-control">
+
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="form-group row">
+          <label for="Sexo" class="col-form-label col-sm-4">Sexo <label class="signos">*</label></label>
+          <select name="sexo"  class="form-control">
+            <option value="">Femenino</option>
+            <option value="">Masculino</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="form-group row">
+          <label for="peso" class="col-form-label col-sm-4">Peso <label class="signos">*</label></label>
+
+          <input type="number" name="peso" id="nombre" class="form-control" tabindex="1">
+
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="form-group row">
+          <label for="apellido" class="col-form-label col-sm-4">Altura <label class="signos">*</label></label>
+          <input type="number" name="altura" class="form-control" tabindex="2">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group" class="center-content">
+        <div class="col-md-3">
+
+        </div>
+
+      <!--</form>
+      <input type="button" name="Cancelar" value="Cancelar" onClick=""">--> 
+        <button onclick="location.href='/'" type="button" class="btn btn-danger   btn-space" value="Remove from list">Cancelar</button>
+        <button type="button" class="btn btn-success  btn-space">Registrar</button>
+
+      </div>
+    </div>
+    
+    
+  </form>
+</div>

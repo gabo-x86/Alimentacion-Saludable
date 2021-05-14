@@ -16,6 +16,7 @@ import { DetailComponent } from './detail/detail.component';
 import {AngularFireModule} from 'angularfire2';
 import{AngularFireDatabaseModule} from 'angularfire2/database';
 import {environment} from '../environments/environment';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 //components
 import { ProductsComponent } from './components/products/products.component';
@@ -25,6 +26,8 @@ import { ProductComponent } from './components/products/product/product.componen
 //services
 import {ProductService} from './services/product.service';
 import { importType } from '@angular/compiler/src/output/output_ast';
+import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
+import { RegistroComponent } from './registro/registro.component';
 
 
 
@@ -37,7 +40,9 @@ import { importType } from '@angular/compiler/src/output/output_ast';
     FooterComponent,
     ListComponent,
     ProductComponent,
-    DetailComponent
+    DetailComponent,
+    IniciarSesionComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,8 @@ import { importType } from '@angular/compiler/src/output/output_ast';
     AngularFireDatabaseModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireAuthModule
   ],
   providers: [
     ProductService

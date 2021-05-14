@@ -1,0 +1,35 @@
+<app-header [input]=false></app-header>
+<div class="row">
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+    <!-- [formGroup] = "iniciar (ngSubmit)= "onSubmit() -->
+    <input type ="image" width="40" src="../../assets/imagenretroceso.png" onclick = "history.back ()"/>
+
+   <!--<button type="submit"><img src="image2.jpg" onclick="history.back()" /></button>-->
+    
+    <h3 class="text-center ">Iniciar Sesión</h3><br/>
+
+
+
+    <div class="form-group">
+
+      <label>Correo Electronico</label><br />
+      <input type="email" formControlName="email" class="form-control">
+
+    </div><br />
+
+    <div class="form-group">
+      <label>Contraseña</label> <br/>
+      <input type="password" formControlName="password" class="form-control">
+      <!-- <div *ngIf = "submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.error.required"> campo requerido</div>  -->
+    </div><br /><br/>
+
+    <div class="form-group" class="center-content">
+
+      <a type="submit" name="submit" value="Iniciar"> Iniciar</a>
+    </div>
+
+  </form>
+</div>
+<!--class="btn btn-info btn-md"-->
