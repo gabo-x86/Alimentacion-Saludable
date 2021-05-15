@@ -43,37 +43,28 @@ export class IniciarSesionComponent implements OnInit {
         if(x["email"]==email && x["pass"]==password){
           this.usuario.push(x as User);
           localStorage.setItem("user", JSON.stringify(x as User));
-          Swal.fire({
-            position: 'top-center',
-            type: 'success',
-            title: 'Bienvenido '+JSON.parse(localStorage.getItem("user")).alias,
-            showConfirmButton:false,
-            timer: 2000
-          })          
-          this.router.navigate(['/']);
-        }
-        else if(x["email"]!==email || x["pass"]!==password)
-        {
-          Swal.fire({
-            position: 'top-center',
-            type: 'success',
-            title: 'Datos Incorrectos',
-            showConfirmButton:false,
-            timer: 2000
-          })     
-
-        }
-        else if(x["email"].length==0 || x["pass"].length==0)
-        {
-          Swal.fire({
-            position: 'top-center',
-            type: 'success',
-            title: 'Datos Incorrectos',
-            showConfirmButton:false,
-            timer: 2000
-          })    
         }
       });
+
+      if(localStorage.getItem('user')=="undefined"){
+        Swal.fire({
+          position: 'top-center',
+          type: 'success',
+          title: 'Datos Incorrectos',
+          showConfirmButton:false,
+          timer: 2000
+        })  
+      }else{
+        Swal.fire({
+          position: 'top-center',
+          type: 'success',
+          title: 'Bienvenido '+JSON.parse(localStorage.getItem("user")).alias,
+          showConfirmButton:false,
+          timer: 2000
+        })          
+        this.router.navigate(['/']);
+      }
+
     });
 
   }

@@ -45,6 +45,12 @@ button{
 .btn-danger{
     width: 100%;
 }
+.btn-danger:hover{
+    opacity: 100%;
+}
+.btn-success:hover{
+    background-color: #0FB39A;
+}
 .errores{
     color: #FF0F00;
 }

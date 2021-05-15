@@ -9,16 +9,16 @@
       </div>  
     </nav>
   </div>
-  <div class="col-md-9" *ngIf="user==undefined; else LoggedIn">
+  <div class="col-md-9" *ngIf="user==false"><!-- ; else LoggedIn -->
     <a href="" class="boton_reg" routerLink="/registro/">Registrarse</a>
     <a href="" class="boton_ini" routerLink="/login/">Iniciar Sesión</a>
   </div>
-   <ng-template #LoggedIn>
-    <div class="col-md-9" id="logged">
+    <!-- <ng-template #LoggedIn> -->
+    <div class="col-md-9" id="logged" *ngIf="user==true">
       <a>{{ user["alias"] }}</a>
       <img src="../../assets/user.png" alt="">
       <a href="" class="boton_reg" routerLink="/" (click)="onLogOut()">Cerrar Sesión</a>
     </div>
-  </ng-template>
-  
+  <!-- </ng-template> -->
+   
 </div>

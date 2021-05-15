@@ -12,10 +12,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     /* this.user=JSON.parse(localStorage.getItem('user')); */
-    if(localStorage.getItem('user')==undefined){
-      this.user=undefined;
+    if(localStorage.getItem('user')=="undefined"){
+      //this.user=undefined;
+      this.user=false;
     }else{
-      this.user=JSON.parse(localStorage.getItem('user'));
+      this.user=true;
+      //this.user=JSON.parse(localStorage.getItem('user'));
     } 
     console.log("DEBUG: "+this.user);
     
