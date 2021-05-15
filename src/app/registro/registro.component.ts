@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 
 import { UserService } from './../services/user.service';
 import { User } from './../models/user';
+import { exists } from 'node:fs';
 
 @Component({
   selector: 'app-registro',
@@ -16,13 +17,15 @@ import { User } from './../models/user';
 export class RegistroComponent implements OnInit {
   private registro: Registro;
   formularioRegistro: FormGroup;
-  constructor(public formBuilder: FormBuilder, public userService: UserService) { }
+
+  constructor(public formBuilder: FormBuilder, public userService: UserService, private router: Router) { }
 
   ngOnInit(){
     this.createFormularioRegistro();
-    this.userService.getUsers();
+    //this.userService.getUsers();
   }
-  onSubmit(){      
+
+  onSubmit(){
       let usr = {
         alias: this.formularioRegistro.value.alias,
         pass: this.formularioRegistro.value.password,
@@ -34,7 +37,71 @@ export class RegistroComponent implements OnInit {
         weight: this.formularioRegistro.value.peso,
         height: this.formularioRegistro.value.altura
       }
-      this.userService.insertUser(usr as User);
+      this.aliasAndEmailExist(usr as User);
+
+  }
+
+  aliasAndEmailExist(usr:User){
+    const Swal = require('sweetalert2');
+    let aliasExist=false;
+    let emailExist=false;
+    let lock=false;
+    this.userService.getUsers()
+    .snapshotChanges()
+    .subscribe(item=>{      
+      item.forEach(element=>{
+        let x = element.payload.toJSON();//Convertir a JSON
+        x["$key"]=element.key;
+        //this.userService.deleteUser(x["$key"]);
+        if(x["alias"]==usr.alias){
+          aliasExist=true;
+        }
+        if(x["email"]==usr.email){
+          emailExist=true;
+        }
+      });
+
+      if(!aliasExist && !emailExist && !lock){
+        Swal.fire({
+          position: 'top-center',
+          type: 'success',
+          title: '',
+          showConfirmButton:false,
+          timer: 2000
+        })
+        this.userService.insertUser(usr as User);
+        lock=true;
+        this.router.navigate(['/login']);
+
+      }else if(aliasExist && !lock){
+        Swal.fire({
+          position: 'top-center',
+          type: 'success',
+          title: 'Este Alias ya está en uso',
+          showConfirmButton:false,
+          timer: 2000
+        })
+
+      }else if(emailExist && !lock){
+        Swal.fire({
+          position: 'top-center',
+          type: 'success',
+          title: 'Este Correo ya está en uso',
+          showConfirmButton:false,
+          timer: 2000
+        })
+
+      }else if(aliasExist && emailExist){
+        Swal.fire({
+          position: 'top-center',
+          type: 'success',
+          title: 'Registro exitoso',
+          showConfirmButton:false,
+          timer: 2000
+        })
+      }
+    });
+
   }
 
   resetForm(){
@@ -68,7 +135,7 @@ export class RegistroComponent implements OnInit {
   
  getFormularioRegistro(){
     //event.preventDefault(); 
-    console.log(this.formularioRegistro.value);
+    //console.log(this.formularioRegistro.value);
   }
  
   

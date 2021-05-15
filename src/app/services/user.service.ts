@@ -28,4 +28,7 @@ export class UserService {
       height: user.height
     });
   }
+  deleteUser($key: string){
+    this.userList.remove($key);
+  }
 }
