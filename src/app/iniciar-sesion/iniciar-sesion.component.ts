@@ -52,6 +52,27 @@ export class IniciarSesionComponent implements OnInit {
           })          
           this.router.navigate(['/']);
         }
+        else if(x["email"]!==email || x["pass"]!==password)
+        {
+          Swal.fire({
+            position: 'top-center',
+            type: 'success',
+            title: 'Datos Incorrectos',
+            showConfirmButton:false,
+            timer: 2000
+          })     
+
+        }
+        else if(x["email"].length==0 || x["pass"].length==0)
+        {
+          Swal.fire({
+            position: 'top-center',
+            type: 'success',
+            title: 'Datos Incorrectos',
+            showConfirmButton:false,
+            timer: 2000
+          })    
+        }
       });
     });
 
