@@ -1,94 +1,168 @@
 <app-header [input]=false></app-header>
 <div class="fondo">
 
-  <form>
+  <form [formGroup]="formularioRegistro" (ngSubmit)="getFormularioRegistro()" novalidate>
     <h3>Registro de Usuario</h3>
 
     <div class="form-group">
-
-      <label>Alias <label class="signos">*</label> </label><br>
-      <input type="text" formControlName="alias" class="form-control">
-
+      <label>Alias <label class="signos">*</label> </label>
+      <input type="text" formControlName="alias" class="form-control" ng-trim="false">
     </div>
+    <label class="errores" color="danger" *ngIf="isInvalid('alias')">
+      <h6 *ngIf="hasErrorControl('alias', 'minlength')">
+        Debe tener por lo menos 3 caracteres
+      </h6>
+      <h6 *ngIf="hasErrorControl('alias', 'maxlength')">
+        Debe tener máximo 20 caracteres
+      </h6>
+      <h6 *ngIf="hasErrorControl('alias', 'required')">Este campo es obligatorio</h6>
+      <h6 *ngIf="hasErrorControl('alias', 'pattern')">no se aceptan simbolos ni espacios</h6>
+    </label>
 
     <div class="form-group">
       <label>Contraseña <label class="signos">*</label></label><br>
-      <input type="password" forControlName="password" class="form-control">
+      <input type="password" formControlName="password" class="form-control">
     </div>
+    <label class="errores" color="danger" *ngIf="isInvalid('password')">
+      <h6 *ngIf="hasErrorControl('password', 'minlength')">
+        Debe tener por lo menos 7 caracteres
+      </h6>
+      <h6 *ngIf="hasErrorControl('password', 'maxlength')">
+        Debe tener máximo 16 caracteres
+      </h6>
+      <h6 *ngIf="hasErrorControl('password', 'required')">Este campo es obligatorio</h6>
+      <h6 *ngIf="hasErrorControl('password', 'pattern')">debe contener tres numeros</h6>
+    </label>
 
     <div class="form-group">
       <label>Confirmar contraseña<label class="signos">*</label></label><br>
-      <input type="password" forControlName="ConfirmarPassword" class="form-control">
+      <input type="password" formControlName="ConfirmarPassword" class="form-control">
     </div>
+    <label class="errores" color="danger" *ngIf="isInvalid('ConfirmarPassword')">
+      <h6 *ngIf="hasErrorControl('ConfirmarPassword', 'required')">Este campo es obligatorio</h6>
+
+    </label>
 
     <div class="form-group">
       <label>Correo Electronico<label class="signos">*</label></label><br>
-      <input type="email" forControlName="email" class="form-control">
+      <input type="email" formControlName="email" class="form-control">
     </div>
+    <label class="errores" color="danger" *ngIf="isInvalid('email')">
+      <h6 *ngIf="hasErrorControl('email', 'required')">Este campo es obligatorio</h6>
+      <h6 *ngIf="hasErrorControl('email', 'email', 'pattern')">no es un email correcto</h6>
+      
+      
+
+    </label>
 
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group row">
           <label for="nombre" class="col-form-label col-sm-4">Nombre <label class="signos">*</label></label>
-          <input type="text" ForControlName="nombre" class="form-control">
+          <input type="text" formControlName="nombre" class="form-control">
+
         </div>
+
+        <label class="errores" color="danger" *ngIf="isInvalid('nombre')">
+          <h6 *ngIf="hasErrorControl('nombre', 'minlength')">
+            Debe tener por lo menos 3 caracteres
+          </h6>
+          <h6 *ngIf="hasErrorControl('nombre', 'maxlength')">
+            Debe tener máximo 20 caracteres
+          </h6>
+          <h6 *ngIf="hasErrorControl('nombre', 'required')">Este campo es obligatorio</h6>
+          <h6 *ngIf="hasErrorControl('nombre', 'pattern')">
+            no se aceptan numeros, ni simbolos</h6>
+        </label>
       </div>
+
 
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group row">
           <label for="apellido" class="col-form-label col-sm-4">Apellidos <label class="signos">*</label></label>
-          <input type="text" ForControlName="apellido" class="form-control">
+          <input type="text" formControlName="apellido" class="form-control">
         </div>
+        <label class="errores" color="danger" *ngIf="isInvalid('apellido')">
+          <h6 *ngIf="hasErrorControl('apellido', 'minlength')">
+            Debe tener por lo menos 3 caracteres
+          </h6>
+          <h6 *ngIf="hasErrorControl('apellido', 'maxlength')">
+            Debe tener máximo 20 caracteres
+          </h6>
+          <h6 *ngIf="hasErrorControl('apellido', 'required')">Este campo es obligatorio</h6>
+          <h6 *ngIf="hasErrorControl('apellido', 'pattern')">
+            no se aceptan numeros, ni simbolos</h6>
+        </label>
       </div>
+
 
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group row">
-          <label for="fechaDeNacimiento" class="col-form-label ">Fecha de nacimiento <label class="signos">*</label></label>
-          <input type="date" name="nacimiento" class="form-control">
+          <label for="fechaDeNacimiento" class="col-form-label ">Fecha de nacimiento <label
+              class="signos">*</label></label>
+          <input type="date" formControlName="nacimiento" class="form-control">
 
         </div>
+        <label class="errores" color="danger" *ngIf="isInvalid('nacimiento')">
+
+          <h6 *ngIf="hasErrorControl('nacimiento', 'required')">Este campo es obligatorio</h6>
+        </label>
       </div>
+
 
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group row">
           <label for="Sexo" class="col-form-label col-sm-4">Sexo <label class="signos">*</label></label>
-          <select name="sexo"  class="form-control">
-            <option value="">Femenino</option>
-            <option value="">Masculino</option>
+          <select formControlName="sexo" class="form-control">
+            <option value="">Hombre</option>
+            <option value="">Mujer</option>
           </select>
         </div>
+        
+
+        <label class="errores" color="danger" *ngIf="isInvalid('sexo')">
+
+          <h6 *ngIf="hasErrorControl('sexo', 'required')">Este campo es obligatorio</h6>
+        </label>
       </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group row">
           <label for="peso" class="col-form-label col-sm-4">Peso <label class="signos">*</label></label>
 
-          <input type="number" name="peso" id="nombre" class="form-control" tabindex="1">
+          <input type="number" formControlName="peso" class="form-control" tabindex="1">
 
         </div>
+        <label class="errores" color="danger" *ngIf="isInvalid('peso')">
+
+          <h6 *ngIf="hasErrorControl('peso', 'required')">Este campo es obligatorio</h6>
+          <h6 *ngIf="hasErrorControl('peso', 'min')"> el peso minimo es 10 kg</h6>
+          <h6 *ngIf="hasErrorControl('peso', 'max')">el peso maximo es 120kg</h6>
+        </label>
+
       </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group row">
           <label for="apellido" class="col-form-label col-sm-4">Altura <label class="signos">*</label></label>
-          <input type="number" name="altura" class="form-control" tabindex="2">
+          <input type="number" formControlName="altura" class="form-control">
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="form-group" class="center-content">
-        <div class="col-md-3">
-
-        </div>
-
-      <!--</form>
-      <input type="button" name="Cancelar" value="Cancelar" onClick=""">--> 
-        <button onclick="location.href='/'" type="button" class="btn btn-danger   btn-space" value="Remove from list">Cancelar</button>
-        <button type="button" class="btn btn-success  btn-space">Registrar</button>
+        <label class="errores" color="danger" *ngIf="isInvalid('altura')">
+          <h6 *ngIf="hasErrorControl('altura', 'required')">Este campo es obligatorio</h6>
+          <h6 *ngIf="hasErrorControl('altura', 'min')"> el peso minimo es 50kg </h6>
+          <h6 *ngIf="hasErrorControl('altura', 'max')">el peso maximo es 250kg</h6>
+        </label>
 
       </div>
+
     </div>
-    
-    
+
+    <div class="form-group" class="center-content">
+      <div class="col-md-3">
+      </div>
+      <button type="submit" class="btn btn-danger  btn-space">Cancelar</button>
+      <button type="submit" class="btn btn-success  btn-space" (click)="onSubmit()">Registrar</button>
+
+    </div>
   </form>
 </div>

@@ -143,9 +143,12 @@ export class ListComponent implements OnInit {
   }
 
   listLength(){
-    if(this.productList.length<=1){
-      return "80vh"
-    }else return "max-content"
+    if(this.productList!=undefined){
+      if(this.productList.length<=1){
+        return "80vh"
+      }else return "max-content"
+    }
+    
   }
 
 

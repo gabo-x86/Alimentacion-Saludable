@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-3">
     <nav class="navbar navbar-light">
       <div class="container-fluid">
         <a class="navbar-brand" routerLink="/" (click)="refresh()">
@@ -10,13 +10,19 @@
          
         <a href="/login/" class="boton_ini">INICIAR SESION</a> 
         <a href="registro" class="boton_reg">REGISTRAR</a> 
-        
-<!--
-        </a>
-        <a href="" class="boton_reg" routerLink="/registro/">REGISTRAR</a>
-        <a href="" class="boton_ini" routerLink="/login/">INICIAR SESION</a>
-      -->
       </div>  
     </nav>
   </div>
+  <div class="col-md-9" *ngIf="user==undefined; else LoggedIn">
+    <a href="" class="boton_reg" routerLink="/registro/">REGISTRAR</a>
+    <a href="" class="boton_ini" routerLink="/login/">INICIAR SESION</a>
+  </div>
+   <ng-template #LoggedIn>
+    <div class="col-md-9" id="logged">
+      <a>{{ user["alias"] }}</a>
+      <img src="../../assets/user.png" alt="">
+      <a href="" class="boton_reg" routerLink="/" (click)="onLogOut()">Cerrar Sesión</a>
+    </div>
+  </ng-template>
+  
 </div>
