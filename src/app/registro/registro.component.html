@@ -16,7 +16,7 @@
         Debe tener máximo 20 caracteres
       </h6>
       <h6 *ngIf="hasErrorControl('alias', 'required')">Este campo es obligatorio</h6>
-      <h6 *ngIf="hasErrorControl('alias', 'pattern')">no se aceptan simbolos ni espacios</h6>
+      <h6 *ngIf="hasErrorControl('alias', 'pattern')">No se aceptan símbolos ni espacios</h6>
     </label>
 
     <div class="form-group">
@@ -31,7 +31,7 @@
         Debe tener máximo 16 caracteres
       </h6>
       <h6 *ngIf="hasErrorControl('password', 'required')">Este campo es obligatorio</h6>
-      <h6 *ngIf="hasErrorControl('password', 'pattern')">debe contener tres numeros</h6>
+      <h6 *ngIf="hasErrorControl('password', 'pattern')">Debe tener por lo menos 3 números</h6>
     </label>
 
     <div class="form-group">
@@ -49,8 +49,15 @@
     </div>
     <label class="errores" color="danger" *ngIf="isInvalid('email')">
       <h6 *ngIf="hasErrorControl('email', 'required')">Este campo es obligatorio</h6>
-      <h6 *ngIf="hasErrorControl('email', 'email', 'pattern')">no es un email correcto</h6>
+      <h6 *ngIf="hasErrorControl('email', 'email', 'pattern')">Ingrese un correo válido</h6>
+      <!-- 
+        
+        
+        FALTAN VALIDACIONES DE LONGITUD DE CORREO (min 5 caracteres - max 25 caracteres)
       
+      
+      
+      -->
       
 
     </label>
@@ -72,7 +79,7 @@
           </h6>
           <h6 *ngIf="hasErrorControl('nombre', 'required')">Este campo es obligatorio</h6>
           <h6 *ngIf="hasErrorControl('nombre', 'pattern')">
-            no se aceptan numeros, ni simbolos</h6>
+            No se aceptan números ni símbolos</h6>
         </label>
       </div>
 
@@ -91,7 +98,7 @@
           </h6>
           <h6 *ngIf="hasErrorControl('apellido', 'required')">Este campo es obligatorio</h6>
           <h6 *ngIf="hasErrorControl('apellido', 'pattern')">
-            no se aceptan numeros, ni simbolos</h6>
+            No se aceptan números ni símbolos</h6>
         </label>
       </div>
 
@@ -119,9 +126,7 @@
           </select>
         </div>
         
-
         <label class="errores" color="danger" *ngIf="isInvalid('sexo')">
-
           <h6 *ngIf="hasErrorControl('sexo', 'required')">Este campo es obligatorio</h6>
         </label>
       </div>
@@ -130,14 +135,14 @@
         <div class="form-group row">
           <label for="peso" class="col-form-label col-sm-4">Peso <label class="signos">*</label></label>
 
-          <input type="number" formControlName="peso" class="form-control" tabindex="1">
+          <input type="number" formControlName="peso" class="form-control" tabindex="1" placeholder="(Kg)">
 
         </div>
         <label class="errores" color="danger" *ngIf="isInvalid('peso')">
 
           <h6 *ngIf="hasErrorControl('peso', 'required')">Este campo es obligatorio</h6>
-          <h6 *ngIf="hasErrorControl('peso', 'min')"> el peso minimo es 10 kg</h6>
-          <h6 *ngIf="hasErrorControl('peso', 'max')">el peso maximo es 120kg</h6>
+          <h6 *ngIf="hasErrorControl('peso', 'min')"> El peso mínimo es 10 kg</h6>
+          <h6 *ngIf="hasErrorControl('peso', 'max')">El peso máximo es 150kg</h6>
         </label>
 
       </div>
@@ -149,8 +154,8 @@
         </div>
         <label class="errores" color="danger" *ngIf="isInvalid('altura')">
           <h6 *ngIf="hasErrorControl('altura', 'required')">Este campo es obligatorio</h6>
-          <h6 *ngIf="hasErrorControl('altura', 'min')"> el peso minimo es 50kg </h6>
-          <h6 *ngIf="hasErrorControl('altura', 'max')">el peso maximo es 250kg</h6>
+          <h6 *ngIf="hasErrorControl('altura', 'min')">La altura mínima es 50 cm </h6>
+          <h6 *ngIf="hasErrorControl('altura', 'max')">La altura máxima es 250 cm</h6>
         </label>
 
       </div>
@@ -160,7 +165,7 @@
     <div class="form-group" class="center-content">
       <div class="col-md-3">
       </div>
-      <button type="submit" class="btn btn-danger  btn-space">Cancelar</button>
+      <button type="submit" class="btn btn-danger  btn-space" routerLink="/">Cancelar</button>
       <button type="submit" class="btn btn-success  btn-space" (click)="onSubmit()">Registrar</button>
 
     </div>
