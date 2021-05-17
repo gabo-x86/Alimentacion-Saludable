@@ -37,7 +37,18 @@ export class RegistroComponent implements OnInit {
         weight: this.formularioRegistro.value.peso,
         height: this.formularioRegistro.value.altura
       }
-      this.aliasAndEmailExist(usr as User);
+      
+
+      if(!this.isInvalid('alias') && !this.isInvalid('password') && this.formularioRegistro.value.password==this.formularioRegistro.value.ConfirmarPassword &&
+      !this.isInvalid('email') && !this.isInvalid('nombre') && !this.isInvalid('apellido')  && !this.isInvalid('nacimiento') && 
+      !this.isInvalid('sexo') && !this.isInvalid('peso') && !this.isInvalid('altura')){
+
+            if(usr.alias!='' && usr.pass!='' && this.formularioRegistro.value.password!='' && 
+            this.formularioRegistro.value.ConfirmarPassword!='' && usr.email!='' && usr.name!='' && 
+            usr.lastName!='' && usr.bornDate!='' && usr.gender!='' && usr.weight!='' && usr.height!=''){
+              this.aliasAndEmailExist(usr as User);
+            }//else console.log("NO SE REGISTRA");
+      }//else console.log("NO SE REGISTRA");
 
   }
 
@@ -120,16 +131,16 @@ export class RegistroComponent implements OnInit {
 
   private createFormularioRegistro() {
     this.formularioRegistro = this.formBuilder.group({
-      alias: ['', [ Validators.required, Validators.maxLength(20), Validators.minLength(3), Validators.pattern(/^([a-zA-Z0-9]){1,16}$/)]],
+      alias: ['', [ Validators.required, Validators.maxLength(20), Validators.minLength(3), Validators.pattern(/^([a-zA-Z0-9-ñÑ]){1,5000}$/)]],
       password: ['',[Validators.required, Validators.minLength(7), Validators.maxLength(16), Validators.pattern(/^(?:\D*\d){3}\D*$/)]],
       ConfirmarPassword:['',[Validators.required]],
-      email: ['',[Validators.required, Validators.email,Validators.pattern(/^([a-zA-Z0-9_\.\-])+\@+([a-zA-Z\.\-])+$/)]],
+      email: ['',[Validators.required, Validators.maxLength(25), Validators.minLength(5), Validators.email,Validators.pattern(/^([a-zA-Z0-9_\.\-])+\@+([a-zA-Z\.\-])+$/)]],
       nombre:['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[a-zA-Z\s\u00f1\u00d1]+$/)]],
       apellido: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[a-zA-Z\s\u00f1\u00d1]+$/)]],
       nacimiento: ['',[Validators.required]],
       sexo:['',[Validators.required]],
       peso:['',[Validators.required, Validators.min(10), Validators.max(120)]],
-      altura:['',[Validators.required, Validators.min(50), Validators.max(150)]]
+      altura:['',[Validators.required, Validators.min(50), Validators.max(250)]]
     },{
       validator:this.confirmPasswordMatch('password', 'ConfirmarPassword')
     })

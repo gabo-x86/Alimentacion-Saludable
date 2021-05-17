@@ -55,15 +55,8 @@
       <label class="errores" color="danger" *ngIf="isInvalid('email')">
         <h6 *ngIf="hasErrorControl('email', 'required')">Este campo es obligatorio</h6>
         <h6 *ngIf="hasErrorControl('email', 'email', 'pattern')">Ingrese un correo válido</h6>
-        <!-- 
-          
-          
-          FALTAN VALIDACIONES DE LONGITUD DE CORREO (min 5 caracteres - max 25 caracteres)
-        
-        
-        
-        -->
-        
+        <h6 *ngIf="hasErrorControl('email', 'minlength')">Debe tener por lo menos 5 caracteres</h6>
+        <h6 *ngIf="hasErrorControl('email', 'maxlength')">Debe tener máximo 25 caracteres</h6>
 
       </label>
 
