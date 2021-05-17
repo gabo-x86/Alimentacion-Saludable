@@ -42,9 +42,11 @@
         <input type="password" formControlName="ConfirmarPassword" class="form-control">
       </div>
       <label class="errores" color="danger" *ngIf="isInvalid('ConfirmarPassword')">
+        <h6 *ngIf="confirmPasswordMatch('password','ConfirmarPassword')">Las contraseñas deben ser iguales</h6>
         <h6 *ngIf="hasErrorControl('ConfirmarPassword', 'required')">Este campo es obligatorio</h6>
-
+        
       </label>
+      <!--!!!!!!-->
 
       <div class="form-group">
         <label>Correo Electronico<label class="signos">*</label></label><br>

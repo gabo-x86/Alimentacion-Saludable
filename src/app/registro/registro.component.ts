@@ -130,7 +130,22 @@ export class RegistroComponent implements OnInit {
       sexo:['',[Validators.required]],
       peso:['',[Validators.required, Validators.min(10), Validators.max(120)]],
       altura:['',[Validators.required, Validators.min(50), Validators.max(150)]]
+    },{
+      validator:this.confirmPasswordMatch('password', 'ConfirmarPassword')
     })
+  }
+
+  confirmPasswordMatch(controlName: string, matchingControlName: string) {    
+    return (formGroup: FormGroup) => {
+        const control = formGroup.controls[controlName];
+        const matchingControl = formGroup.controls[matchingControlName];
+
+        if (control.value !== matchingControl.value) {
+            matchingControl.setErrors({ confirmPasswordMatch: true });
+        } else {
+            matchingControl.setErrors(null);
+        }
+    }
   }
   
  getFormularioRegistro(){
