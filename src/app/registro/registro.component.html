@@ -19,7 +19,7 @@
           Debe tener máximo 20 caracteres
         </h6>
         <h6 *ngIf="hasErrorControl('alias', 'required')">Este campo es obligatorio</h6>
-        <h6 *ngIf="hasErrorControl('alias', 'pattern')">No se aceptan símbolos ni espacios</h6>
+        <h6 *ngIf="hasErrorControl('alias', 'pattern')">Sólo se aceptan caracteres alfanuméricos</h6>
       </label>
 
       <div class="form-group">
@@ -42,7 +42,7 @@
         <input type="password" formControlName="ConfirmarPassword" class="form-control">
       </div>
       <label class="errores" color="danger" *ngIf="isInvalid('ConfirmarPassword')">
-        <h6 *ngIf="confirmPasswordMatch('password','ConfirmarPassword')">Las contraseñas deben ser iguales</h6>
+        <h6 *ngIf="confirmPasswordMatch('password','ConfirmarPassword')">Las contraseñas deben ser idénticas</h6>
         <h6 *ngIf="hasErrorControl('ConfirmarPassword', 'required')">Este campo es obligatorio</h6>
         
       </label>
@@ -138,7 +138,7 @@
           <div class="form-group">
             <label for="peso" class="col-form-label col-sm-4">Peso (Kg)<label class="signos">*</label></label>
 
-            <input type="number" formControlName="peso" class="form-control" tabindex="1">
+            <input type="number" (keypress)="numericOnly($event)" formControlName="peso" class="form-control" >
           </div>
           <label class="errores" color="danger" *ngIf="isInvalid('peso')">
             <h6 *ngIf="hasErrorControl('peso', 'required')">Este campo es obligatorio</h6>
@@ -151,7 +151,7 @@
         <div class="col-xs-6 col-sm-6 col-md-6">
           <div class="form-group">
             <label for="apellido" class="col-form-label col-sm-4">Altura (cm)<label class="signos">*</label></label>
-            <input type="number" formControlName="altura" class="form-control">
+            <input type="number" (keypress)="numericOnly($event)" formControlName="altura" class="form-control" ng-patter="/(0^|\-?[1-9][0-9]*)$">
           </div>
           <label class="errores" color="danger" *ngIf="isInvalid('altura')">
             <h6 *ngIf="hasErrorControl('altura', 'required')">Este campo es obligatorio</h6>

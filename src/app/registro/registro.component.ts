@@ -132,7 +132,7 @@ export class RegistroComponent implements OnInit {
   private createFormularioRegistro() {
     this.formularioRegistro = this.formBuilder.group({
       alias: ['', [ Validators.required, Validators.maxLength(20), Validators.minLength(3), Validators.pattern(/^([a-zA-Z0-9-ñÑ]){1,5000}$/)]],
-      password: ['',[Validators.required, Validators.minLength(7), Validators.maxLength(16), Validators.pattern(/^(?:\D*\d){3}\D*$/)]],
+      password: ['',[Validators.required, Validators.minLength(7), Validators.maxLength(16), Validators.pattern(/(?:\D*\d){3}\D*/)]],
       ConfirmarPassword:['',[Validators.required]],
       email: ['',[Validators.required, Validators.maxLength(25), Validators.minLength(5), Validators.email,Validators.pattern(/^([a-zA-Z0-9_\.\-])+\@+([a-zA-Z\.\-])+$/)]],
       nombre:['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[a-zA-Z\s\u00f1\u00d1]+$/)]],
@@ -162,6 +162,15 @@ export class RegistroComponent implements OnInit {
  getFormularioRegistro(){
     //event.preventDefault(); 
     //console.log(this.formularioRegistro.value);
+  }
+  numericOnly(event): boolean { // restrict e,+,-,E characters in  input type number
+    debugger
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode == 101 || charCode == 69 || charCode == 45 || charCode == 43) {
+      return false;
+    }
+    return true;
+
   }
  
   
