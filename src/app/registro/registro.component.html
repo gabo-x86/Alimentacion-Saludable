@@ -105,9 +105,10 @@
       <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-6">
           <div class="form-group">
-            <label for="fechaDeNacimiento" class="col-form-label ">Fecha de nacimiento <label
-                class="signos">*</label></label>
-            <input type="date" formControlName="nacimiento" class="form-control">
+            <label for="fechaDeNacimiento" class="col-form-label " >Fecha de nacimiento <label
+                class="signos" >*</label></label>           
+            <input type="date" formControlName="nacimiento" class="form-control" min="1930-01-01" max="2018-12-31" value="2013-01-01" onkeydown="return false">
+
 
           </div>
           <label class="errores" color="danger" *ngIf="isInvalid('nacimiento')">
