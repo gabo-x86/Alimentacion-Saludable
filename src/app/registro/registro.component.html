@@ -47,10 +47,9 @@
         
       </label>
       <!--!!!!!!-->
-
       <div class="form-group">
-        <label>Correo Electronico<label class="signos">*</label></label><br>
-        <input type="email" formControlName="email" class="form-control">
+        <label for="mail">Correo Electronico<label class="signos">*</label></label><br>
+        <input type="email" id="mail" formControlName="email" class="form-control" placeholder="Ej.: usuario@servidor.com" pattern="[\w]{1,}[\w.+-]{0,}@[\w-]{5,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$">
       </div>
       <label class="errores" color="danger" *ngIf="isInvalid('email')">
         <h6 *ngIf="hasErrorControl('email', 'required')">Este campo es obligatorio</h6>
@@ -107,7 +106,7 @@
           <div class="form-group">
             <label for="fechaDeNacimiento" class="col-form-label " >Fecha de nacimiento <label
                 class="signos" >*</label></label>           
-            <input type="date" formControlName="nacimiento" class="form-control" min="1930-01-01" max="2018-12-31" value="2013-01-01" onkeydown="return false">
+            <input type="date" formControlName="nacimiento" class="form-control" min="1930-01-01" max="2020-12-31" value="2013-01-01" onkeydown="return false">
 
 
           </div>
