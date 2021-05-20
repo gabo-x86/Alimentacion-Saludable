@@ -135,7 +135,7 @@ export class RegistroComponent implements OnInit {
       password: ['',[Validators.required, Validators.minLength(7), Validators.maxLength(16), Validators.pattern(/(?:\D*\d){3}\D*/)]],
       ConfirmarPassword:['',[Validators.required]],
       email: ['',[Validators.required, Validators.maxLength(25), Validators.minLength(5), Validators.email,Validators.pattern(/^([a-zA-Z0-9_\.\-])+\@+([a-zA-Z\.\-])+$/)]],
-      nombre:['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[a-zA-Z\s\u00f1\u00d1]+$/)]],
+      nombre:['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[a-zA-Z-áÁ-éÉ-íÍ-óÓ-úÚ\s\u00f1\u00d1]+$/)]],
       apellido: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[a-zA-Z\s\u00f1\u00d1]+$/)]],
       nacimiento: ['',[Validators.required]],
       sexo:['',[Validators.required]],
