@@ -26,6 +26,7 @@ export class RegistroComponent implements OnInit {
   }
 
   onSubmit(){
+    const Swal = require('sweetalert2');
       let usr = {
         alias: this.formularioRegistro.value.alias,
         pass: this.formularioRegistro.value.password,
@@ -37,18 +38,42 @@ export class RegistroComponent implements OnInit {
         weight: this.formularioRegistro.value.peso,
         height: this.formularioRegistro.value.altura
       }
-      
+      if(usr.gender==''){
+        console.log("XX"+usr.gender+"XX");
+      }
+
 
       if(!this.isInvalid('alias') && !this.isInvalid('password') && this.formularioRegistro.value.password==this.formularioRegistro.value.ConfirmarPassword &&
       !this.isInvalid('email') && !this.isInvalid('nombre') && !this.isInvalid('apellido')  && !this.isInvalid('nacimiento') && 
       !this.isInvalid('sexo') && !this.isInvalid('peso') && !this.isInvalid('altura')){
 
-            if(usr.alias!='' && usr.pass!='' && this.formularioRegistro.value.password!='' && 
+        if(usr.alias=='' || usr.pass=='' || this.formularioRegistro.value.password=='' || 
+        this.formularioRegistro.value.ConfirmarPassword=='' || usr.email=='' || usr.name=='' || 
+        usr.lastName=='' || usr.bornDate=='' || usr.gender=='' || usr.weight=='' || usr.height==''){
+          Swal.fire({
+            position: 'top-center',
+            type: 'success',
+            title: 'Llene todos los campos',
+            showConfirmButton:false,
+            timer: 2000
+          })
+        }else if(usr.alias!='' && usr.pass!='' && this.formularioRegistro.value.password!='' && 
             this.formularioRegistro.value.ConfirmarPassword!='' && usr.email!='' && usr.name!='' && 
             usr.lastName!='' && usr.bornDate!='' && usr.gender!='' && usr.weight!='' && usr.height!=''){
               this.aliasAndEmailExist(usr as User);
-            }//else console.log("NO SE REGISTRA");
-      }//else console.log("NO SE REGISTRA");
+
+        }
+      }else if(usr.alias=='' || usr.pass=='' || this.formularioRegistro.value.password=='' || 
+      this.formularioRegistro.value.ConfirmarPassword=='' || usr.email=='' || usr.name=='' || 
+      usr.lastName=='' || usr.bornDate=='' || usr.gender=='' || usr.weight=='' || usr.height==''){
+        Swal.fire({
+          position: 'top-center',
+          type: 'success',
+          title: 'Llene todos los campos',
+          showConfirmButton:false,
+          timer: 2000
+        })
+      }
 
   }
 
@@ -136,7 +161,7 @@ export class RegistroComponent implements OnInit {
       ConfirmarPassword:['',[Validators.required]],
       email: ['',[Validators.required, Validators.maxLength(25), Validators.minLength(5), Validators.email,Validators.pattern(/^([a-zA-Z0-9_\.\-])+\@+([a-zA-Z\.\-])+$/)]],
       nombre:['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[a-zA-Z-áÁ-éÉ-íÍ-óÓ-úÚ\s\u00f1\u00d1]+$/)]],
-      apellido: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[a-zA-Z\s\u00f1\u00d1]+$/)]],
+      apellido: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[a-zA-Z-áÁ-éÉ-íÍ-óÓ-úÚ\s\u00f1\u00d1]+$/)]],
       nacimiento: ['',[Validators.required]],
       sexo:['',[Validators.required]],
       peso:['',[Validators.required, Validators.min(10), Validators.max(120)]],
