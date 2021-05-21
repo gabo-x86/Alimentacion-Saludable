@@ -53,7 +53,7 @@
       </div>
       <label class="errores" color="danger" *ngIf="isInvalid('email')">
         <h6 *ngIf="hasErrorControl('email', 'required')">Este campo es obligatorio</h6>
-        <h6 *ngIf="hasErrorControl('email', 'email', 'pattern')">Ingrese un correo válido</h6>
+        <h6 *ngIf="hasErrorControl('email', 'email', 'pattern') || hasErrorControl('email', 'pattern')">Ingrese un correo válido</h6>
         <h6 *ngIf="hasErrorControl('email', 'minlength')">Debe tener por lo menos 5 caracteres</h6>
         <h6 *ngIf="hasErrorControl('email', 'maxlength')">Debe tener máximo 25 caracteres</h6>
 
@@ -138,7 +138,7 @@
           <div class="form-group">
             <label for="peso" class="col-form-label col-sm-4">Peso (Kg)<label class="signos">*</label></label>
 
-            <input type="number" (keypress)="numericOnlyWeight($event)" formControlName="peso" class="form-control" >
+            <input type="number" (keypress)="numericOnly($event)" formControlName="peso" class="form-control" >
           </div>
           <label class="errores" color="danger" *ngIf="isInvalid('peso')">
             <h6 *ngIf="hasErrorControl('peso', 'required')">Este campo es obligatorio</h6>

@@ -38,10 +38,6 @@ export class RegistroComponent implements OnInit {
         weight: this.formularioRegistro.value.peso,
         height: this.formularioRegistro.value.altura
       }
-      if(usr.gender==''){
-        console.log("XX"+usr.gender+"XX");
-      }
-
 
       if(!this.isInvalid('alias') && !this.isInvalid('password') && this.formularioRegistro.value.password==this.formularioRegistro.value.ConfirmarPassword &&
       !this.isInvalid('email') && !this.isInvalid('nombre') && !this.isInvalid('apellido')  && !this.isInvalid('nacimiento') && 
@@ -197,17 +193,6 @@ export class RegistroComponent implements OnInit {
     return true;
 
   }
-  numericOnlyWeight(event): boolean {
-    debugger
-    const charCode = (event.which) ? event.which : event.keyCode;
-    if (charCode == 101 || charCode == 69 || charCode == 45 || charCode == 43) {
-      return false;
-    }
-    return true;
-
-  }
- 
-  
 
 }
 

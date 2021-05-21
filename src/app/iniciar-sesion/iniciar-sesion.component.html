@@ -9,7 +9,7 @@
 
     <div class="form-group">
       <label>Correo Electrónico<a style="color:rgb(192, 17, 17);">*</a></label><br />
-      <input type="email" formControlName="email" class="form-control" autofocus>
+      <input type="email" formControlName="email" class="form-control" autofocus pattern="[\w]{1,}[\w.+-]{0,}@[\w-]{1,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$">
     </div><br />
 
     <div class="form-group">
