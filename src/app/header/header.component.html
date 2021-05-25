@@ -15,7 +15,7 @@
   </div>
     <!-- <ng-template #LoggedIn> -->
     <div class="col-md-9" id="logged" *ngIf="user==true">
-      <a>{{ user["alias"] }}</a>
+      <a>{{ cacheUser["alias"] }}</a>
       <img src="../../assets/user.png" alt="">
       <a href="" class="boton_reg" routerLink="/" (click)="onLogOut()">Cerrar Sesión</a>
     </div>

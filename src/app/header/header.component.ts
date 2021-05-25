@@ -8,7 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Input() input:boolean;
   public user;
-  constructor() { }
+  public cacheUser;
+  constructor() { 
+  }
 
   ngOnInit(): void {
     /* this.user=JSON.parse(localStorage.getItem('user')); */
@@ -17,10 +19,9 @@ export class HeaderComponent implements OnInit {
       this.user=false;
     }else{
       this.user=true;
-      //this.user=JSON.parse(localStorage.getItem('user'));
+      this.cacheUser=JSON.parse(localStorage.getItem('user'));
     } 
-    console.log("DEBUG: "+localStorage.getItem('user'));
-    
+    //console.log("DEBUG: "+localStorage.getItem('user'));
   }
   
 
