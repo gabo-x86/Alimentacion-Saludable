@@ -15,9 +15,19 @@
   </div>
     <!-- <ng-template #LoggedIn> -->
     <div class="col-md-9" id="logged" *ngIf="user==true">
-      <a>{{ cacheUser["alias"] }}</a>
+      
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
+          <a>{{ cacheUser["alias"] }}</a>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <li><button class="dropdown-item" type="button">Pestaña de prueba</button></li>
+          <li><button class="dropdown-item" type="button" routerLink="/" (click)="onLogOut()">Cerrar Sesión</button></li>
+        </ul>
+      </div>
+
       <img src="../../assets/user.png" alt="">
-      <a href="" class="boton_reg" routerLink="/" (click)="onLogOut()">Cerrar Sesión</a>
+      <!--<a href="" class="boton_reg" routerLink="/" (click)="onLogOut()">Cerrar Sesión</a>-->
     </div>
   <!-- </ng-template> -->
    
