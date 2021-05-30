@@ -1,0 +1,52 @@
+#img-lat{
+    background: url(../../assets/img-backgroundAddProduct.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+
+#main-form{
+    padding-left: 4em;
+    padding-right: 4em;
+}
+
+
+button{
+    border-radius: 10px;
+    border: 0;
+    height: 3em;
+}
+
+
+.btn-danger{
+    width: 100%;
+}
+.btn-danger:hover{
+    opacity: 100%;
+}
+
+
+.col-md-8 .btn-success{
+    color: #131212;
+    background-color: #0AC5A8;
+    width: 100%;
+}
+.col-md-8 .btn-success:hover{
+    background-color: #0FB39A;
+}
+
+
+.col-md-4 .btn-success{
+    background-color: #2C3C5B;
+    color:white
+}
+.col-md-4 .btn-success:hover{
+    background-color: #232F48;
+}
+
+
+.col-md-12 textarea{
+    height: 8em;
+    resize: none;
+}

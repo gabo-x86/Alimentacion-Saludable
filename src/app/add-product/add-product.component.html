@@ -1,0 +1,218 @@
+<app-header [input]=false></app-header>
+<div class="row">
+    <div class="col-md-4" id="img-lat"></div>
+    <div class="col-md-8" id="main-form">
+        <form [formGroup]="formularioRegistroProducto"> <!--(ngSubmit)="getFormularioRegistro()" novalidate -->
+            <br><h3>Registro de Perfil de Alimento</h3><br>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="form-group">
+                        <label>Nombre del alimento <a style="color: red;">*</a> </label>
+                        <input type="text" formControlName="productName" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label>Tipo de alimento <a style="color: red;">*</a> </label>
+                        <input type="text" formControlName="productType" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+            </div>
+
+            <!--Subir imagen-->
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                  
+                </div>
+                <div class="col-md-4">
+                  <button type="submit" class="btn btn-success  btn-space">Cargar imagen</button>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Valor energético (cal) <a style="color: red;">*</a> </label>
+                        <input type="text" formControlName="energeticValue" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Carbohidratos (mg) <a style="color: red;">*</a> </label>
+                        <input type="text" formControlName="carbohydrates" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Proteínas (mg) <a style="color: red;">*</a> </label>
+                        <input type="text" formControlName="protein" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Grasas (mg) <a style="color: red;">*</a> </label>
+                        <input type="text" formControlName="fat" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Colesterol (mg)</label>
+                        <input type="text" formControlName="cholesterol" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Sodio (mg) <a style="color: red;">*</a> </label>
+                        <input type="text" formControlName="sodium" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Fibra (mg) <a style="color: red;">*</a> </label>
+                        <input type="text" formControlName="fiber" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Calcio (mg) <a style="color: red;">*</a> </label>
+                        <input type="text" formControlName="calcium" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+            <br>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vitamina A (mg) </label>
+                        <input type="text" formControlName="vitaminA" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vitamina B9 (mg) </label>
+                        <input type="text" formControlName="vitaminB9" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vitamina B1 (mg) </label>
+                        <input type="text" formControlName="vitaminB1" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vitamina B12 (mg) </label>
+                        <input type="text" formControlName="vitaminB12" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vitamina B2 (mg) </label>
+                        <input type="text" formControlName="vitaminB2" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vitamina C (mg) </label>
+                        <input type="text" formControlName="vitaminC" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vitamina B3 (mg) </label>
+                        <input type="text" formControlName="vitaminB3" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vitamina D (mg) </label>
+                        <input type="text" formControlName="vitaminD" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vitamina B5 (mg) </label>
+                        <input type="text" formControlName="vitaminB5" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vitamina E (mg) </label>
+                        <input type="text" formControlName="vitaminE" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vitamina B6 (mg) </label>
+                        <input type="text" formControlName="vitaminB6" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vitamina K (mg) </label>
+                        <input type="text" formControlName="vitaminK" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vitamina B7 (mg)</label>
+                        <input type="text" formControlName="vitaminB7" class="form-control" ng-trim="false">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <label>Descripción</label>
+                <textarea formControlName="vitaminB6" class="form-control" ng-trim="false"></textarea>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-danger  btn-space">Cancelar</button>
+                </div>
+                <div class="col-md-8">
+                    <button type="submit" class="btn btn-success  btn-space">Guardar cambios</button>
+                </div>
+            </div>
+
+            <br>
+        </form>
+    </div>
+</div>
