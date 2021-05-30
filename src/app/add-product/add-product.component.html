@@ -12,9 +12,17 @@
                     </div>
                 </div>
                 <div class="col-md-5">
+                    
                     <div class="form-group">
                         <label>Tipo de alimento <a style="color: red;">*</a> </label>
-                        <input type="text" formControlName="productType" class="form-control" ng-trim="false">
+                        <select formControlName="productType" class="form-control">
+                            <option disabled selected>Seleccione una opción</option>
+                            <option>CEREALES</option>
+                            <option>FRUTAS</option>
+                            <option>VERDURAS</option>
+                            <option>CARNE</option>
+                            <option>LÁCTEOS</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -38,13 +46,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Valor energético (cal) <a style="color: red;">*</a> </label>
-                        <input type="text" formControlName="energeticValue" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="energeticValue" class="form-control" ng-trim="false">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Carbohidratos (mg) <a style="color: red;">*</a> </label>
-                        <input type="text" formControlName="carbohydrates" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="carbohydrates" class="form-control" ng-trim="false">
                     </div>
                 </div>
             </div>
@@ -53,13 +61,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Proteínas (mg) <a style="color: red;">*</a> </label>
-                        <input type="text" formControlName="protein" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="protein" class="form-control" ng-trim="false">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Grasas (mg) <a style="color: red;">*</a> </label>
-                        <input type="text" formControlName="fat" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="fat" class="form-control" ng-trim="false">
                     </div>
                 </div>
             </div>
@@ -68,13 +76,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Colesterol (mg)</label>
-                        <input type="text" formControlName="cholesterol" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="cholesterol" class="form-control" ng-trim="false">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Sodio (mg) <a style="color: red;">*</a> </label>
-                        <input type="text" formControlName="sodium" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="sodium" class="form-control" ng-trim="false">
                     </div>
                 </div>
             </div>
@@ -83,13 +91,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Fibra (mg) <a style="color: red;">*</a> </label>
-                        <input type="text" formControlName="fiber" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="fiber" class="form-control" ng-trim="false">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Calcio (mg) <a style="color: red;">*</a> </label>
-                        <input type="text" formControlName="calcium" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="calcium" class="form-control" ng-trim="false">
                     </div>
                 </div>
             </div>
@@ -102,13 +110,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina A (mg) </label>
-                        <input type="text" formControlName="vitaminA" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="vitaminA" class="form-control" ng-trim="false">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B9 (mg) </label>
-                        <input type="text" formControlName="vitaminB9" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="vitaminB9" class="form-control" ng-trim="false">
                     </div>
                 </div>
             </div>
@@ -117,13 +125,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B1 (mg) </label>
-                        <input type="text" formControlName="vitaminB1" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="vitaminB1" class="form-control" ng-trim="false">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B12 (mg) </label>
-                        <input type="text" formControlName="vitaminB12" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="vitaminB12" class="form-control" ng-trim="false">
                     </div>
                 </div>
             </div>
@@ -132,13 +140,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B2 (mg) </label>
-                        <input type="text" formControlName="vitaminB2" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="vitaminB2" class="form-control" ng-trim="false">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina C (mg) </label>
-                        <input type="text" formControlName="vitaminC" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="vitaminC" class="form-control" ng-trim="false">
                     </div>
                 </div>
             </div>
@@ -147,13 +155,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B3 (mg) </label>
-                        <input type="text" formControlName="vitaminB3" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="vitaminB3" class="form-control" ng-trim="false">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina D (mg) </label>
-                        <input type="text" formControlName="vitaminD" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="vitaminD" class="form-control" ng-trim="false">
                     </div>
                 </div>
             </div>
@@ -162,13 +170,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B5 (mg) </label>
-                        <input type="text" formControlName="vitaminB5" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="vitaminB5" class="form-control" ng-trim="false">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina E (mg) </label>
-                        <input type="text" formControlName="vitaminE" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="vitaminE" class="form-control" ng-trim="false">
                     </div>
                 </div>
             </div>
@@ -177,13 +185,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B6 (mg) </label>
-                        <input type="text" formControlName="vitaminB6" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="vitaminB6" class="form-control" ng-trim="false">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina K (mg) </label>
-                        <input type="text" formControlName="vitaminK" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="vitaminK" class="form-control" ng-trim="false">
                     </div>
                 </div>
             </div>
@@ -192,14 +200,14 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B7 (mg)</label>
-                        <input type="text" formControlName="vitaminB7" class="form-control" ng-trim="false">
+                        <input type="number" formControlName="vitaminB7" class="form-control" ng-trim="false">
                     </div>
                 </div>
             </div>
 
             <div class="col-md-12">
                 <label>Descripción</label>
-                <textarea formControlName="vitaminB6" class="form-control" ng-trim="false"></textarea>
+                <textarea formControlName="description" class="form-control" ng-trim="false"></textarea>
             </div>
 
             <br>

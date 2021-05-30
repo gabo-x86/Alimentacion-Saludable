@@ -6,6 +6,17 @@
 }
 
 
+.form-control{
+    background-color:#A8A8A8;
+}
+input{
+    border-radius: 10px;
+}
+select{
+    border-radius: 10px;
+}
+
+
 #main-form{
     padding-left: 4em;
     padding-right: 4em;
