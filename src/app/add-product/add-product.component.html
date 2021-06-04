@@ -2,17 +2,34 @@
 <div class="row">
     <div class="col-md-4" id="img-lat"></div>
     <div class="col-md-8" id="main-form">
-        <form [formGroup]="formularioRegistroProducto"> <!--(ngSubmit)="getFormularioRegistro()" novalidate -->
-            <br><h3>Registro de Perfil de Alimento</h3><br>
+        <form [formGroup]="formularioRegistroProducto" (ngSubmit)="getFormularioRegistroProducto()" novalidate>
+            
+            <br>
+            <h3>Registro de Perfil de Alimento</h3><br>
             <div class="row">
                 <div class="col-md-7">
                     <div class="form-group">
                         <label>Nombre del alimento <a style="color: red;">*</a> </label>
-                        <input type="text" formControlName="productName" class="form-control" ng-trim="false">
+                        <input type="text" formControlName ="productName" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('productName')">
+                        <h6 *ngIf="hasErrorControl('productName', 'minlength')">
+                            Debe tener por lo menos 3 caracteres
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('productName', 'maxlength')">
+                            Debe tener máximo 20 caracteres
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('productName', 'required')">
+                            Este campo es obligatorio</h6>
+                        <h6 *ngIf="hasErrorControl('productName', 'pattern')">
+                            no se aceptan números, ni símbolos</h6>
+                            
+                    </label>
+
                 </div>
+
                 <div class="col-md-5">
-                    
+
                     <div class="form-group">
                         <label>Tipo de alimento <a style="color: red;">*</a> </label>
                         <select formControlName="productType" class="form-control">
@@ -24,6 +41,10 @@
                             <option>LÁCTEOS</option>
                         </select>
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('productType')">
+                        <h6 *ngIf="hasErrorControl('productType', 'required')">
+                            Este campo es obligatorio</h6>
+                    </label>
                 </div>
             </div>
 
@@ -31,10 +52,10 @@
             <br>
             <div class="row">
                 <div class="col-md-4">
-                  
+
                 </div>
                 <div class="col-md-4">
-                  <button type="submit" class="btn btn-success  btn-space">Cargar imagen</button>
+                    <button type="submit" class="btn btn-success  btn-space">Cargar imagen</button>
                 </div>
                 <div class="col-md-4">
 
@@ -48,12 +69,33 @@
                         <label>Valor energético (cal) <a style="color: red;">*</a> </label>
                         <input type="number" formControlName="energeticValue" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('energeticValue')">
+                        <h6 *ngIf="hasErrorControl('energeticValue', 'required')">
+                            Este campo es obligatorio</h6>
+                        <h6 *ngIf="hasErrorControl('energeticValue', 'max')">
+                            Cantidad máxima de Valor energético es 3000 cal
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('energeticValue', 'min')">
+                            Cantidad mínima de Vitamina B6 es 0
+                        </h6>
+                        
+                    </label>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Carbohidratos (mg) <a style="color: red;">*</a> </label>
                         <input type="number" formControlName="carbohydrates" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('carbohydrates')">
+                        <h6 *ngIf="hasErrorControl('carbohydrates', 'required')">
+                            Este campo es obligatorio</h6>
+                        <h6 *ngIf="hasErrorControl('carbohydrates', 'max')">
+                            Cantidad máxima de Carbohidratos es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('carbohydrates', 'min')">
+                            Cantidad mínima de Carbohidratos es 0
+                        </h6>
+                    </label>
                 </div>
             </div>
 
@@ -63,12 +105,32 @@
                         <label>Proteínas (mg) <a style="color: red;">*</a> </label>
                         <input type="number" formControlName="protein" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('protein')">
+                        <h6 *ngIf="hasErrorControl('protein', 'required')">
+                            Este campo es obligatorio</h6>
+                        <h6 *ngIf="hasErrorControl('protein', 'max')">
+                            Cantidad máxima de Proteínas es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('protein', 'min')">
+                            Cantidad mínima de Proteínas es 0
+                        </h6>
+                    </label>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Grasas (mg) <a style="color: red;">*</a> </label>
                         <input type="number" formControlName="fat" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('fat')">
+                        <h6 *ngIf="hasErrorControl('fat', 'required')">
+                            Este campo es obligatorio</h6>
+                        <h6 *ngIf="hasErrorControl('fat', 'max')">
+                            Cantidad máxima de Grasas es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('fat', 'min')">
+                            Cantidad mínima de Grasas es 0
+                        </h6>
+                    </label>
                 </div>
             </div>
 
@@ -78,12 +140,32 @@
                         <label>Colesterol (mg)</label>
                         <input type="number" formControlName="cholesterol" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('cholesterol')">
+                        <h6 *ngIf="hasErrorControl('cholesterol', 'required')">
+                            Este campo es obligatorio</h6>
+                        <h6 *ngIf="hasErrorControl('cholesterol', 'max')">
+                            Cantidad máxima de Colesterol es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('cholesterol', 'min')">
+                            Cantidad mínima de Colesterol es 0
+                        </h6>
+                    </label>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Sodio (mg) <a style="color: red;">*</a> </label>
                         <input type="number" formControlName="sodium" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('sodium')">
+                        <h6 *ngIf="hasErrorControl('sodium', 'required')">
+                            Este campo es obligatorio</h6>
+                        <h6 *ngIf="hasErrorControl('sodium', 'max')">
+                            Cantidad máxima de Sodio es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('sodium', 'min')">
+                            Cantidad mínima de Sodio es 0
+                        </h6>
+                    </label>
                 </div>
             </div>
 
@@ -93,12 +175,32 @@
                         <label>Fibra (mg) <a style="color: red;">*</a> </label>
                         <input type="number" formControlName="fiber" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('fiber')">
+                        <h6 *ngIf="hasErrorControl('fiber', 'required')">
+                            Este campo es obligatorio</h6>
+                        <h6 *ngIf="hasErrorControl('fiber', 'max')">
+                            Cantidad máxima de Fibra es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('fiber', 'min')">
+                            Cantidad mínima de Fibra es 0
+                        </h6>
+                    </label>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Calcio (mg) <a style="color: red;">*</a> </label>
                         <input type="number" formControlName="calcium" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('calcium')">
+                        <h6 *ngIf="hasErrorControl('calcium', 'required')">
+                            Este campo es obligatorio</h6>
+                        <h6 *ngIf="hasErrorControl('calcium', 'max')">
+                            Cantidad máxima de Calcio es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('calcium', 'min')">
+                            Cantidad mínima de Calcio es 0
+                        </h6>
+                    </label>
                 </div>
             </div>
 
@@ -112,12 +214,28 @@
                         <label>Vitamina A (mg) </label>
                         <input type="number" formControlName="vitaminA" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('vitaminA')">
+                        <h6 *ngIf="hasErrorControl('vitaminA', 'max')">
+                            Cantidad máxima de Vitamina A es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('vitaminA', 'min')">
+                            Cantidad mínima de Vitamina A es 0
+                        </h6>
+                    </label>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B9 (mg) </label>
                         <input type="number" formControlName="vitaminB9" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('vitaminB9')">
+                        <h6 *ngIf="hasErrorControl('vitaminB9', 'max')">
+                            Cantidad máxima de Vitamina B9 es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('vitaminB9', 'min')">
+                            Cantidad mínima de Vitamina B9 es 0
+                        </h6>
+                    </label>
                 </div>
             </div>
 
@@ -127,12 +245,28 @@
                         <label>Vitamina B1 (mg) </label>
                         <input type="number" formControlName="vitaminB1" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('vitaminB1')">
+                        <h6 *ngIf="hasErrorControl('vitaminB1', 'max')">
+                            Cantidad máxima de Vitamina B1 es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('vitaminB1', 'min')">
+                            Cantidad mínima de Vitamina B1 es 0
+                        </h6>
+                    </label>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B12 (mg) </label>
                         <input type="number" formControlName="vitaminB12" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('vitaminB12')">
+                        <h6 *ngIf="hasErrorControl('vitaminB12', 'max')">
+                            Cantidad máxima de Vitamina B12 es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('vitaminB12', 'min')">
+                            Cantidad mínima de Vitamina B12 es 0
+                        </h6>
+                    </label>
                 </div>
             </div>
 
@@ -142,12 +276,28 @@
                         <label>Vitamina B2 (mg) </label>
                         <input type="number" formControlName="vitaminB2" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('vitaminB2')">
+                        <h6 *ngIf="hasErrorControl('vitaminB2', 'max')">
+                            Cantidad máxima de Vitamina B2 es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('vitaminB2', 'min')">
+                            Cantidad mínima de Vitamina B2 es 0
+                        </h6>
+                    </label>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina C (mg) </label>
                         <input type="number" formControlName="vitaminC" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('vitaminC')">
+                        <h6 *ngIf="hasErrorControl('vitaminC', 'max')">
+                            Cantidad máxima de Vitamina C es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('vitaminC', 'min')">
+                            Cantidad mínima de Vitamina C es 0
+                        </h6>
+                    </label>
                 </div>
             </div>
 
@@ -157,12 +307,29 @@
                         <label>Vitamina B3 (mg) </label>
                         <input type="number" formControlName="vitaminB3" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('vitaminB3')">
+                        <h6 *ngIf="hasErrorControl('vitaminB3', 'max')">
+                            Cantidad máxima de Vitamina B3 es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('vitaminB3', 'min')">
+                            Cantidad mínima de Vitamina B3 es 0
+                        </h6>
+                        
+                    </label>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina D (mg) </label>
                         <input type="number" formControlName="vitaminD" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('vitaminD')">
+                        <h6 *ngIf="hasErrorControl('vitaminD', 'max')">
+                            Cantidad máxima de Vitamina D es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('vitaminD', 'min')">
+                            Cantidad mínima de Vitamina D es 0
+                        </h6>
+                    </label>
                 </div>
             </div>
 
@@ -172,12 +339,28 @@
                         <label>Vitamina B5 (mg) </label>
                         <input type="number" formControlName="vitaminB5" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('vitaminB5')">
+                        <h6 *ngIf="hasErrorControl('vitaminB5', 'max')">
+                            Cantidad máxima de Vitamina B5 es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('vitaminC', 'min')">
+                            Cantidad mínima de Vitamina C es 0
+                        </h6>
+                    </label>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina E (mg) </label>
                         <input type="number" formControlName="vitaminE" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('vitaminE')">
+                        <h6 *ngIf="hasErrorControl('vitaminE', 'max')">
+                            Cantidad máxima de Vitamina E es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('vitaminE', 'min')">
+                            Cantidad mínima de Vitamina E es 0
+                        </h6>
+                    </label>
                 </div>
             </div>
 
@@ -187,12 +370,28 @@
                         <label>Vitamina B6 (mg) </label>
                         <input type="number" formControlName="vitaminB6" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('vitaminB6')">
+                        <h6 *ngIf="hasErrorControl('vitaminB6', 'max')">
+                            Cantidad máxima de Vitamina B6 es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('vitaminB6', 'min')">
+                            Cantidad mínima de Vitamina B6 es 0
+                        </h6>
+                    </label>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina K (mg) </label>
                         <input type="number" formControlName="vitaminK" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('vitaminK')">
+                        <h6 *ngIf="hasErrorControl('vitaminK', 'max')">
+                            Cantidad máxima de Vitamina K es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('vitaminK', 'min')">
+                            Cantidad mínima de Vitamina K es 0
+                        </h6>
+                    </label>
                 </div>
             </div>
 
@@ -202,6 +401,14 @@
                         <label>Vitamina B7 (mg)</label>
                         <input type="number" formControlName="vitaminB7" class="form-control" ng-trim="false">
                     </div>
+                    <label class="errores" color="danger" *ngIf="isInvalid('vitaminB7')">
+                        <h6 *ngIf="hasErrorControl('vitaminB7', 'max')">
+                            Cantidad máxima de Vitamina B7 es 100000 mg
+                        </h6>
+                        <h6 *ngIf="hasErrorControl('vitaminB7', 'min')">
+                            Cantidad mínima de Vitamina B7 es 0
+                        </h6>
+                    </label>
                 </div>
             </div>
 
