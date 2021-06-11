@@ -6,6 +6,7 @@ import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.componen
 import { RegistroComponent } from './registro/registro.component';
 import { LoginGuardGuard } from './guards/login-guard.guard';
 import { AddProductComponent } from './add-product/add-product.component';
+import { RecommendProductComponent } from './recommend-product/recommend-product.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'detail', component: DetailComponent},
   {path: 'login', component: IniciarSesionComponent, canActivate:[LoginGuardGuard]},
   {path: 'registro', component: RegistroComponent, canActivate:[LoginGuardGuard]},
-  {path: 'add-product', component: AddProductComponent}  
+  {path: 'add-product', component: AddProductComponent},
+  {path: 'recommend-product', component: RecommendProductComponent}
 ];
 
 @NgModule({

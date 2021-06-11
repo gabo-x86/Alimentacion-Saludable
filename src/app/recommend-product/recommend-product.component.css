@@ -1,0 +1,78 @@
+#img-lat{
+    background: url(../../assets/img-backgroundRecommendProduct.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+
+    display: flex;   
+    flex-direction: row-reverse;
+}
+.backButton{
+    margin-top: 1.5em;
+    width: 40px;
+    height: 40px;
+}
+
+/*Contorno input y select*/
+.form-control{
+    background-color:#A8A8A8;
+}
+input{
+    border-radius: 10px;
+}
+select{
+    border-radius: 10px;
+}
+
+/*Tabla registro recomendados*/
+.recommend-table{
+    height: 15em;
+    overflow: scroll;
+}
+
+/*Tabla info nutricional*/
+.nutritional-info-table{
+    height: 20em;
+    overflow: scroll;
+}
+
+/*Input de rangos*/
+.rank{
+    display: flex;
+    justify-content:center;
+}
+.row .col-sm-2{
+    text-align: center;
+}
+
+
+/*Botones*/
+button{
+    border-radius: 10px;
+    border: 0;
+    height: 3em;
+}
+
+.col-md-8 .btn-success{
+    color: #131212;
+    background-color: #0AC5A8;
+    width: 100%;
+}
+.col-md-8 .btn-success:hover{
+    background-color: #0FB39A;
+}
+
+.col-md-4 .btn-success{
+    background-color: #2C3C5B;
+    color:white
+}
+.col-md-4 .btn-success:hover{
+    background-color: #232F48;
+}
+
+.btn-danger{
+    width: 100%;
+}
+.btn-danger:hover{
+    opacity: 100%;
+}

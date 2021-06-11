@@ -1,0 +1,256 @@
+<app-header [input]=false></app-header>
+<div class="row">
+    <div class="col-md-5" id="img-lat">
+        <br>
+        <input type ="image" width="40" src="../../assets/imagenretroceso.png" routerLink="/" class="backButton"/>
+    </div>
+    <!-- <div class="col-md-1" id="back-space">
+        
+    </div> -->
+    <div class="col-md-6" id="main-form">
+        <form [formGroup]="formularioRecomendacionProducto">
+            <br><h3>Recomendar alimento</h3><br>
+            
+            <div class="form-group">
+                <label>Tipo de alimento <a style="color: red;">*</a> </label>
+                <!-- <div class="row">
+                    <div class="col-sm-6"> -->
+                        <select formControlName="productName" class="form-control">
+                            <option disabled selected>Seleccione un alimento</option>
+                            <option *ngFor="let product of productList" >{{ product.name }}</option>
+                        </select>
+                    <!-- </div>
+                    <div class="col-sm-6"></div>
+                </div> -->
+            </div>
+
+            <br>
+            <div class="form-group">
+                <label> Recomendaciones hechas <a style="color: red;">*</a> </label>
+                <div class="recommend-table">
+                    <table class="table table-warning">
+                        <thead>
+                          <tr>
+                            <th scope="col">Alimento</th>
+                            <th scope="col">Ración (mg)</th>
+                            <th scope="col">Edad (años)</th>
+                            <th scope="col">Peso (Kg)</th>
+                            <th scope="col">Altura (cm)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">MANZANA</th>
+                            <td>324</td>
+                            <td>10-14</td>
+                            <td>25-35</td>
+                            <td>150-160</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">MANZANA</th>
+                            <td>324</td>
+                            <td>10-14</td>
+                            <td>25-35</td>
+                            <td>150-160</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">MANZANA</th>
+                            <td>324</td>
+                            <td>10-14</td>
+                            <td>25-35</td>
+                            <td>150-160</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">MANZANA</th>
+                            <td>324</td>
+                            <td>10-14</td>
+                            <td>25-35</td>
+                            <td>150-160</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">MANZANA</th>
+                            <td>324</td>
+                            <td>10-14</td>
+                            <td>25-35</td>
+                            <td>150-160</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">MANZANA</th>
+                            <td>324</td>
+                            <td>10-14</td>
+                            <td>25-35</td>
+                            <td>150-160</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">MANZANA</th>
+                            <td>324</td>
+                            <td>10-14</td>
+                            <td>25-35</td>
+                            <td>150-160</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">MANZANA</th>
+                            <td>324</td>
+                            <td>10-14</td>
+                            <td>25-35</td>
+                            <td>150-160</td>
+                          </tr>
+    
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+            <br>
+
+            <div class="form-group">
+                <label> Ración recomendada (mg) <a style="color: red;">*</a> </label>
+                <input type="number" formControlName="recommendedPortion" class="form-control" ng-trim="false">
+            </div>
+
+            <br>
+            <div class="form-group">
+                <label> Valores nutricionales de ración recomendada <a style="color: red;">*</a> </label>
+                    <div class="nutritional-info-table">
+                        <table class="table table-success table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">Elemento nutricional</th>
+                                <th scope="col">Valor nutricional</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Energía</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Carbohidatos</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Proteínas</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Grasas</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Colesterol</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Sodio</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Fibra</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Calcio</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Vitamina A</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Vitamina B1</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Vitamina B2</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Vitamina B3</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Vitamina B5</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Vitamina C</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Vitamina D</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Vitamina E</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Vitamina K</td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+
+            <br>
+            <hr>
+            <br>
+
+            <div class="form-group">
+                <label class="rank"> Rango de edad (años) <a style="color: red;">*</a> </label>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input type="number" formControlName="lowRankAge" class="form-control" ng-trim="false" placeholder="Rango inferior">
+                    </div>
+                    <!-- <div class="col-sm-2">-</div>  -->
+                    <div class="col-sm-6">
+                        <input type="number" formControlName="topRankAge" class="form-control" ng-trim="false" placeholder="Rango superior">
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="form-group">
+                <label class="rank"> Rango de peso (Kg) <a style="color: red;">*</a> </label>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input type="number" formControlName="lowRankWeight" class="form-control" ng-trim="false" placeholder="Rango inferior">
+                    </div>
+                    <!-- <div class="col-sm-2">-</div>  -->
+                    <div class="col-sm-6">
+                        <input type="number" formControlName="topRankWeight" class="form-control" ng-trim="false" placeholder="Rango superior">
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="form-group">
+                <label class="rank"> Rango de altura (cm) <a style="color: red;">*</a> </label>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input type="number" formControlName="lowRankHeight" class="form-control" ng-trim="false" placeholder="Rango inferior">
+                    </div>
+                    <!-- <div class="col-sm-2">-</div>  -->
+                    <div class="col-sm-6">
+                        <input type="number" formControlName="topRankHeight" class="form-control" ng-trim="false" placeholder="Rango superior">
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-danger  btn-space">Cancelar</button>
+                </div>
+                <div class="col-md-8">
+                    <button type="submit" class="btn btn-success  btn-space" (click)="prueba()">Recomendar alimento</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
