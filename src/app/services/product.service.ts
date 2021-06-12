@@ -20,7 +20,28 @@ export class ProductService {
         name: product.name,
         category: product.category,
         description: product.description,
-        //Image: product.imagen
+        energy: product.energy,
+        carbohydrates: product.carbohydrates,
+        protein: product.protein,
+        grease: product.grease,
+        cholesterol: product.cholesterol,
+        sodium: product.sodium,
+        fiber: product.fiber,
+        calcium: product.calcium,
+        vitaminA: product.vitaminA,
+        vitaminB9:product.vitaminB9,
+        vitaminB1: product.vitaminB1,
+        vitaminB12: product.vitaminB12,
+        vitaminB2: product.vitaminB2,
+        vitaminB3: product.vitaminB3,
+        vitaminB5: product.vitaminB5,
+        vitaminC: product.vitaminC,
+        vitaminD: product.vitaminD,
+        vitaminE: product.vitaminE,
+        vitaminB6: product.vitaminB6,
+        vitaminK: product.vitaminK,
+        vitaminB7: product.vitaminB7,
+        image: product.image
       });
     }
     

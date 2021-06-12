@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Registro} from 'src/app/models/models.module';
+//import {Registro} from 'src/app/models/models.module';
 import {AngularFireAuth} from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
@@ -15,7 +15,7 @@ import { exists } from 'node:fs';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  private registro: Registro;
+  //private registro: Registro;
   formularioRegistro: FormGroup;
 
   constructor(public formBuilder: FormBuilder, public userService: UserService, private router: Router) { }
