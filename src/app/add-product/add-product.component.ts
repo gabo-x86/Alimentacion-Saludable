@@ -21,7 +21,7 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log("ANTES..");
+    const Swal = require('sweetalert2');
     let product={
       name: this.formularioRegistroProducto.value.productName,
       category: this.formularioRegistroProducto.value.productType,
@@ -49,10 +49,139 @@ export class AddProductComponent implements OnInit {
       vitaminB7: this.formularioRegistroProducto.value.vitaminB7,
       image: "www.google.com"
     }
-    this.productService.insertProduct(product as Product);
+
+    if(!this.isInvalid('productName') && !this.isInvalid('productType') &&  !this.isInvalid('description') 
+    && !this.isInvalid('energeticValue') && !this.isInvalid('carbohydrates')  && !this.isInvalid('protein') 
+    && !this.isInvalid('fat') && !this.isInvalid('cholesterol') && !this.isInvalid('sodium') 
+    && !this.isInvalid('fiber') && !this.isInvalid('calcium') && !this.isInvalid('vitaminA') 
+    && !this.isInvalid('vitaminB9') && !this.isInvalid('vitaminB1') && !this.isInvalid('vitaminB12') 
+    && !this.isInvalid('vitaminB2') && !this.isInvalid('vitaminC') && !this.isInvalid('vitaminB3') 
+    && !this.isInvalid('vitaminD') && !this.isInvalid('vitaminB5') && !this.isInvalid('vitaminE') 
+    && !this.isInvalid('vitaminB6') && !this.isInvalid('vitaminK') && !this.isInvalid('vitaminB7')){
+      
+      if(product.cholesterol==''){
+        product.cholesterol=0;
+      }
+      if(product.vitaminA==''){
+        product.vitaminA=0;
+      }
+      if(product.vitaminB9==''){
+        product.vitaminB9=0;
+      }
+      if(product.vitaminB1==''){
+        product.vitaminB1=0;
+      }
+      if(product.vitaminB12==''){
+        product.vitaminB12=0;
+      }
+      if(product.vitaminB2==''){
+        product.vitaminB2=0;
+      }
+      if(product.vitaminC==''){
+        product.vitaminC=0;
+      }
+      if(product.vitaminB3==''){
+        product.vitaminB3=0;
+      }
+      if(product.vitaminD==''){
+        product.vitaminD=0;
+      }
+      if(product.vitaminB5==''){
+        product.vitaminB5=0;
+      }
+      if(product.vitaminE==''){
+        product.vitaminE=0;
+      }
+      if(product.vitaminB6==''){
+        product.vitaminB6=0;
+      }
+      if(product.vitaminK==''){
+        product.vitaminK=0;
+      }
+      if(product.vitaminB7==''){
+        product.vitaminB7=0;
+      }
+
+
+      if(product.name=='' || product.category=='' || product.energy=='' || product.carbohydrates=='' 
+      || product.protein=='' || product.grease=='' || product.sodium=='' || product.fiber=='' 
+      || product.calcium=='' || product.description==''){
+        Swal.fire({//FALTA AGREGARLO EN LOS CRITERIOS DE ACEPTACIÓN!!!!!!!!!!!!!!!!!!!
+          position: 'top-center',
+          type: 'success',
+          title: 'Llene todos los campos obligatorios (*)',
+          showConfirmButton:false,
+          timer: 2000
+        })
+      }else this.productExist(product as Product);
+
+    }else{
+      Swal.fire({//FALTA AGREGARLO EN LOS CRITERIOS DE ACEPTACIÓN!!!!!!!!!!!!!!!!!!!
+        position: 'top-center',
+        type: 'success',
+        title: 'Llene todos los campos obligatorios (*)',
+        showConfirmButton:false,
+        timer: 2000
+      })
+    }
+
+    console.log(product);
+    
     console.log("HECHO");
 
   }
+
+
+  productExist(product:Product){
+    const Swal = require('sweetalert2');
+    let productExist=false;
+    let lock=false;
+    this.productService.getProducts()
+    .snapshotChanges()
+    .subscribe(item=>{      
+      item.forEach(element=>{
+        let x = element.payload.toJSON();//Convertir a JSON
+        x["$key"]=element.key;
+        //this.userService.deleteUser(x["$key"]);
+        if(x["name"]==product.name){
+          productExist=true;
+        }
+      });
+
+      if(!productExist && !lock){
+        Swal.fire({
+          position: 'top-center',
+          type: 'success',
+          title: '',
+          showConfirmButton:false,
+          timer: 2000
+        })
+        this.productService.insertProduct(product as Product);//Insetar registro en la BD
+        lock=true;
+        this.router.navigate(['/']);
+
+      }else if(productExist && !lock){
+        Swal.fire({
+          position: 'top-center',
+          type: 'success',
+          title: 'Este alimento ya está registrado',
+          showConfirmButton:false,
+          timer: 2000
+        })
+
+      }else if(productExist){
+        Swal.fire({
+          position: 'top-center',
+          type: 'success',
+          title: 'Registro de alimento exitoso',
+          showConfirmButton:false,
+          timer: 2000
+        })
+      }
+    });
+
+  }
+
 
   public isInvalid(formControlName: string): boolean {
     let control = this.formularioRegistroProducto.controls[formControlName];
@@ -69,8 +198,8 @@ export class AddProductComponent implements OnInit {
       productName: ['', [Validators.required, Validators.maxLength(20),
          Validators.minLength(3), Validators.pattern(/^[a-zA-Z-áÁ-éÉ-íÍ-óÓ-úÚ\s\u00f1\u00d1]+$/)]],
       productType: ['', [Validators.required]],
-      description: ['', []],
-      energeticValue: ['', [Validators.required, Validators.max(3000)], Validators.min(0)],
+      description: ['', [Validators.required, Validators.maxLength(500), Validators.minLength(150)]],
+      energeticValue: ['', [Validators.required, Validators.max(3000), Validators.min(0)]],
       carbohydrates: ['', [Validators.required, Validators.max(100000), Validators.min(0)]],
       protein: ['', [Validators.required, Validators.max(100000), Validators.min(0)]],
       fat: ['', [Validators.required, Validators.max(100000), Validators.min(0)]],

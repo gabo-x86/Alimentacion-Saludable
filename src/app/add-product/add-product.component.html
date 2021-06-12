@@ -26,7 +26,7 @@
                         <h6 *ngIf="hasErrorControl('productName', 'required')">
                             Este campo es obligatorio</h6>
                         <h6 *ngIf="hasErrorControl('productName', 'pattern')">
-                            no se aceptan números, ni símbolos</h6>
+                            No se aceptan números, ni símbolos</h6>
                             
                     </label>
 
@@ -80,7 +80,7 @@
                             Cantidad máxima de Valor energético es 3000 cal
                         </h6>
                         <h6 *ngIf="hasErrorControl('energeticValue', 'min')">
-                            Cantidad mínima de Vitamina B6 es 0
+                            Cantidad mínima de Valor energético debe ser mayor a 0
                         </h6>
                         
                     </label>
@@ -97,7 +97,7 @@
                             Cantidad máxima de Carbohidratos es 100000 mg
                         </h6>
                         <h6 *ngIf="hasErrorControl('carbohydrates', 'min')">
-                            Cantidad mínima de Carbohidratos es 0
+                            Cantidad mínima de Carbohidratos debe ser mayor a 0
                         </h6>
                     </label>
                 </div>
@@ -116,7 +116,7 @@
                             Cantidad máxima de Proteínas es 100000 mg
                         </h6>
                         <h6 *ngIf="hasErrorControl('protein', 'min')">
-                            Cantidad mínima de Proteínas es 0
+                            Cantidad mínima de Proteínas debe ser mayor a 0
                         </h6>
                     </label>
                 </div>
@@ -132,7 +132,7 @@
                             Cantidad máxima de Grasas es 100000 mg
                         </h6>
                         <h6 *ngIf="hasErrorControl('fat', 'min')">
-                            Cantidad mínima de Grasas es 0
+                            Cantidad mínima de Grasas debe ser mayor a 0
                         </h6>
                     </label>
                 </div>
@@ -167,7 +167,7 @@
                             Cantidad máxima de Sodio es 100000 mg
                         </h6>
                         <h6 *ngIf="hasErrorControl('sodium', 'min')">
-                            Cantidad mínima de Sodio es 0
+                            Cantidad mínima de Sodio debe ser mayor a 0
                         </h6>
                     </label>
                 </div>
@@ -186,7 +186,7 @@
                             Cantidad máxima de Fibra es 100000 mg
                         </h6>
                         <h6 *ngIf="hasErrorControl('fiber', 'min')">
-                            Cantidad mínima de Fibra es 0
+                            Cantidad mínima de Fibra debe ser mayor a 0
                         </h6>
                     </label>
                 </div>
@@ -202,7 +202,7 @@
                             Cantidad máxima de Calcio es 100000 mg
                         </h6>
                         <h6 *ngIf="hasErrorControl('calcium', 'min')">
-                            Cantidad mínima de Calcio es 0
+                            Cantidad mínima de Calcio debe ser mayor a 0
                         </h6>
                     </label>
                 </div>
@@ -348,7 +348,7 @@
                             Cantidad máxima de Vitamina B5 es 100000 mg
                         </h6>
                         <h6 *ngIf="hasErrorControl('vitaminC', 'min')">
-                            Cantidad mínima de Vitamina C es 0
+                            Cantidad mínima de Vitamina B5 es 0
                         </h6>
                     </label>
                 </div>
@@ -417,8 +417,20 @@
             </div>
 
             <div class="col-md-12">
-                <label>Descripción</label>
+                <label>Descripción <a style="color: red;">*</a></label>
                 <textarea formControlName="description" class="form-control" ></textarea>
+
+                <label class="errores" color="danger" *ngIf="isInvalid('description')">
+                    <h6 *ngIf="hasErrorControl('description', 'minlength')">
+                        Debe tener por lo menos 150 caracteres
+                    </h6>
+                    <h6 *ngIf="hasErrorControl('description', 'maxlength')">
+                        Debe tener máximo 500 caracteres
+                    </h6>
+                    <h6 *ngIf="hasErrorControl('description', 'required')">
+                        Este campo es obligatorio
+                    </h6>
+                </label>
             </div>
 
             <br>
