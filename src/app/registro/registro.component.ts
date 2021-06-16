@@ -36,8 +36,10 @@ export class RegistroComponent implements OnInit {
         bornDate: this.formularioRegistro.value.nacimiento,
         gender: this.formularioRegistro.value.sexo,
         weight: this.formularioRegistro.value.peso,
-        height: this.formularioRegistro.value.altura
+        height: this.formularioRegistro.value.altura,
+        role: "user"
       }
+
 
       if(!this.isInvalid('alias') && !this.isInvalid('password') && this.formularioRegistro.value.password==this.formularioRegistro.value.ConfirmarPassword &&
       !this.isInvalid('email') && !this.isInvalid('nombre') && !this.isInvalid('apellido')  && !this.isInvalid('nacimiento') && 
@@ -83,8 +85,11 @@ export class RegistroComponent implements OnInit {
     .subscribe(item=>{      
       item.forEach(element=>{
         let x = element.payload.toJSON();//Convertir a JSON
+        
         x["$key"]=element.key;
         //this.userService.deleteUser(x["$key"]);
+        //this.userService.testInsert(x["$key"]);
+
         if(x["alias"]==usr.alias){
           aliasExist=true;
         }
@@ -198,6 +203,7 @@ export class RegistroComponent implements OnInit {
     return true;
 
   }
+  
 
 }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
@@ -17,7 +18,7 @@ export class RecommendProductComponent implements OnInit {
   formularioRecomendacionProducto: FormGroup;
   productList:Product[];
 
-  constructor(public productService: ProductService, public recommendService: RecommendService) { }
+  constructor(public formBuilder: FormBuilder, public productService: ProductService, public recommendService: RecommendService) { }
 
   ngOnInit(): void {
     this.getValues();
