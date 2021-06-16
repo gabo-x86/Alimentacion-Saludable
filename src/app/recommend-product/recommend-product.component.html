@@ -204,10 +204,29 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <input type="number" formControlName="lowRankAge" class="form-control" ng-trim="false" placeholder="Rango inferior">
+                        <label class="errores" color="danger" *ngIf="isInvalid('lowRankAge')">
+                            <h6 *ngIf="hasErrorControl('lowRankAge', 'min')">
+                                La edad mínima es 0 años
+                            </h6>
+                            <h6 *ngIf="hasErrorControl('lowRankAge', 'max')">
+                              La edad máxima es de 91 años
+                            </h6>
+                            <h6 *ngIf="hasErrorControl('lowRankAge', 'required')">Este campo es obligatorio</h6>
+                        </label>
+                    
                     </div>
                     <!-- <div class="col-sm-2">-</div>  -->
                     <div class="col-sm-6">
                         <input type="number" formControlName="topRankAge" class="form-control" ng-trim="false" placeholder="Rango superior">
+                        <label class="errores" color="danger" *ngIf="isInvalid('topRankAge')">
+                            <h6 *ngIf="hasErrorControl('topRankAge', 'min')">
+                                La edad mínima es 0 años
+                            </h6>
+                            <h6 *ngIf="hasErrorControl('topRankAge', 'max')">
+                                La edad máxima es de 91 años
+                            </h6>
+                            <h6 *ngIf="hasErrorControl('topRankAge', 'required')">Este campo es obligatorio</h6>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -218,10 +237,28 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <input type="number" formControlName="lowRankWeight" class="form-control" ng-trim="false" placeholder="Rango inferior">
+                        <label class="errores" color="danger" *ngIf="isInvalid('lowRankWeight')">
+                            <h6 *ngIf="hasErrorControl('lowRankWeight', 'min')">
+                                El peso mínimo es 1 kg
+                            </h6>
+                            <h6 *ngIf="hasErrorControl('lowRankWeight', 'max')">
+                                El peso máximo es 120 kg
+                            </h6>
+                            <h6 *ngIf="hasErrorControl('lowRankWeight', 'required')">Este campo es obligatorio</h6>
+                        </label>
                     </div>
                     <!-- <div class="col-sm-2">-</div>  -->
                     <div class="col-sm-6">
                         <input type="number" formControlName="topRankWeight" class="form-control" ng-trim="false" placeholder="Rango superior">
+                        <label class="errores" color="danger" *ngIf="isInvalid('topRankWeight')">
+                            <h6 *ngIf="hasErrorControl('topRankWeight', 'min')">
+                                El peso mínimo es 1 kg
+                            </h6>
+                            <h6 *ngIf="hasErrorControl('topRankWeight', 'max')">
+                                El peso máximo es 120 kg
+                            </h6>
+                            <h6 *ngIf="hasErrorControl('topRankWeight', 'required')">Este campo es obligatorio</h6>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -232,10 +269,28 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <input type="number" formControlName="lowRankHeight" class="form-control" ng-trim="false" placeholder="Rango inferior">
-                    </div>
+                   
+                        <label class="errores" color="danger" *ngIf="isInvalid('lowRankHeight')">
+                            <h6 *ngIf="hasErrorControl('lowRankHeight', 'min')">
+                                La altura mínima es 50 cm
+                            </h6>
+                            <h6 *ngIf="hasErrorControl('lowRankHeight', 'max')">
+                                La altura máxima es 250 cm
+                            </h6>
+                            <h6 *ngIf="hasErrorControl('lowRankHeight', 'required')">Este campo es obligatorio</h6>
+                        </label>                    </div>
                     <!-- <div class="col-sm-2">-</div>  -->
                     <div class="col-sm-6">
                         <input type="number" formControlName="topRankHeight" class="form-control" ng-trim="false" placeholder="Rango superior">
+                        <label class="errores" color="danger" *ngIf="isInvalid('topRankHeight')">
+                            <h6 *ngIf="hasErrorControl('topRankHeight', 'min')">
+                                La altura mínima es 50 cm
+                            </h6>
+                            <h6 *ngIf="hasErrorControl('topRankHeight', 'max')">
+                                La altura máxima es 250 cm
+                            </h6>
+                            <h6 *ngIf="hasErrorControl('topRankHeight', 'required')">Este campo es obligatorio</h6>
+                        </label>
                     </div>
                 </div>
             </div>

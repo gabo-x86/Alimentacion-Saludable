@@ -76,3 +76,6 @@ button{
 .btn-danger:hover{
     opacity: 100%;
 }
+.errores{
+    color: #FF0F00;
+}
