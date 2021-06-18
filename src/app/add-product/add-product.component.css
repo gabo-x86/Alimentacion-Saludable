@@ -65,6 +65,13 @@ button{
 .col-md-4 .btn-success:hover{
     background-color: #232F48;
 }
+.col-md-4 img{
+    width: 15em;
+    height: 15em;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
 
 
 .col-md-12 textarea{
