@@ -28,7 +28,7 @@ export class AddProductComponent implements OnInit {
   onSubmit(){
     const Swal = require('sweetalert2');
     let product={
-      name: this.formularioRegistroProducto.value.productName,
+      name: this.formularioRegistroProducto.value.productName.toUpperCase(),
       category: this.formularioRegistroProducto.value.productType,
       description: this.formularioRegistroProducto.value.description,
       energy: this.formularioRegistroProducto.value.energeticValue,
@@ -235,7 +235,7 @@ export class AddProductComponent implements OnInit {
     //console.log(this.formularioRegistro.value);
   
     onUpload(){
-      const id = this.formularioRegistroProducto.value.productName;
+      const id = this.formularioRegistroProducto.value.productName.toUpperCase();
       const file = this.files[0];
       const filePath = 'products/'+id+'.png'
       const ref = this.storage.ref(filePath);
