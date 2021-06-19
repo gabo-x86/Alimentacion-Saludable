@@ -52,7 +52,7 @@ export class AddProductComponent implements OnInit {
       vitaminB6: this.formularioRegistroProducto.value.vitaminB6,
       vitaminK: this.formularioRegistroProducto.value.vitaminK,
       vitaminB7: this.formularioRegistroProducto.value.vitaminB7,
-      image: "www.google.com"
+      image: this.prevFile
     }
 
     if(!this.isInvalid('productName') && !this.isInvalid('productType') &&  !this.isInvalid('description') 
