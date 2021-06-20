@@ -60,12 +60,12 @@
                         <img [src]="prevFile" alt="">
                     </div>                    
                 </div>
-                <div class="col-md-4">
-                    <input (change)="capFile($event)" type="file" accept=".jpg, .png, .bmp" class="btn btn-success  btn-space" placeholder="Cargar imagen">
+                <div class="col-md-8" id="fileUploadContainer">
+                    <input (change)="capFile($event)" type="file" accept=".jpg, .png, .bmp" class="custom-file-input">
                 </div>
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
 
-                </div>
+                </div> -->
             </div>
             <br>
 

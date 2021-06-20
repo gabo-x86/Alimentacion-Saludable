@@ -58,13 +58,36 @@ button{
 }
 
 
-.col-md-4 .btn-success{
+/*.col-md-4 .btn-success{
     background-color: #2C3C5B;
     color:white
 }
 .col-md-4 .btn-success:hover{
     background-color: #232F48;
+}*/
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+    display: flex;
+    position: absolute;
+    width: 1px;
 }
+.custom-file-input::before {
+    content: 'Cargar imagen';
+    display: table-cell;
+    color: #e3e3e3;
+    background: #232F48;
+    border-radius: 10px;
+    padding: 1em 3em;
+    width: fit-content;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+}
+.custom-file-input:hover::before {
+    border-color: #2C3C5B;
+}
+
 .col-md-4 img{
     width: 15em;
     height: 15em;
