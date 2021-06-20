@@ -18,16 +18,14 @@ export class RecommendProductComponent implements OnInit {
 
   formularioRecomendacionProducto: FormGroup;
   productList:Product[];
+  recommendList: Recommend[];
 
   constructor(public formBuilder: FormBuilder, public productService: ProductService, public recommendService: RecommendService, private router: Router) { }
 
-  /*ngOnInit(): void {
-    this.getValues();
-  }*/
   ngOnInit(){
     this.createformularioRecomendacionProducto();
     this.getValues();
-    //rs();
+    this.getValuesRecommend();
   }
 
   getValues(){
@@ -43,9 +41,23 @@ export class RecommendProductComponent implements OnInit {
       });
     });
   }
+  getValuesRecommend(){
+    this.recommendService.getRecommend()
+    .snapshotChanges()//Escucha la BD
+    .subscribe(item=>{
+      this.recommendList=[];
+      item.forEach(element=>{
+        let x = element.payload.toJSON();//Convertir a JSON
+        x["$key"]=element.key;
+        this.recommendList.push(x as Recommend);
+        //this.recommendList.sort((a,b)=>a.name.toString().localeCompare(b.name.toString()));//Ordena por cada vez que pushea un valor
+      });
+    });
+  }
   
 
   onSubmit(){
+    const Swal = require('sweetalert2');
     let recommend = {
       category: this.formularioRecomendacionProducto.value.productName,
       portion: this.formularioRecomendacionProducto.value.recommendedPortion,
@@ -56,6 +68,8 @@ export class RecommendProductComponent implements OnInit {
       heightMin: this.formularioRecomendacionProducto.value.lowRankHeight,
       heightMax: this.formularioRecomendacionProducto.value.topRankHeight
     }
+    
+    //if(!this.isInvalid('productName') && !this.isInvalid('productType') &&
 
     this.recommendService.insertRecommend(recommend as Recommend);
   }
@@ -70,6 +84,7 @@ export class RecommendProductComponent implements OnInit {
 
   private createformularioRecomendacionProducto() {
     this.formularioRecomendacionProducto = this.formBuilder.group({
+      productName: ['', [Validators.required]],
       recommendedPortion: ['', [ Validators.required, Validators.max(1000000), Validators.min(100)]],
       lowRankAge: ['', [ Validators.required, Validators.max(91), Validators.min(0)]],
     topRankAge: ['', [ Validators.required, Validators.max(91), Validators.min(0)]],
