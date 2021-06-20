@@ -26,7 +26,8 @@ export class RecommendProductComponent implements OnInit {
   }*/
   ngOnInit(){
     this.createformularioRecomendacionProducto();
-    //this.userService.getUsers();
+    this.getValues();
+    //rs();
   }
 
   getValues(){
@@ -69,6 +70,7 @@ export class RecommendProductComponent implements OnInit {
 
   private createformularioRecomendacionProducto() {
     this.formularioRecomendacionProducto = this.formBuilder.group({
+      recommendedPortion: ['', [ Validators.required, Validators.max(1000000), Validators.min(100)]],
       lowRankAge: ['', [ Validators.required, Validators.max(91), Validators.min(0)]],
     topRankAge: ['', [ Validators.required, Validators.max(91), Validators.min(0)]],
     lowRankWeight: ['', [ Validators.required, Validators.max(120), Validators.min(1)]],

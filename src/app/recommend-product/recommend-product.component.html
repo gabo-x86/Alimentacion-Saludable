@@ -108,6 +108,15 @@
             <div class="form-group">
                 <label> Ración recomendada (mg) <a style="color: red;">*</a> </label>
                 <input type="number" formControlName="recommendedPortion" class="form-control" ng-trim="false">
+                <label class="errores" color="danger" *ngIf="isInvalid('recommendedPortion')">
+                    <h6 *ngIf="hasErrorControl('recommendedPortion', 'min')">
+                        Cantidad mínima de Ración recomendada es 100 mg
+                    </h6>
+                    <h6 *ngIf="hasErrorControl('recommendedPortion', 'max')">
+                        Cantidad máxima de Ración recomendada es 1000000 mg
+                    </h6>
+                    <h6 *ngIf="hasErrorControl('recommendedPortion', 'required')">Este campo es obligatorio</h6>
+                </label>
             </div>
 
             <br>
