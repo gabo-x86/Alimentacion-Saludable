@@ -31,8 +31,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { RecommendProductComponent } from './recommend-product/recommend-product.component';
 
-
-
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -56,7 +55,8 @@ import { RecommendProductComponent } from './recommend-product/recommend-product
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [
     ProductService

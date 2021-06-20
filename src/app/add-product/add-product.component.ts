@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { Product } from './../models/product';
 import { ProductService } from './../services/product.service';
 
+import { DomSanitizer } from '@angular/platform-browser';
+import { AngularFireStorage } from '@angular/fire/storage';
+
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -12,9 +15,11 @@ import { ProductService } from './../services/product.service';
 })
 export class AddProductComponent implements OnInit {
   //private product: Product;
+  public files: any = [];
+  public prevFile: string;
   formularioRegistroProducto: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, private productService: ProductService, private router: Router) { }
+  constructor(public formBuilder: FormBuilder, private productService: ProductService, private router: Router, private sanitizer: DomSanitizer, private storage: AngularFireStorage) { }
 
   ngOnInit() {
     this.createFormularioRegistroProducto();
@@ -23,7 +28,7 @@ export class AddProductComponent implements OnInit {
   onSubmit(){
     const Swal = require('sweetalert2');
     let product={
-      name: this.formularioRegistroProducto.value.productName,
+      name: this.formularioRegistroProducto.value.productName.toUpperCase(),
       category: this.formularioRegistroProducto.value.productType,
       description: this.formularioRegistroProducto.value.description,
       energy: this.formularioRegistroProducto.value.energeticValue,
@@ -47,7 +52,7 @@ export class AddProductComponent implements OnInit {
       vitaminB6: this.formularioRegistroProducto.value.vitaminB6,
       vitaminK: this.formularioRegistroProducto.value.vitaminK,
       vitaminB7: this.formularioRegistroProducto.value.vitaminB7,
-      image: "www.google.com"
+      image: this.prevFile
     }
 
     if(!this.isInvalid('productName') && !this.isInvalid('productType') &&  !this.isInvalid('description') 
@@ -157,6 +162,7 @@ export class AddProductComponent implements OnInit {
           timer: 2000
         })
         this.productService.insertProduct(product as Product);//Insetar registro en la BD
+        this.onUpload();//Insertar imagen en la BD
         lock=true;
         this.router.navigate(['/']);
 
@@ -228,4 +234,42 @@ export class AddProductComponent implements OnInit {
 //event.preventDefault(); 
     //console.log(this.formularioRegistro.value);
   
+    onUpload(){
+      const id = this.formularioRegistroProducto.value.productName.toUpperCase();
+      const file = this.files[0];
+      const filePath = 'products/'+id+'.png'
+      const ref = this.storage.ref(filePath);
+      const task = this.storage.upload(filePath, file);
+    }
+
+    capFile(event): any{//Mostrar vista previa
+      const file = event.target.files[0];
+      this.extraerBase64(file).then((image: any)=>{
+        this.prevFile = image.base;
+      });
+      this.files.push(file);
+      //console.log()
+    }
+
+    extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
+      try {
+        const unsafeImg = window.URL.createObjectURL($event);
+        const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+        const reader = new FileReader();
+        reader.readAsDataURL($event);
+        reader.onload = () => {
+          resolve({
+            base: reader.result
+          });
+        };
+        reader.onerror = error => {
+          resolve({
+            base: null
+          });
+        };
+  
+      } catch (e) {
+        return null;
+      }
+    })
 }

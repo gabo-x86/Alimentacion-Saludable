@@ -56,10 +56,12 @@
             <br>
             <div class="row">
                 <div class="col-md-4">
-
+                    <div *ngIf="prevFile" >
+                        <img [src]="prevFile" alt="">
+                    </div>                    
                 </div>
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-success  btn-space">Cargar imagen</button>
+                    <input (change)="capFile($event)" type="file" accept=".jpg, .png, .bmp" class="btn btn-success  btn-space" placeholder="Cargar imagen">
                 </div>
                 <div class="col-md-4">
 

@@ -25,10 +25,15 @@ export class UserService {
       bornDate: user.bornDate,
       gender: user.gender,
       weight: user.weight,
-      height: user.height
+      height: user.height,
+      role: user.role
     });
   }
   deleteUser($key: string){
     this.userList.remove($key);
+  }
+  
+  testInsert($key: string){
+    this.userList.set("/"+$key+"/role", "user");
   }
 }

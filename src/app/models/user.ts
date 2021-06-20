@@ -9,4 +9,5 @@ export class User {
     gender: string;
     weight: string;
     height: string;
+    role: string;
 }

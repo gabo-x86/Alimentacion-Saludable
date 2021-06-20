@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
 import { Router } from '@angular/router';
+
+import { RecommendService } from '../services/recommend.service';
+import { Recommend } from '../models/recommend';
 
 @Component({
   selector: 'app-recommend-product',
@@ -15,9 +19,7 @@ export class RecommendProductComponent implements OnInit {
   formularioRecomendacionProducto: FormGroup;
   productList:Product[];
 
-  constructor(public productService:ProductService,
-     public formBuilder: FormBuilder,
-     private router: Router ) { }
+  constructor(public formBuilder: FormBuilder, public productService: ProductService, public recommendService: RecommendService, private router: Router) { }
 
   /*ngOnInit(): void {
     this.getValues();
@@ -41,8 +43,20 @@ export class RecommendProductComponent implements OnInit {
     });
   }
   
-  prueba(){
-    console.log(this.productList.length);
+
+  onSubmit(){
+    let recommend = {
+      category: this.formularioRecomendacionProducto.value.productName,
+      portion: this.formularioRecomendacionProducto.value.recommendedPortion,
+      ageMin: this.formularioRecomendacionProducto.value.lowRankAge,
+      ageMax: this.formularioRecomendacionProducto.value.topRankAge,
+      weightMin: this.formularioRecomendacionProducto.value.lowRankWeight,
+      weightMax: this.formularioRecomendacionProducto.value.topRankWeight,
+      heightMin: this.formularioRecomendacionProducto.value.lowRankHeight,
+      heightMax: this.formularioRecomendacionProducto.value.topRankHeight
+    }
+
+    this.recommendService.insertRecommend(recommend as Recommend);
   }
   public isInvalid(formControlName: string): boolean {
     let control = this.formularioRecomendacionProducto.controls[formControlName];
