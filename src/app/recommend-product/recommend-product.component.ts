@@ -100,6 +100,7 @@ export class RecommendProductComponent implements OnInit {
   
 
   onSubmit(){
+    //console.log("LOG: >>>>> "+this.ageMin);
     const Swal = require('sweetalert2');
     let recommend = {
       category: this.currentData.name.toString(),
@@ -111,9 +112,10 @@ export class RecommendProductComponent implements OnInit {
       heightMin: this.formularioRecomendacionProducto.value.lowRankHeight,
       heightMax: this.formularioRecomendacionProducto.value.topRankHeight
     }
+    
 
-    if(this.ageMin!=undefined && this.ageMax!=undefined && this.weightMin!=undefined && 
-      this.weightMax!=undefined && this.heightMin!=undefined && this.heightMax!=undefined){
+    if(this.ageMin!=null && this.ageMax!=null && this.weightMin!=null && 
+      this.weightMax!=null && this.heightMin!=null && this.heightMax!=null){
 
       if(!this.isInvalid('productName') && !this.isInvalid('recommendedPortion') && 
       !this.isInvalid('lowRankAge') && !this.isInvalid('topRankAge') && 
@@ -123,8 +125,7 @@ export class RecommendProductComponent implements OnInit {
       !this.isOlder(this.weightMin.toString(),this.weightMax.toString()) && 
       !this.isOlder(this.heightMin.toString(),this.heightMax.toString())){
         
-        if(recommend.category=='' || recommend.portion=='' || recommend.ageMin=='' || recommend.ageMax=='' 
-        || recommend.weightMin=='' || recommend.weightMax=='' || recommend.heightMin=='' || recommend.heightMax==''){
+        if(recommend.category=='' || recommend.portion=='' || recommend.weightMin=='' || recommend.weightMax=='' || recommend.heightMin=='' || recommend.heightMax==''){
           Swal.fire({//FALTA AGREGARLO EN LOS CRITERIOS DE ACEPTACIÓN!!!!!!!!!!!!!!!!!!!
             position: 'top-center',
             type: 'success',
@@ -135,13 +136,13 @@ export class RecommendProductComponent implements OnInit {
         }else this.recommendExist(recommend as Recommend);
 
       }else{
-        Swal.fire({//FALTA AGREGARLO EN LOS CRITERIOS DE ACEPTACIÓN!!!!!!!!!!!!!!!!!!!
-          position: 'top-center',
-          type: 'success',
-          title: 'Llene todos los campos obligatorios (*)',
-          showConfirmButton:false,
-          timer: 2000
-        })
+        // Swal.fire({//FALTA AGREGARLO EN LOS CRITERIOS DE ACEPTACIÓN!!!!!!!!!!!!!!!!!!!
+        //   position: 'top-center',
+        //   type: 'success',
+        //   title: 'Llene todos los campos obligatorios (*)',
+        //   showConfirmButton:false,
+        //   timer: 2000
+        // })
       }
     }else{
       Swal.fire({//FALTA AGREGARLO EN LOS CRITERIOS DE ACEPTACIÓN!!!!!!!!!!!!!!!!!!!
@@ -235,7 +236,7 @@ export class RecommendProductComponent implements OnInit {
     this.formularioRecomendacionProducto = this.formBuilder.group({
       productName: ['', [Validators.required]],
       recommendedPortion: ['', [ Validators.required, Validators.max(1000000), Validators.min(100)]],
-      lowRankAge: ['', [ Validators.required, Validators.min(0), Validators.max(91)]],
+      lowRankAge: ['', [ Validators.required, Validators.max(91), Validators.min(0)]],
       topRankAge: ['', [ Validators.required, Validators.max(91), Validators.min(0)]],
       lowRankWeight: ['', [ Validators.required, Validators.max(120), Validators.min(1)]],
       topRankWeight: ['', [ Validators.required, Validators.max(120), Validators.min(1)]],
