@@ -50,7 +50,7 @@ export class RecommendProductComponent implements OnInit {
       vitaminK: 0,
       vitaminB7: 0,
       image: ""
-    }
+    };    
   }
 
   ngOnInit(){
@@ -76,16 +76,12 @@ export class RecommendProductComponent implements OnInit {
     this.recommendService.getRecommend()
     .snapshotChanges()//Escucha la BD
     .subscribe(item=>{
-      this.recommendList=[];
-      this.currentDataList=[];
+      this.recommendList=[];      
       item.forEach(element=>{
         let x = element.payload.toJSON();//Convertir a JSON
         x["$key"]=element.key;
         this.recommendList.push(x as Recommend);
         //this.recommendList.sort((a,b)=>a.name.toString().localeCompare(b.name.toString()));//Ordena por cada vez que pushea un valor
-        if(x["category"] == this.currentData.name){
-          this.currentDataList.push(x as Recommend);
-        }
       });
     });
   }
@@ -230,9 +226,14 @@ export class RecommendProductComponent implements OnInit {
 
   }
 
-  bringRecommendedData(){
-    console.log("Captura de dato: "+this.currentData.name);
-    
+  bringRecommendedData(){    
+    this.currentDataList=[];
+    let len = this.recommendList.length;
+    for(let i=0;i<len;i++){
+      if(this.recommendList[i].category == this.currentData.name){
+        this.currentDataList.push(this.recommendList[i]);
+      }
+    }
   }
 
 }
