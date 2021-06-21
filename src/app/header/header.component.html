@@ -1,37 +1,37 @@
 <div class="row">
-  <div class="col-md-3">
-    <nav class="navbar navbar-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" routerLink="/" (click)="refresh()">
-          <img src="../../assets/logo2.png" alt="" width="70" height="70" class="d-inline-block align-text-top">
-          <a  class="d-inline-block align-text-top">GOODLIFE</a>
-        </a>  
-      </div>  
-    </nav>
-  </div>
-  <div class="col-md-9" *ngIf="user==false"><!-- ; else LoggedIn -->
-    <a href="" class="boton_reg" routerLink="/registro/">Registrarse</a>
-    <a href="" class="boton_ini" routerLink="/login/">Iniciar Sesión</a>
-  </div>
+    <div class="col-md-3">
+        <nav class="navbar navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" routerLink="/" (click)="refresh()">
+                    <img src="../../assets/logo2.png" alt="" width="70" height="70" class="d-inline-block align-text-top">
+                    <a class="d-inline-block align-text-top">GOODLIFE</a>
+                </a>
+            </div>
+        </nav>
+    </div>
+    <div class="col-md-9" *ngIf="user==false">
+        <!-- ; else LoggedIn -->
+        <a href="" class="boton_reg" routerLink="/registro/">Registrarse</a>
+        <a href="" class="boton_ini" routerLink="/login/">Iniciar Sesión</a>
+    </div>
     <!-- <ng-template #LoggedIn> -->
     <div class="col-md-9" id="logged" *ngIf="user==true">
-      
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
           <a>{{ cacheUser["alias"] }}</a>
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <li *ngIf="cacheUser['role']=='admin'"><button class="dropdown-item" type="button" routerLink="/add-product">Añadir alimento</button></li>
-          <li *ngIf="cacheUser['role']=='admin'"><button class="dropdown-item" type="button" routerLink="/recommend-product">Recomendar alimento</button></li>
-          <li *ngIf="cacheUser['role']=='user'"><button class="dropdown-item" type="button" routerLink="/">Alimentos recomendados</button></li>
-          <!-- <li><button class="dropdown-item" type="button" routerLink="/" (click)="onLogOut()">Cerrar Sesión</button></li> -->
-        </ul>
-      </div>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li *ngIf="cacheUser['role']=='admin'"><button class="dropdown-item" type="button" routerLink="/add-product">Añadir alimento</button></li>
+                <li *ngIf="cacheUser['role']=='admin'"><button class="dropdown-item" type="button" routerLink="/recommend-product">Recomendar alimento</button></li>
+                <li *ngIf="cacheUser['role']=='user'"><button class="dropdown-item" type="button" routerLink="/usuario-component">Alimentos recomendados</button></li>
+                <!-- <li><button class="dropdown-item" type="button" routerLink="/" (click)="onLogOut()">Cerrar Sesión</button></li> -->
+            </ul>
+        </div>
 
-      <img src="../../assets/user.png" alt="" (click)="bestValue(0,0,0,0,0,0,0,0)">
-      <a href="" class="boton_reg" routerLink="/" (click)="onLogOut()">Cerrar Sesión</a>
+        <img src="../../assets/user.png" alt="" (click)="bestValue(0,0,0,0,0,0,0,0)">
+        <a href="" class="boton_reg" routerLink="/" (click)="onLogOut()">Cerrar Sesión</a>
     </div>
-  <!-- </ng-template> -->
-   
-</div>
+    <!-- </ng-template> -->
 
+</div>
