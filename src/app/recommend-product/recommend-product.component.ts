@@ -20,7 +20,38 @@ export class RecommendProductComponent implements OnInit {
   productList:Product[];
   recommendList: Recommend[];
 
-  constructor(public formBuilder: FormBuilder, public productService: ProductService, public recommendService: RecommendService, private router: Router) { }
+  currentData;
+  currentDataList: Recommend[];
+
+  constructor(public formBuilder: FormBuilder, public productService: ProductService, public recommendService: RecommendService, private router: Router) { 
+    this.currentData={
+      name: "",
+      category: "",
+      description: "",
+      energy: 0,
+      carbohydrates: 0,
+      protein: 0,
+      grease: 0,
+      cholesterol: 0,
+      sodium: 0,
+      fiber: 0,
+      calcium: 0,
+      vitaminA: 0,
+      vitaminB9: 0,
+      vitaminB1: 0,
+      vitaminB12: 0,
+      vitaminB2: 0,
+      vitaminC: 0,
+      vitaminB3: 0,
+      vitaminD: 0,
+      vitaminB5: 0,
+      vitaminE: 0,
+      vitaminB6: 0,
+      vitaminK: 0,
+      vitaminB7: 0,
+      image: ""
+    }
+  }
 
   ngOnInit(){
     this.createformularioRecomendacionProducto();
@@ -46,11 +77,15 @@ export class RecommendProductComponent implements OnInit {
     .snapshotChanges()//Escucha la BD
     .subscribe(item=>{
       this.recommendList=[];
+      this.currentDataList=[];
       item.forEach(element=>{
         let x = element.payload.toJSON();//Convertir a JSON
         x["$key"]=element.key;
         this.recommendList.push(x as Recommend);
         //this.recommendList.sort((a,b)=>a.name.toString().localeCompare(b.name.toString()));//Ordena por cada vez que pushea un valor
+        if(x["category"] == this.currentData.name){
+          this.currentDataList.push(x as Recommend);
+        }
       });
     });
   }
@@ -193,6 +228,11 @@ export class RecommendProductComponent implements OnInit {
     }
     return true;
 
+  }
+
+  bringRecommendedData(){
+    console.log("Captura de dato: "+this.currentData.name);
+    
   }
 
 }

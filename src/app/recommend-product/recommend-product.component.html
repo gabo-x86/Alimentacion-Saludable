@@ -13,9 +13,9 @@
             
             <div class="form-group">
                 <label>Alimento<a style="color: red;">*</a> </label>
-                <select formControlName="productName" class="form-control">
+                <select formControlName="productName" class="form-control" [(ngModel)]="currentData" (change)='bringRecommendedData()'>
                     <option disabled selected>Seleccione un alimento</option>
-                    <option *ngFor="let product of productList" >{{ product.name }}</option>
+                    <option *ngFor="let product of productList" [ngValue]="product">{{ product.name }}</option>
                 </select>
             </div>
             <br>
@@ -34,63 +34,13 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">MANZANA</th>
-                            <td>324</td>
-                            <td>10-14</td>
-                            <td>25-35</td>
-                            <td>150-160</td>
+                          <tr *ngFor="let recommended of currentDataList">
+                            <th scope="row">{{ recommended.category }}</th>
+                            <td>{{ recommended.portion }}</td>
+                            <td>{{ recommended.ageMin }} - {{ recommended.ageMax }}</td>
+                            <td>{{ recommended.weightMin }} - {{ recommended.weightMax }}</td>
+                            <td>{{ recommended.heightMin }} - {{ recommended.heightMax }}</td>
                           </tr>
-                          <tr>
-                            <th scope="row">MANZANA</th>
-                            <td>324</td>
-                            <td>10-14</td>
-                            <td>25-35</td>
-                            <td>150-160</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">MANZANA</th>
-                            <td>324</td>
-                            <td>10-14</td>
-                            <td>25-35</td>
-                            <td>150-160</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">MANZANA</th>
-                            <td>324</td>
-                            <td>10-14</td>
-                            <td>25-35</td>
-                            <td>150-160</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">MANZANA</th>
-                            <td>324</td>
-                            <td>10-14</td>
-                            <td>25-35</td>
-                            <td>150-160</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">MANZANA</th>
-                            <td>324</td>
-                            <td>10-14</td>
-                            <td>25-35</td>
-                            <td>150-160</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">MANZANA</th>
-                            <td>324</td>
-                            <td>10-14</td>
-                            <td>25-35</td>
-                            <td>150-160</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">MANZANA</th>
-                            <td>324</td>
-                            <td>10-14</td>
-                            <td>25-35</td>
-                            <td>150-160</td>
-                          </tr>
-    
                         </tbody>
                       </table>
                 </div>
@@ -120,80 +70,96 @@
                     <div class="nutritional-info-table">
                         <table class="table table-success table-striped">
                             <thead>
-                            <tr>
-                                <th scope="col">Elemento nutricional</th>
-                                <th scope="col">Valor nutricional</th>
-                            </tr>
+                                <tr>
+                                    <th scope="col">Elemento nutricional</th>
+                                    <th scope="col">Valor nutricional</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Energía</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Carbohidatos</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Proteínas</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Grasas</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Colesterol</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Sodio</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Fibra</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Calcio</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Vitamina A</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Vitamina B1</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Vitamina B2</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Vitamina B3</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Vitamina B5</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Vitamina C</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Vitamina D</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Vitamina E</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Vitamina K</td>
-                                <td></td>
-                            </tr>
+                                <tr>
+                                    <td>Energía</td>
+                                    <td>{{ currentData.energy }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Carbohidatos</td>
+                                    <td>{{ currentData.carbohydrates }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Proteínas</td>
+                                    <td>{{ currentData.protein }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Grasas</td>
+                                    <td>{{ currentData.grease }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Colesterol</td>
+                                    <td>{{ currentData.cholesterol }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Sodio</td>
+                                    <td>{{ currentData.sodium }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Fibra</td>
+                                    <td>{{ currentData.fiber }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Calcio</td>
+                                    <td>{{ currentData.calcium }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamina A</td>
+                                    <td>{{ currentData.vitaminA }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamina B1</td>
+                                    <td>{{ currentData.vitaminB1 }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamina B2</td>
+                                    <td>{{ currentData.vitaminB2 }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamina B3</td>
+                                    <td>{{ currentData.vitaminB3 }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamina B5</td>
+                                    <td>{{ currentData.vitaminB5 }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamina B6</td>
+                                    <td>{{ currentData.vitaminB6 }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamina B7</td>
+                                    <td>{{ currentData.vitaminB7 }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamina B9</td>
+                                    <td>{{ currentData.vitaminB9 }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamina B12</td>
+                                    <td>{{ currentData.vitaminB12 }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamina C</td>
+                                    <td>{{ currentData.vitaminC }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamina D</td>
+                                    <td>{{ currentData.vitaminD }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamina E</td>
+                                    <td>{{ currentData.vitaminE }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamina K</td>
+                                    <td>{{ currentData.vitaminK }}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
