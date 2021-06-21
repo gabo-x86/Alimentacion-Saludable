@@ -32,6 +32,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { RecommendProductComponent } from './recommend-product/recommend-product.component';
 
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { UsuarioComponentComponent } from './usuario-component/usuario-component.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     RegistroComponent,
     AddProductComponent,
     RecommendProductComponent,
+    UsuarioComponentComponent,
   ],
   imports: [
     BrowserModule,
