@@ -68,11 +68,102 @@ export class RecommendProductComponent implements OnInit {
       heightMin: this.formularioRecomendacionProducto.value.lowRankHeight,
       heightMax: this.formularioRecomendacionProducto.value.topRankHeight
     }
-    
-    //if(!this.isInvalid('productName') && !this.isInvalid('productType') &&
 
-    this.recommendService.insertRecommend(recommend as Recommend);
+    if(!this.isInvalid('productName') && !this.isInvalid('recommendedPortion') && 
+    !this.isInvalid('lowRankAge') && !this.isInvalid('topRankAge') && 
+    !this.isInvalid('lowRankWeight') && !this.isInvalid('topRankWeight') && 
+    !this.isInvalid('lowRankHeight') && !this.isInvalid('topRankHeight')){
+      
+      if(recommend.category=='' || recommend.portion=='' || recommend.ageMin=='' || recommend.ageMax=='' 
+      || recommend.weightMin=='' || recommend.weightMax=='' || recommend.heightMin=='' || recommend.heightMax==''){
+        Swal.fire({//FALTA AGREGARLO EN LOS CRITERIOS DE ACEPTACIÓN!!!!!!!!!!!!!!!!!!!
+          position: 'top-center',
+          type: 'success',
+          title: 'Llene todos los campos obligatorios (*)',
+          showConfirmButton:false,
+          timer: 2000
+        })
+      }else this.recommendExist(recommend as Recommend);
+
+    }else{
+      Swal.fire({//FALTA AGREGARLO EN LOS CRITERIOS DE ACEPTACIÓN!!!!!!!!!!!!!!!!!!!
+        position: 'top-center',
+        type: 'success',
+        title: 'Llene todos los campos obligatorios (*)',
+        showConfirmButton:false,
+        timer: 2000
+      })
+    }
+    //this.recommendService.insertRecommend(recommend as Recommend);
   }
+
+  recommendExist(recommend: Recommend){
+    const Swal = require('sweetalert2');
+    let recommendExistAgeMin=false;
+    let recommendExistAgeMax=false;
+    let lockAgeMin=false;
+    let lockAgeMax=false;
+    this.recommendService.getRecommend()
+    .snapshotChanges()
+    .subscribe(item=>{
+      item.forEach(element=>{
+        let x = element.payload.toJSON();//Convertir a JSON
+        x["$key"]=element.key;
+
+        if(recommend.ageMin>=x["ageMin"] && recommend.ageMin<=x["ageMax"] && recommend.category==x["category"]){
+          recommendExistAgeMin=true;
+        }
+        if(recommend.ageMax>=x["ageMin"] && recommend.ageMax<=x["ageMax"] && recommend.category==x["category"]){
+          recommendExistAgeMax=true;
+        }
+        
+      });
+
+      if(!recommendExistAgeMin && !lockAgeMin && !recommendExistAgeMax && !lockAgeMax){
+        Swal.fire({
+          position: 'top-center',
+          type: 'success',
+          title: '',
+          showConfirmButton:false,
+          timer: 2000
+        })
+        this.recommendService.insertRecommend(recommend as Recommend);//Insetar registro en la BD
+        lockAgeMin=true;
+        lockAgeMax=true;
+        this.router.navigate(['/']);
+
+      }else if(recommendExistAgeMin && !lockAgeMin){
+        Swal.fire({
+          position: 'top-center',
+          type: 'success',
+          title: 'Rango inferior de edad ya registrado',
+          showConfirmButton:false,
+          timer: 2000
+        })
+
+      }else if(recommendExistAgeMax && !lockAgeMax){
+        Swal.fire({
+          position: 'top-center',
+          type: 'success',
+          title: 'Rango superior de edad ya registrado',
+          showConfirmButton:false,
+          timer: 2000
+        })
+      }else if(recommendExistAgeMin && recommendExistAgeMax){
+        Swal.fire({
+          position: 'top-center',
+          type: 'success',
+          title: 'Recomendación registrada',
+          showConfirmButton:false,
+          timer: 2000
+        })
+      }
+    });
+
+  }
+
+
+
   public isInvalid(formControlName: string): boolean {
     let control = this.formularioRecomendacionProducto.controls[formControlName];
     return !control.valid && (control.dirty || control.touched);
