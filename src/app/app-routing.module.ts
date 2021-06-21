@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: 'registro', component: RegistroComponent, canActivate:[LoginGuardGuard]},
   {path: 'add-product', component: AddProductComponent},
   {path: 'recommend-product', component: RecommendProductComponent},
-  
+ 
 ];
 
 @NgModule({
