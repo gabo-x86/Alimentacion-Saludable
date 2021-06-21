@@ -7,7 +7,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { LoginGuardGuard } from './guards/login-guard.guard';
 import { AddProductComponent } from './add-product/add-product.component';
 import { RecommendProductComponent } from './recommend-product/recommend-product.component';
-
+import{ UsuarioComponentComponent} from './usuario-component/usuario-component.component';
 
 
 const routes: Routes = [
@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: 'registro', component: RegistroComponent, canActivate:[LoginGuardGuard]},
   {path: 'add-product', component: AddProductComponent},
   {path: 'recommend-product', component: RecommendProductComponent},
- 
+  {path: 'usuario-component', component: UsuarioComponentComponent}
 ];
 
 @NgModule({
