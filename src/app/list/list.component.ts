@@ -22,6 +22,7 @@ export class ListComponent implements OnInit {
 
   constructor(private productService:ProductService) { 
     localStorage.setItem("isRecommend", "false");
+    localStorage.setItem("recommendedView", "false");
   }
 
   ngOnInit() {

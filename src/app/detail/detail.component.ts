@@ -28,9 +28,6 @@ export class DetailComponent implements OnInit {
     this.productSelected = JSON.parse( localStorage.getItem("productSelected"));
     this.recommendSelected = JSON.parse( localStorage.getItem("recommendSelected"));
     this.isRecommend = localStorage.getItem("isRecommend").toString();
-
-    console.log(this.productSelected);
-    console.log(this.recommendSelected);
   }
 
 

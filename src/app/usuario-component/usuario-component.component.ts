@@ -21,6 +21,7 @@ export class UsuarioComponentComponent implements OnInit {
   public cacheUser;
 
   constructor(public productService: ProductService, public recommendService: RecommendService) { 
+    localStorage.setItem("recommendedView", "true");
   }
 
   ngOnInit(): void {
@@ -86,6 +87,7 @@ export class UsuarioComponentComponent implements OnInit {
     localStorage.setItem("productSelected", JSON.stringify(product));
     localStorage.setItem("recommendSelected", JSON.stringify(recommend));
     localStorage.setItem("isRecommend", "true");
+    
   }
 
 }
