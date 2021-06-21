@@ -23,7 +23,7 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
           <li *ngIf="cacheUser['role']=='admin'"><button class="dropdown-item" type="button" routerLink="/add-product">Añadir alimento</button></li>
           <li *ngIf="cacheUser['role']=='admin'"><button class="dropdown-item" type="button" routerLink="/recommend-product">Recomendar alimento</button></li>
-          <li *ngIf="cacheUser['role']=='user'"><button class="dropdown-item" type="button" routerLink="/">Alimentos recomendados</button></li>
+          <li *ngIf="cacheUser['role']=='user'"><button class="dropdown-item" type="button" routerLink="/usuario-component">Alimentos recomendados</button></li>
           <!-- <li><button class="dropdown-item" type="button" routerLink="/" (click)="onLogOut()">Cerrar Sesión</button></li> -->
         </ul>
       </div>
