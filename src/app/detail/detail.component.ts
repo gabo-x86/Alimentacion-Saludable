@@ -7,17 +7,30 @@ import {Router} from '@angular/router';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-  productSelected;
+  public productSelected;
+  public recommendSelected;
+  public isRecommend;
+
   constructor(private router:Router) {
   }
 
   ngOnInit(): void {
     this.getProduct();
+
+    // if(localStorage.getItem('recommendSelected')=="undefined" || localStorage.getItem('recommendSelected')==null || localStorage.getItem('recommendSelected')==undefined){
+    //   this.recommend=false;
+    // }else{
+    //   this.recommend=true;
+    // }
   }
 
   getProduct(){
-    this.productSelected = JSON.parse( localStorage.getItem("productSelected") );
+    this.productSelected = JSON.parse( localStorage.getItem("productSelected"));
+    this.recommendSelected = JSON.parse( localStorage.getItem("recommendSelected"));
+    this.isRecommend = localStorage.getItem("isRecommend").toString();
+
     console.log(this.productSelected);
+    console.log(this.recommendSelected);
   }
 
 

@@ -20,7 +20,9 @@ export class ListComponent implements OnInit {
   buscar: string;
   success:boolean
 
-  constructor(private productService:ProductService) { }
+  constructor(private productService:ProductService) { 
+    localStorage.setItem("isRecommend", "false");
+  }
 
   ngOnInit() {
     this.getValues();

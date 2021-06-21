@@ -1,38 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-    <div class="row">
-        
-        <div class="col-md-3">
-            <nav class="navbar navbar-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" routerLink="/" >
-                     <img src="../../assets/logo2.png" alt="" width="70" height="70" class="d-inline-block align-text-top">
-                     <a  class="d-inline-block align-text-top">GOODLIFE</a>
-                </a>
-                 </div>
-            </nav>
-         </div>
-    </div>
-     
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="usuario-component.component.css">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-</head>
-<body background="../../assets/img-backgroundDetail.png" >
+<app-header [input]=false></app-header>
+
+<body >
+    <!-- background="../../assets/img-backgroundDetail.png"  -->
     
     <h1 class="title">Recomendados para ti</h1>
-
     <div class="container">
        
-        <div class="card">
-            <img src="">
-            <h4>Naturaleza</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, excepturi unde?</p>
-            <a href="#">Leer más</a>
+        <div *ngFor="let recommend of recommendList" class="card">
+            <div *ngFor="let product of productList">
+                <div *ngIf="product.name==recommend.category">
+                    <img src={{product.image}}>
+                    <h4>{{ recommend.category }}</h4>
+                    <p>Ración diaria: {{ recommend.portion }} mg</p>
+                    <button class="btn btn-outline-success" (click)="saveFood(product, recommend)" routerLink="/detail">Ver más</button>
+                </div>
+            </div>            
+            
         </div>
         
-        <div class="card">
+        <!-- <div class="card">
             <img src="">
             <h4>Comida</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, excepturi unde?</p>
@@ -65,9 +51,8 @@
             <h4>Tecnología</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, excepturi unde?</p>
             <a href="#">Leer más</a>
-        </div>
+        </div> -->
 
     </div>
     
 </body>
-</html>

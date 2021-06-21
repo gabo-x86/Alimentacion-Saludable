@@ -16,9 +16,39 @@
                 <h2>{{productSelected.name}}</h2>
             </div>
         </div>
-        <div class="col-md-9">
-                      
-            
+        <div class="col-md-9" *ngIf="isRecommend=='true'">            
+            <br><h2>CATEGORÍA: {{productSelected.category}}</h2><br>
+            <p>{{productSelected.description}}</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Energía:</strong> {{productSelected.energy*recommendSelected["portion"]/100}} kcal</p>
+                    <p><strong>Carbohidratos:</strong> {{productSelected.carbohydrates*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Proteínas:</strong> {{productSelected.protein*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Grasas:</strong> {{productSelected.grease*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Colesterol:</strong> {{productSelected.cholesterol*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Sodio:</strong> {{productSelected.sodium*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Fibra:</strong> {{productSelected.fiber*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Calcio:</strong> {{productSelected.calcium*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Vitamina A:</strong> {{productSelected.vitaminA*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Vitamina B1:</strong> {{productSelected.vitaminB1*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Vitamina B2:</strong> {{productSelected.vitaminB2*recommendSelected["portion"]/100}} mg</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Vitamina B3:</strong> {{productSelected.vitaminB3*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Vitamina B5:</strong> {{productSelected.vitaminB5*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Vitamina B6:</strong> {{productSelected.vitaminB6*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Vitamina B7:</strong> {{productSelected.vitaminB7*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Vitamina B9:</strong> {{productSelected.vitaminB9*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Vitamina B12:</strong> {{productSelected.vitaminB12*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Vitamina C:</strong> {{productSelected.vitaminC*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Vitamina D:</strong> {{productSelected.vitaminD*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Vitamina E:</strong> {{productSelected.vitaminE*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Vitamina K:</strong> {{productSelected.vitaminK*recommendSelected["portion"]/100}} mg</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-9" *ngIf="isRecommend=='false'">            
             <br><h2>CATEGORÍA: {{productSelected.category}}</h2><br>
             <p>{{productSelected.description}}</p>
             <div class="row">

@@ -14,14 +14,16 @@ export class HeaderComponent implements OnInit {
   public user;
   public cacheUser;
   public productList:Product[];
+  public recommendedView;
   constructor(private productService:ProductService) { 
+    this.recommendedView=false;
+    
   }
 
   ngOnInit(): void {
     this.getValues();
     /* this.user=JSON.parse(localStorage.getItem('user')); */
     if(localStorage.getItem('user')=="undefined" || localStorage.getItem('user')==null){
-      //this.user=undefined;
       this.user=false;
     }else{
       this.user=true;
@@ -54,6 +56,17 @@ export class HeaderComponent implements OnInit {
     //this.auth.auth.signOut();
     localStorage.setItem("user", undefined);
     window.location.reload();
+  }
+
+  changeRecommendViewTrue(){    
+    console.log("ANTES: "+this.recommendedView);
+      this.recommendedView=true;
+    console.log("DESPUES: "+this.recommendedView);
+  }
+  changeRecommendViewFalse(){ 
+    console.log("ANTES: "+this.recommendedView);
+      this.recommendedView=false;
+    console.log("DESPUES: "+this.recommendedView);
   }
 
 
