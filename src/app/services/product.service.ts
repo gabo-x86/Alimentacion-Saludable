@@ -56,4 +56,11 @@ export class ProductService {
     deleteProduct($key: string){
       this.productList.remove($key);
     }
+
+    // testInsert($key: string){
+    //   this.productList.set("/"+$key+"/vitaminB6", 0);
+    //   this.productList.set("/"+$key+"/vitaminB7", 0);
+    //   this.productList.set("/"+$key+"/vitaminB9", 0);
+    //   this.productList.set("/"+$key+"/vitaminB12", 0);
+    // }
 }

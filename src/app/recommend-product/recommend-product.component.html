@@ -78,87 +78,87 @@
                             <tbody>
                                 <tr>
                                     <td>Energía</td>
-                                    <td>{{ currentData.energy }}</td>
+                                    <td>{{ currentData.energy }} Kcal</td>
                                 </tr>
                                 <tr>
                                     <td>Carbohidatos</td>
-                                    <td>{{ currentData.carbohydrates }}</td>
+                                    <td>{{ currentData.carbohydrates }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Proteínas</td>
-                                    <td>{{ currentData.protein }}</td>
+                                    <td>{{ currentData.protein }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Grasas</td>
-                                    <td>{{ currentData.grease }}</td>
+                                    <td>{{ currentData.grease }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Colesterol</td>
-                                    <td>{{ currentData.cholesterol }}</td>
+                                    <td>{{ currentData.cholesterol }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Sodio</td>
-                                    <td>{{ currentData.sodium }}</td>
+                                    <td>{{ currentData.sodium }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Fibra</td>
-                                    <td>{{ currentData.fiber }}</td>
+                                    <td>{{ currentData.fiber }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Calcio</td>
-                                    <td>{{ currentData.calcium }}</td>
+                                    <td>{{ currentData.calcium }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina A</td>
-                                    <td>{{ currentData.vitaminA }}</td>
+                                    <td>{{ currentData.vitaminA }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B1</td>
-                                    <td>{{ currentData.vitaminB1 }}</td>
+                                    <td>{{ currentData.vitaminB1 }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B2</td>
-                                    <td>{{ currentData.vitaminB2 }}</td>
+                                    <td>{{ currentData.vitaminB2 }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B3</td>
-                                    <td>{{ currentData.vitaminB3 }}</td>
+                                    <td>{{ currentData.vitaminB3 }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B5</td>
-                                    <td>{{ currentData.vitaminB5 }}</td>
+                                    <td>{{ currentData.vitaminB5 }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B6</td>
-                                    <td>{{ currentData.vitaminB6 }}</td>
+                                    <td>{{ currentData.vitaminB6 }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B7</td>
-                                    <td>{{ currentData.vitaminB7 }}</td>
+                                    <td>{{ currentData.vitaminB7 }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B9</td>
-                                    <td>{{ currentData.vitaminB9 }}</td>
+                                    <td>{{ currentData.vitaminB9 }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B12</td>
-                                    <td>{{ currentData.vitaminB12 }}</td>
+                                    <td>{{ currentData.vitaminB12 }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina C</td>
-                                    <td>{{ currentData.vitaminC }}</td>
+                                    <td>{{ currentData.vitaminC }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina D</td>
-                                    <td>{{ currentData.vitaminD }}</td>
+                                    <td>{{ currentData.vitaminD }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina E</td>
-                                    <td>{{ currentData.vitaminE }}</td>
+                                    <td>{{ currentData.vitaminE }} mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina K</td>
-                                    <td>{{ currentData.vitaminK }}</td>
+                                    <td>{{ currentData.vitaminK }} mg</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -173,7 +173,7 @@
                 <label class="rank"> Rango de edad (años) <a style="color: red;">*</a> </label>
                 <div class="row">
                     <div class="col-sm-6">
-                        <input type="number" formControlName="lowRankAge" class="form-control" ng-trim="false" placeholder="Rango inferior">
+                        <input type="number" formControlName="lowRankAge" class="form-control" ng-trim="false" placeholder="Rango inferior" [(ngModel)]="ageMin">
                         <label class="errores" color="danger" *ngIf="isInvalid('lowRankAge')">
                             <h6 *ngIf="hasErrorControl('lowRankAge', 'min')">
                                 La edad mínima es 0 años
@@ -183,11 +183,12 @@
                             </h6>
                             <h6 *ngIf="hasErrorControl('lowRankAge', 'required')">Este campo es obligatorio</h6>
                         </label>
-                    
+                        <h6 class="errores" color="danger" *ngIf="isOlder([ageMin],[ageMax])">El rango inferior debe ser menor al rango superior</h6>
                     </div>
+
                     <!-- <div class="col-sm-2">-</div>  -->
                     <div class="col-sm-6">
-                        <input type="number" formControlName="topRankAge" class="form-control" ng-trim="false" placeholder="Rango superior">
+                        <input type="number" formControlName="topRankAge" class="form-control" placeholder="Rango superior" [(ngModel)]="ageMax">
                         <label class="errores" color="danger" *ngIf="isInvalid('topRankAge')">
                             <h6 *ngIf="hasErrorControl('topRankAge', 'min')">
                                 La edad mínima es 0 años
@@ -196,8 +197,10 @@
                                 La edad máxima es de 91 años
                             </h6>
                             <h6 *ngIf="hasErrorControl('topRankAge', 'required')">Este campo es obligatorio</h6>
+                            
                         </label>
                     </div>
+
                 </div>
             </div>
 
@@ -206,7 +209,7 @@
                 <label class="rank"> Rango de peso (Kg) <a style="color: red;">*</a> </label>
                 <div class="row">
                     <div class="col-sm-6">
-                        <input type="number" formControlName="lowRankWeight" class="form-control" ng-trim="false" placeholder="Rango inferior">
+                        <input type="number" formControlName="lowRankWeight" class="form-control" ng-trim="false" placeholder="Rango inferior" [(ngModel)]="weightMin">
                         <label class="errores" color="danger" *ngIf="isInvalid('lowRankWeight')">
                             <h6 *ngIf="hasErrorControl('lowRankWeight', 'min')">
                                 El peso mínimo es 1 kg
@@ -216,10 +219,12 @@
                             </h6>
                             <h6 *ngIf="hasErrorControl('lowRankWeight', 'required')">Este campo es obligatorio</h6>
                         </label>
+                        <h6 class="errores" color="danger" *ngIf="isOlder([weightMin],[weightMax])">El rango inferior debe ser menor al rango superior</h6>
                     </div>
+
                     <!-- <div class="col-sm-2">-</div>  -->
                     <div class="col-sm-6">
-                        <input type="number" formControlName="topRankWeight" class="form-control" ng-trim="false" placeholder="Rango superior">
+                        <input type="number" formControlName="topRankWeight" class="form-control" ng-trim="false" placeholder="Rango superior" [(ngModel)]="weightMax">
                         <label class="errores" color="danger" *ngIf="isInvalid('topRankWeight')">
                             <h6 *ngIf="hasErrorControl('topRankWeight', 'min')">
                                 El peso mínimo es 1 kg
@@ -238,7 +243,7 @@
                 <label class="rank"> Rango de altura (cm) <a style="color: red;">*</a> </label>
                 <div class="row">
                     <div class="col-sm-6">
-                        <input type="number" formControlName="lowRankHeight" class="form-control" ng-trim="false" placeholder="Rango inferior">
+                        <input type="number" formControlName="lowRankHeight" class="form-control" ng-trim="false" placeholder="Rango inferior" [(ngModel)]="heightMin">
                    
                         <label class="errores" color="danger" *ngIf="isInvalid('lowRankHeight')">
                             <h6 *ngIf="hasErrorControl('lowRankHeight', 'min')">
@@ -248,10 +253,12 @@
                                 La altura máxima es 250 cm
                             </h6>
                             <h6 *ngIf="hasErrorControl('lowRankHeight', 'required')">Este campo es obligatorio</h6>
-                        </label>                    </div>
+                        </label>                    
+                        <h6 class="errores" color="danger" *ngIf="isOlder([heightMin],[heightMax])">El rango inferior debe ser menor al rango superior</h6>
+                    </div>
                     <!-- <div class="col-sm-2">-</div>  -->
                     <div class="col-sm-6">
-                        <input type="number" formControlName="topRankHeight" class="form-control" ng-trim="false" placeholder="Rango superior">
+                        <input type="number" formControlName="topRankHeight" class="form-control" ng-trim="false" placeholder="Rango superior" [(ngModel)]="heightMax">
                         <label class="errores" color="danger" *ngIf="isInvalid('topRankHeight')">
                             <h6 *ngIf="hasErrorControl('topRankHeight', 'min')">
                                 La altura mínima es 50 cm

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators, ValidationErrors, ValidatorFn, AbstractControl} from '@angular/forms';
 
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
@@ -22,6 +22,13 @@ export class RecommendProductComponent implements OnInit {
 
   currentData;
   currentDataList: Recommend[];
+
+  ageMin: Number;
+  ageMax: Number;
+  weightMin: Number;
+  weightMax: Number;
+  heightMin: Number;
+  heightMax: Number;
 
   constructor(public formBuilder: FormBuilder, public productService: ProductService, public recommendService: RecommendService, private router: Router) { 
     this.currentData={
@@ -103,7 +110,10 @@ export class RecommendProductComponent implements OnInit {
     if(!this.isInvalid('productName') && !this.isInvalid('recommendedPortion') && 
     !this.isInvalid('lowRankAge') && !this.isInvalid('topRankAge') && 
     !this.isInvalid('lowRankWeight') && !this.isInvalid('topRankWeight') && 
-    !this.isInvalid('lowRankHeight') && !this.isInvalid('topRankHeight')){
+    !this.isInvalid('lowRankHeight') && !this.isInvalid('topRankHeight') && 
+    !this.isOlder(this.ageMin.toString(),this.ageMax.toString()) && 
+    !this.isOlder(this.weightMin.toString(),this.weightMax.toString()) && 
+    !this.isOlder(this.heightMin.toString(),this.heightMax.toString())){
       
       if(recommend.category=='' || recommend.portion=='' || recommend.ageMin=='' || recommend.ageMax=='' 
       || recommend.weightMin=='' || recommend.weightMax=='' || recommend.heightMin=='' || recommend.heightMax==''){
@@ -208,14 +218,24 @@ export class RecommendProductComponent implements OnInit {
     this.formularioRecomendacionProducto = this.formBuilder.group({
       productName: ['', [Validators.required]],
       recommendedPortion: ['', [ Validators.required, Validators.max(1000000), Validators.min(100)]],
-      lowRankAge: ['', [ Validators.required, Validators.max(91), Validators.min(0)]],
-    topRankAge: ['', [ Validators.required, Validators.max(91), Validators.min(0)]],
-    lowRankWeight: ['', [ Validators.required, Validators.max(120), Validators.min(1)]],
-    topRankWeight: ['', [ Validators.required, Validators.max(120), Validators.min(1)]],
-    lowRankHeight: ['', [ Validators.required, Validators.max(250), Validators.min(50)]],
-    topRankHeight: ['', [ Validators.required, Validators.max(250), Validators.min(50)]],
+      lowRankAge: ['', [ Validators.required, Validators.min(0), Validators.max(91)]],
+      topRankAge: ['', [ Validators.required, Validators.max(91), Validators.min(0)]],
+      lowRankWeight: ['', [ Validators.required, Validators.max(120), Validators.min(1)]],
+      topRankWeight: ['', [ Validators.required, Validators.max(120), Validators.min(1)]],
+      lowRankHeight: ['', [ Validators.required, Validators.max(250), Validators.min(50)]],
+      topRankHeight: ['', [ Validators.required, Validators.max(250), Validators.min(50)]],
     })
   }
+  
+  isOlder(minValue:string, maxValue:string){
+    if(parseInt(minValue,10) > parseInt(maxValue,10)){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+
   numericOnly(event): boolean { // restrict e,+,-,E characters in  input type number
     debugger
     const charCode = (event.which) ? event.which : event.keyCode;
