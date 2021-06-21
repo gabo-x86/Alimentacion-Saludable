@@ -30,6 +30,8 @@ export class RecommendProductComponent implements OnInit {
   heightMin: Number;
   heightMax: Number;
 
+  alphaFactor;
+
   constructor(public formBuilder: FormBuilder, public productService: ProductService, public recommendService: RecommendService, private router: Router) { 
     this.currentData={
       name: "",
@@ -57,8 +59,11 @@ export class RecommendProductComponent implements OnInit {
       vitaminK: 0,
       vitaminB7: 0,
       image: ""
-    };    
+    };
+    this.alphaFactor=100;
+    
   }
+  
 
   ngOnInit(){
     this.createformularioRecomendacionProducto();
@@ -107,16 +112,29 @@ export class RecommendProductComponent implements OnInit {
       heightMax: this.formularioRecomendacionProducto.value.topRankHeight
     }
 
-    if(!this.isInvalid('productName') && !this.isInvalid('recommendedPortion') && 
-    !this.isInvalid('lowRankAge') && !this.isInvalid('topRankAge') && 
-    !this.isInvalid('lowRankWeight') && !this.isInvalid('topRankWeight') && 
-    !this.isInvalid('lowRankHeight') && !this.isInvalid('topRankHeight') && 
-    !this.isOlder(this.ageMin.toString(),this.ageMax.toString()) && 
-    !this.isOlder(this.weightMin.toString(),this.weightMax.toString()) && 
-    !this.isOlder(this.heightMin.toString(),this.heightMax.toString())){
-      
-      if(recommend.category=='' || recommend.portion=='' || recommend.ageMin=='' || recommend.ageMax=='' 
-      || recommend.weightMin=='' || recommend.weightMax=='' || recommend.heightMin=='' || recommend.heightMax==''){
+    if(this.ageMin!=undefined && this.ageMax!=undefined && this.weightMin!=undefined && 
+      this.weightMax!=undefined && this.heightMin!=undefined && this.heightMax!=undefined){
+
+      if(!this.isInvalid('productName') && !this.isInvalid('recommendedPortion') && 
+      !this.isInvalid('lowRankAge') && !this.isInvalid('topRankAge') && 
+      !this.isInvalid('lowRankWeight') && !this.isInvalid('topRankWeight') && 
+      !this.isInvalid('lowRankHeight') && !this.isInvalid('topRankHeight') && 
+      !this.isOlder(this.ageMin.toString(),this.ageMax.toString()) && 
+      !this.isOlder(this.weightMin.toString(),this.weightMax.toString()) && 
+      !this.isOlder(this.heightMin.toString(),this.heightMax.toString())){
+        
+        if(recommend.category=='' || recommend.portion=='' || recommend.ageMin=='' || recommend.ageMax=='' 
+        || recommend.weightMin=='' || recommend.weightMax=='' || recommend.heightMin=='' || recommend.heightMax==''){
+          Swal.fire({//FALTA AGREGARLO EN LOS CRITERIOS DE ACEPTACIÓN!!!!!!!!!!!!!!!!!!!
+            position: 'top-center',
+            type: 'success',
+            title: 'Llene todos los campos obligatorios (*)',
+            showConfirmButton:false,
+            timer: 2000
+          })
+        }else this.recommendExist(recommend as Recommend);
+
+      }else{
         Swal.fire({//FALTA AGREGARLO EN LOS CRITERIOS DE ACEPTACIÓN!!!!!!!!!!!!!!!!!!!
           position: 'top-center',
           type: 'success',
@@ -124,8 +142,7 @@ export class RecommendProductComponent implements OnInit {
           showConfirmButton:false,
           timer: 2000
         })
-      }else this.recommendExist(recommend as Recommend);
-
+      }
     }else{
       Swal.fire({//FALTA AGREGARLO EN LOS CRITERIOS DE ACEPTACIÓN!!!!!!!!!!!!!!!!!!!
         position: 'top-center',
@@ -135,7 +152,7 @@ export class RecommendProductComponent implements OnInit {
         timer: 2000
       })
     }
-    //this.recommendService.insertRecommend(recommend as Recommend);
+      //this.recommendService.insertRecommend(recommend as Recommend);
   }
 
   recommendExist(recommend: Recommend){
