@@ -66,7 +66,7 @@ export class RecommendProductComponent implements OnInit {
       this.productList=[];
       item.forEach(element=>{
         let x = element.payload.toJSON();//Convertir a JSON
-        x["$key"]=element.key;
+        x["key"]=element.key;
         this.productList.push(x as Product);
         this.productList.sort((a,b)=>a.name.toString().localeCompare(b.name.toString()));//Ordena por cada vez que pushea un valor
       });
@@ -79,7 +79,7 @@ export class RecommendProductComponent implements OnInit {
       this.recommendList=[];      
       item.forEach(element=>{
         let x = element.payload.toJSON();//Convertir a JSON
-        x["$key"]=element.key;
+        x["key"]=element.key;
         this.recommendList.push(x as Recommend);
         //this.recommendList.sort((a,b)=>a.name.toString().localeCompare(b.name.toString()));//Ordena por cada vez que pushea un valor
       });
@@ -90,7 +90,7 @@ export class RecommendProductComponent implements OnInit {
   onSubmit(){
     const Swal = require('sweetalert2');
     let recommend = {
-      category: this.formularioRecomendacionProducto.value.productName,
+      category: this.currentData.name.toString(),
       portion: this.formularioRecomendacionProducto.value.recommendedPortion,
       ageMin: this.formularioRecomendacionProducto.value.lowRankAge,
       ageMax: this.formularioRecomendacionProducto.value.topRankAge,
@@ -139,7 +139,7 @@ export class RecommendProductComponent implements OnInit {
     .subscribe(item=>{
       item.forEach(element=>{
         let x = element.payload.toJSON();//Convertir a JSON
-        x["$key"]=element.key;
+        x["key"]=element.key;
 
         if(recommend.ageMin>=x["ageMin"] && recommend.ageMin<=x["ageMax"] && recommend.category==x["category"]){
           recommendExistAgeMin=true;
@@ -151,13 +151,13 @@ export class RecommendProductComponent implements OnInit {
       });
 
       if(!recommendExistAgeMin && !lockAgeMin && !recommendExistAgeMax && !lockAgeMax){
-        Swal.fire({
-          position: 'top-center',
-          type: 'success',
-          title: '',
-          showConfirmButton:false,
-          timer: 2000
-        })
+        // Swal.fire({
+        //   position: 'top-center',
+        //   type: 'success',
+        //   title: '',
+        //   showConfirmButton:false,
+        //   timer: 2000
+        // })
         this.recommendService.insertRecommend(recommend as Recommend);//Insetar registro en la BD
         lockAgeMin=true;
         lockAgeMax=true;
@@ -230,7 +230,7 @@ export class RecommendProductComponent implements OnInit {
     this.currentDataList=[];
     let len = this.recommendList.length;
     for(let i=0;i<len;i++){
-      if(this.recommendList[i].category == this.currentData.name){
+      if(this.recommendList[i].category == this.currentData.name.toString()){
         this.currentDataList.push(this.recommendList[i]);
       }
     }
