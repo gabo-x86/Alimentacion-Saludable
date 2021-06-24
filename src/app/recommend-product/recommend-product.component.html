@@ -52,7 +52,7 @@
 
             <div class="form-group">
                 <label> Ración recomendada (mg) <a style="color: red;">*</a> </label>
-                <input type="number" formControlName="recommendedPortion" class="form-control" ng-trim="false" [(ngModel)]="alphaFactor">
+                <input type="number" formControlName="recommendedPortion" class="form-control" ng-trim="false" [(ngModel)]="alphaFactor" (keypress)="numericOnly($event)">
                 <label class="errores" color="danger" *ngIf="isInvalid('recommendedPortion')">
                     <h6 *ngIf="hasErrorControl('recommendedPortion', 'min')">
                         Cantidad mínima de Ración recomendada es 100 mg
@@ -78,87 +78,108 @@
                             <tbody>
                                 <tr>
                                     <td>Energía</td>
-                                    <td>{{ currentData.energy*alphaFactor/100 }} Kcal</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.energy*alphaFactor/100 }} Kcal</td>
+                                    <td *ngIf="alphaFactor==undefined">0 Kcal</td>
                                 </tr>
                                 <tr>
                                     <td>Carbohidatos</td>
-                                    <td>{{ currentData.carbohydrates*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.carbohydrates*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Proteínas</td>
-                                    <td>{{ currentData.protein*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.protein*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Grasas</td>
-                                    <td>{{ currentData.grease*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.grease*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Colesterol</td>
-                                    <td>{{ currentData.cholesterol*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.cholesterol*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Sodio</td>
-                                    <td>{{ currentData.sodium*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.sodium*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Fibra</td>
-                                    <td>{{ currentData.fiber*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.fiber*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Calcio</td>
-                                    <td>{{ currentData.calcium*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.calcium*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina A</td>
-                                    <td>{{ currentData.vitaminA*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.vitaminA*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B1</td>
-                                    <td>{{ currentData.vitaminB1*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.vitaminB1*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B2</td>
-                                    <td>{{ currentData.vitaminB2*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.vitaminB2*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B3</td>
-                                    <td>{{ currentData.vitaminB3*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.vitaminB3*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B5</td>
-                                    <td>{{ currentData.vitaminB5*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.vitaminB5*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B6</td>
-                                    <td>{{ currentData.vitaminB6*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.vitaminB6*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B7</td>
-                                    <td>{{ currentData.vitaminB7*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.vitaminB7*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B9</td>
-                                    <td>{{ currentData.vitaminB9*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.vitaminB9*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina B12</td>
-                                    <td>{{ currentData.vitaminB12*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.vitaminB12*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina C</td>
-                                    <td>{{ currentData.vitaminC*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.vitaminC*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina D</td>
-                                    <td>{{ currentData.vitaminD*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.vitaminD*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina E</td>
-                                    <td>{{ currentData.vitaminE*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.vitaminE*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                                 <tr>
                                     <td>Vitamina K</td>
-                                    <td>{{ currentData.vitaminK*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor!=undefined">{{ currentData.vitaminK*alphaFactor/100 }} mg</td>
+                                    <td *ngIf="alphaFactor==undefined">0 mg</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -173,7 +194,7 @@
                 <label class="rank"> Rango de edad (años) <a style="color: red;">*</a> </label>
                 <div class="row">
                     <div class="col-sm-6">
-                        <input type="number" formControlName="lowRankAge" class="form-control" ng-trim="false" placeholder="Rango inferior" [(ngModel)]="ageMin">
+                        <input type="number" formControlName="lowRankAge" class="form-control" ng-trim="false" placeholder="Rango inferior" [(ngModel)]="ageMin" (keypress)="numericOnly($event)">
                         <label class="errores" color="danger" *ngIf="isInvalid('lowRankAge')">
                             <h6 *ngIf="hasErrorControl('lowRankAge', 'min')">
                                 La edad mínima es 0 años
@@ -188,7 +209,7 @@
 
                     <!-- <div class="col-sm-2">-</div>  -->
                     <div class="col-sm-6">
-                        <input type="number" formControlName="topRankAge" class="form-control" placeholder="Rango superior" [(ngModel)]="ageMax">
+                        <input type="number" formControlName="topRankAge" class="form-control" placeholder="Rango superior" [(ngModel)]="ageMax" (keypress)="numericOnly($event)">
                         <label class="errores" color="danger" *ngIf="isInvalid('topRankAge')">
                             <h6 *ngIf="hasErrorControl('topRankAge', 'min')">
                                 La edad mínima es 0 años
@@ -209,7 +230,7 @@
                 <label class="rank"> Rango de peso (Kg) <a style="color: red;">*</a> </label>
                 <div class="row">
                     <div class="col-sm-6">
-                        <input type="number" formControlName="lowRankWeight" class="form-control" ng-trim="false" placeholder="Rango inferior" [(ngModel)]="weightMin">
+                        <input type="number" formControlName="lowRankWeight" class="form-control" ng-trim="false" placeholder="Rango inferior" [(ngModel)]="weightMin" (keypress)="numericOnly($event)">
                         <label class="errores" color="danger" *ngIf="isInvalid('lowRankWeight')">
                             <h6 *ngIf="hasErrorControl('lowRankWeight', 'min')">
                                 El peso mínimo es 1 kg
@@ -224,7 +245,7 @@
 
                     <!-- <div class="col-sm-2">-</div>  -->
                     <div class="col-sm-6">
-                        <input type="number" formControlName="topRankWeight" class="form-control" ng-trim="false" placeholder="Rango superior" [(ngModel)]="weightMax">
+                        <input type="number" formControlName="topRankWeight" class="form-control" ng-trim="false" placeholder="Rango superior" [(ngModel)]="weightMax" (keypress)="numericOnly($event)">
                         <label class="errores" color="danger" *ngIf="isInvalid('topRankWeight')">
                             <h6 *ngIf="hasErrorControl('topRankWeight', 'min')">
                                 El peso mínimo es 1 kg
@@ -243,7 +264,7 @@
                 <label class="rank"> Rango de altura (cm) <a style="color: red;">*</a> </label>
                 <div class="row">
                     <div class="col-sm-6">
-                        <input type="number" formControlName="lowRankHeight" class="form-control" ng-trim="false" placeholder="Rango inferior" [(ngModel)]="heightMin">
+                        <input type="number" formControlName="lowRankHeight" class="form-control" ng-trim="false" placeholder="Rango inferior" [(ngModel)]="heightMin" (keypress)="numericOnly($event)">
                    
                         <label class="errores" color="danger" *ngIf="isInvalid('lowRankHeight')">
                             <h6 *ngIf="hasErrorControl('lowRankHeight', 'min')">
@@ -258,7 +279,7 @@
                     </div>
                     <!-- <div class="col-sm-2">-</div>  -->
                     <div class="col-sm-6">
-                        <input type="number" formControlName="topRankHeight" class="form-control" ng-trim="false" placeholder="Rango superior" [(ngModel)]="heightMax">
+                        <input type="number" formControlName="topRankHeight" class="form-control" ng-trim="false" placeholder="Rango superior" [(ngModel)]="heightMax" (keypress)="numericOnly($event)">
                         <label class="errores" color="danger" *ngIf="isInvalid('topRankHeight')">
                             <h6 *ngIf="hasErrorControl('topRankHeight', 'min')">
                                 La altura mínima es 50 cm

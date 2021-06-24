@@ -60,7 +60,6 @@ export class RecommendProductComponent implements OnInit {
       vitaminB7: 0,
       image: ""
     };
-    this.alphaFactor=100;
     
   }
   
@@ -273,5 +272,7 @@ export class RecommendProductComponent implements OnInit {
       }
     }
   }
+
+  
 
 }
