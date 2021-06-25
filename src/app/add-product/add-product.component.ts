@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -19,10 +19,34 @@ export class AddProductComponent implements OnInit {
   public prevFile: string;
   formularioRegistroProducto: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, private productService: ProductService, private router: Router, private sanitizer: DomSanitizer, private storage: AngularFireStorage) { }
+  public energeticValue;
+  public carbohydrates;
+  public protein;
+  public fat;
+  public cholesterol;
+  public sodium;
+  public fiber;
+  public calcium;
+  public vitaminA;
+  public vitaminB9;
+  public vitaminB1;
+  public vitaminB12;
+  public vitaminB2;
+  public vitaminC;
+  public vitaminB3;
+  public vitaminD;
+  public vitaminB5;
+  public vitaminE;
+  public vitaminB6;
+  public vitaminK;
+  public vitaminB7;
+
+  constructor(public formBuilder: FormBuilder, private productService: ProductService, private router: Router, private sanitizer: DomSanitizer, private storage: AngularFireStorage) { 
+    
+  }
 
   ngOnInit() {
-    this.createFormularioRegistroProducto();
+    this.createFormularioRegistroProducto();    
   }
 
   onSubmit(){
@@ -272,4 +296,20 @@ export class AddProductComponent implements OnInit {
         return null;
       }
     })
+
+
+    validarDecimales(e, event) {
+      debugger
+      const charCode = (event.which) ? event.which : event.keyCode;
+      if (charCode == 101 || charCode == 69 || charCode == 45 || charCode == 43 || charCode == 44) {
+        return false;
+      }else{
+        if(e!=null){
+          if((e.toString().indexOf('.')!=-1) && ((e.toString().substring(e.toString().indexOf('.')+1,e.toString().length)).length>4)){
+            return false;
+          }else return true;
+        }
+      }
+    }
+
 }

@@ -33,6 +33,7 @@ import { RecommendProductComponent } from './recommend-product/recommend-product
 
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { UsuarioComponentComponent } from './usuario-component/usuario-component.component';
+import { AppFiveDigitDecimaNumberDirective } from './app-five-digit-decima-number.directive';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { UsuarioComponentComponent } from './usuario-component/usuario-component
     AddProductComponent,
     RecommendProductComponent,
     UsuarioComponentComponent,
+    AppFiveDigitDecimaNumberDirective,
   ],
   imports: [
     BrowserModule,

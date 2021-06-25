@@ -72,8 +72,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Valor energético (cal) <a style="color: red;">*</a> </label>
-                        <input type="number" formControlName="energeticValue" class="form-control">
+                        <label>Valor energético (Kcal) <a style="color: red;">*</a> </label>
+                        <input type="number" formControlName="energeticValue" class="form-control" [(ngModel)]="energeticValue" (keypress)="validarDecimales(energeticValue,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('energeticValue')">
                         <h6 *ngIf="hasErrorControl('energeticValue', 'required')">
@@ -90,7 +90,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Carbohidratos (mg) <a style="color: red;">*</a> </label>
-                        <input type="number" formControlName="carbohydrates" class="form-control">
+                        <input type="number" formControlName="carbohydrates" class="form-control" [(ngModel)]="carbohydrates" (keypress)="validarDecimales(carbohydrates,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('carbohydrates')">
                         <h6 *ngIf="hasErrorControl('carbohydrates', 'required')">
@@ -109,7 +109,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Proteínas (mg) <a style="color: red;">*</a> </label>
-                        <input type="number" formControlName="protein" class="form-control" >
+                        <input type="number" formControlName="protein" class="form-control" [(ngModel)]="protein" (keypress)="validarDecimales(protein,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('protein')">
                         <h6 *ngIf="hasErrorControl('protein', 'required')">
@@ -125,7 +125,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Grasas (mg) <a style="color: red;">*</a> </label>
-                        <input type="number" formControlName="fat" class="form-control" >
+                        <input type="number" formControlName="fat" class="form-control" [(ngModel)]="fat" (keypress)="validarDecimales(fat,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('fat')">
                         <h6 *ngIf="hasErrorControl('fat', 'required')">
@@ -144,7 +144,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Colesterol (mg)</label>
-                        <input type="number" formControlName="cholesterol" class="form-control" >
+                        <input type="number" formControlName="cholesterol" class="form-control" [(ngModel)]="cholesterol" (keypress)="validarDecimales(cholesterol,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('cholesterol')">
                         <h6 *ngIf="hasErrorControl('cholesterol', 'required')">
@@ -160,7 +160,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Sodio (mg) <a style="color: red;">*</a> </label>
-                        <input type="number" formControlName="sodium" class="form-control" >
+                        <input type="number" formControlName="sodium" class="form-control" [(ngModel)]="sodium" (keypress)="validarDecimales(sodium,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('sodium')">
                         <h6 *ngIf="hasErrorControl('sodium', 'required')">
@@ -179,7 +179,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Fibra (mg) <a style="color: red;">*</a> </label>
-                        <input type="number" formControlName="fiber" class="form-control" >
+                        <input type="number" formControlName="fiber" class="form-control" [(ngModel)]="fiber" (keypress)="validarDecimales(fiber,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('fiber')">
                         <h6 *ngIf="hasErrorControl('fiber', 'required')">
@@ -195,7 +195,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Calcio (mg) <a style="color: red;">*</a> </label>
-                        <input type="number" formControlName="calcium" class="form-control" >
+                        <input type="number" formControlName="calcium" class="form-control" [(ngModel)]="calcium" (keypress)="validarDecimales(calcium,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('calcium')">
                         <h6 *ngIf="hasErrorControl('calcium', 'required')">
@@ -218,7 +218,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina A (mg) </label>
-                        <input type="number" formControlName="vitaminA" class="form-control" >
+                        <input type="number" formControlName="vitaminA" class="form-control" [(ngModel)]="vitaminA" (keypress)="validarDecimales(vitaminA,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('vitaminA')">
                         <h6 *ngIf="hasErrorControl('vitaminA', 'max')">
@@ -232,7 +232,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B9 (mg) </label>
-                        <input type="number" formControlName="vitaminB9" class="form-control" >
+                        <input type="number" formControlName="vitaminB9" class="form-control" [(ngModel)]="vitaminB9" (keypress)="validarDecimales(vitaminB9,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('vitaminB9')">
                         <h6 *ngIf="hasErrorControl('vitaminB9', 'max')">
@@ -249,7 +249,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B1 (mg) </label>
-                        <input type="number" formControlName="vitaminB1" class="form-control" >
+                        <input type="number" formControlName="vitaminB1" class="form-control" [(ngModel)]="vitaminB1" (keypress)="validarDecimales(vitaminB1,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('vitaminB1')">
                         <h6 *ngIf="hasErrorControl('vitaminB1', 'max')">
@@ -263,7 +263,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B12 (mg) </label>
-                        <input type="number" formControlName="vitaminB12" class="form-control" >
+                        <input type="number" formControlName="vitaminB12" class="form-control" [(ngModel)]="vitaminB12" (keypress)="validarDecimales(vitaminB12,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('vitaminB12')">
                         <h6 *ngIf="hasErrorControl('vitaminB12', 'max')">
@@ -280,7 +280,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B2 (mg) </label>
-                        <input type="number" formControlName="vitaminB2" class="form-control" >
+                        <input type="number" formControlName="vitaminB2" class="form-control" [(ngModel)]="vitaminB2" (keypress)="validarDecimales(vitaminB2,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('vitaminB2')">
                         <h6 *ngIf="hasErrorControl('vitaminB2', 'max')">
@@ -294,7 +294,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina C (mg) </label>
-                        <input type="number" formControlName="vitaminC" class="form-control" >
+                        <input type="number" formControlName="vitaminC" class="form-control" [(ngModel)]="vitaminC" (keypress)="validarDecimales(vitaminC,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('vitaminC')">
                         <h6 *ngIf="hasErrorControl('vitaminC', 'max')">
@@ -311,7 +311,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B3 (mg) </label>
-                        <input type="number" formControlName="vitaminB3" class="form-control" >
+                        <input type="number" formControlName="vitaminB3" class="form-control" [(ngModel)]="vitaminB3" (keypress)="validarDecimales(vitaminB3,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('vitaminB3')">
                         <h6 *ngIf="hasErrorControl('vitaminB3', 'max')">
@@ -326,7 +326,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina D (mg) </label>
-                        <input type="number" formControlName="vitaminD" class="form-control" >
+                        <input type="number" formControlName="vitaminD" class="form-control" [(ngModel)]="vitaminD" (keypress)="validarDecimales(vitaminD,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('vitaminD')">
                         <h6 *ngIf="hasErrorControl('vitaminD', 'max')">
@@ -343,7 +343,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B5 (mg) </label>
-                        <input type="number" formControlName="vitaminB5" class="form-control" >
+                        <input type="number" formControlName="vitaminB5" class="form-control" [(ngModel)]="vitaminB5" (keypress)="validarDecimales(vitaminB5,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('vitaminB5')">
                         <h6 *ngIf="hasErrorControl('vitaminB5', 'max')">
@@ -357,7 +357,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina E (mg) </label>
-                        <input type="number" formControlName="vitaminE" class="form-control" >
+                        <input type="number" formControlName="vitaminE" class="form-control" [(ngModel)]="vitaminE" (keypress)="validarDecimales(vitaminE,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('vitaminE')">
                         <h6 *ngIf="hasErrorControl('vitaminE', 'max')">
@@ -374,7 +374,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B6 (mg) </label>
-                        <input type="number" formControlName="vitaminB6" class="form-control" >
+                        <input type="number" formControlName="vitaminB6" class="form-control" [(ngModel)]="vitaminB6" (keypress)="validarDecimales(vitaminB6,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('vitaminB6')">
                         <h6 *ngIf="hasErrorControl('vitaminB6', 'max')">
@@ -388,7 +388,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina K (mg) </label>
-                        <input type="number" formControlName="vitaminK" class="form-control" >
+                        <input type="number" formControlName="vitaminK" class="form-control" [(ngModel)]="vitaminK" (keypress)="validarDecimales(vitaminK,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('vitaminK')">
                         <h6 *ngIf="hasErrorControl('vitaminK', 'max')">
@@ -405,7 +405,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Vitamina B7 (mg)</label>
-                        <input type="number" formControlName="vitaminB7" class="form-control" >
+                        <input type="number" formControlName="vitaminB7" class="form-control" [(ngModel)]="vitaminB7" (keypress)="validarDecimales(vitaminB7,$event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('vitaminB7')">
                         <h6 *ngIf="hasErrorControl('vitaminB7', 'max')">
