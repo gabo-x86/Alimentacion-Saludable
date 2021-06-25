@@ -54,7 +54,9 @@ export class HeaderComponent implements OnInit {
   onLogOut(){
     //this.auth.auth.signOut();
     localStorage.setItem("user", undefined);
-    window.location.reload();
+    if(this.input==true || this.input==null || this.input==undefined){
+      window.location.reload();
+    }
   }
 
   getRecommendView(){
