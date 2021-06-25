@@ -312,4 +312,17 @@ export class AddProductComponent implements OnInit {
       }
     }
 
+
+    validarSimbolos(event): boolean { // restrict e,+,-,E characters in  input type number
+      debugger
+      const charCode = (event.which) ? event.which : event.keyCode;
+      if (charCode == 33 || charCode == 63 || charCode == 60 || charCode == 62 ||
+         charCode == 93 || charCode == 91 || charCode == 64 || charCode == 35 ||
+         charCode == 36 || charCode == 37 || charCode == 94 || charCode == 38 || 
+         charCode == 42 || charCode == 40 || charCode == 41 || charCode == 95 ) {
+        return false;
+      }
+      return true;
+  
+    }
 }

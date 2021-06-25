@@ -420,7 +420,7 @@
 
             <div class="col-md-12">
                 <label>Descripción <a style="color: red;">*</a></label>
-                <textarea formControlName="description" class="form-control" ></textarea>
+                <textarea formControlName="description" class="form-control" (keypress)="validarSimbolos($event)"></textarea>
 
                 <label class="errores" color="danger" *ngIf="isInvalid('description')">
                     <h6 *ngIf="hasErrorControl('description', 'minlength')">
