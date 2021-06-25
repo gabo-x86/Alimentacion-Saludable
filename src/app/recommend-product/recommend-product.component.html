@@ -18,6 +18,9 @@
                     <option *ngFor="let product of productList" [ngValue]="product">{{ product.name }}</option>
                 </select>
             </div>
+            <label class="errores" color="danger" *ngIf="isInvalid('productName')">
+                    <h6 *ngIf="hasErrorControl('productName', 'required')">Este campo es obligatorio</h6>
+            </label>
             <br>
 
             <div class="form-group">

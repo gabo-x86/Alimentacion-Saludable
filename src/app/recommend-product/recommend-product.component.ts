@@ -263,7 +263,7 @@ export class RecommendProductComponent implements OnInit {
 
   }
 
-  bringRecommendedData(){    
+  bringRecommendedData(){
     this.currentDataList=[];
     let len = this.recommendList.length;
     for(let i=0;i<len;i++){
