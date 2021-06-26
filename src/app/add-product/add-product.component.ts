@@ -284,7 +284,7 @@ export class AddProductComponent implements OnInit {
 
       
       //Control tamaño archivo
-      if(file.size>5000000){
+      if(file.size>500000){
         this.outLimit=true;
       }else{
         this.outLimit=false;
