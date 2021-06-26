@@ -89,6 +89,7 @@ export class AddProductComponent implements OnInit {
     }
     product.name=this.removeTrailingSpaces(product.name);
 
+    
     if(this.outLimit==false && this.theresPicture!=false && this.isCorrectFormat==true){
 
     if(!this.isInvalid('productName') && !this.isInvalid('productType') &&  !this.isInvalid('description') 
@@ -100,49 +101,48 @@ export class AddProductComponent implements OnInit {
     && !this.isInvalid('vitaminD') && !this.isInvalid('vitaminB5') && !this.isInvalid('vitaminE') 
     && !this.isInvalid('vitaminB6') && !this.isInvalid('vitaminK') && !this.isInvalid('vitaminB7')){
       
-      if(product.cholesterol==''){
+      if(product.cholesterol==undefined){
         product.cholesterol=0;
       }
-      if(product.vitaminA==''){
+      if(product.vitaminA==undefined){
         product.vitaminA=0;
       }
-      if(product.vitaminB9==''){
+      if(product.vitaminB9==undefined){
         product.vitaminB9=0;
       }
-      if(product.vitaminB1==''){
+      if(product.vitaminB1==undefined){
         product.vitaminB1=0;
       }
-      if(product.vitaminB12==''){
+      if(product.vitaminB12==undefined){
         product.vitaminB12=0;
       }
-      if(product.vitaminB2==''){
+      if(product.vitaminB2==undefined){
         product.vitaminB2=0;
       }
-      if(product.vitaminC==''){
+      if(product.vitaminC==undefined){
         product.vitaminC=0;
       }
-      if(product.vitaminB3==''){
+      if(product.vitaminB3==undefined){
         product.vitaminB3=0;
       }
-      if(product.vitaminD==''){
+      if(product.vitaminD==undefined){
         product.vitaminD=0;
       }
-      if(product.vitaminB5==''){
+      if(product.vitaminB5==undefined){
         product.vitaminB5=0;
       }
-      if(product.vitaminE==''){
+      if(product.vitaminE==undefined){
         product.vitaminE=0;
       }
-      if(product.vitaminB6==''){
+      if(product.vitaminB6==undefined){
         product.vitaminB6=0;
       }
-      if(product.vitaminK==''){
+      if(product.vitaminK==undefined){
         product.vitaminK=0;
       }
-      if(product.vitaminB7==''){
+      if(product.vitaminB7==undefined){
         product.vitaminB7=0;
       }
-
 
       if(product.name=='' || product.category=='' || product.energy=='' || product.carbohydrates=='' 
       || product.protein=='' || product.grease=='' || product.sodium=='' || product.fiber=='' 
@@ -323,7 +323,6 @@ export class AddProductComponent implements OnInit {
 
 
     validarDecimales(e, event) {
-      debugger
       const charCode = (event.which) ? event.which : event.keyCode;
       if (charCode == 101 || charCode == 69 || charCode == 45 || charCode == 43 || charCode == 44) {
         return false;
