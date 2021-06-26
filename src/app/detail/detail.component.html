@@ -2,7 +2,7 @@
 <section>
     <div class="row">
         <div class="col-md-12">
-            <img src="../../assets/img-backgroundDetail.png" alt="">
+            <img src="../../assets/img-backgroundDetail.png" alt="" id="backgroundImg">
         </div>
     </div>    
 </section>
@@ -10,7 +10,7 @@
 <section>
     <div class="row">
         <div class="col-md-3">
-            <img src={{productSelected.image}} alt=""/>
+            <img src={{productSelected.image}} alt="" id="selectImg"/>
             <div class="back-button">
                 <img *ngIf="recommendedView=='true'" src="../../assets/icon-backButton.png" alt="" routerLink="/usuario-component">
                 <img *ngIf="recommendedView=='false'" src="../../assets/icon-backButton.png" alt="" routerLink="/">

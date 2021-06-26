@@ -1,8 +1,14 @@
 /*Background image*/
-.row img{
+#backgroundImg{
     height:30vh;
     width: 100%;
     object-fit: cover;
+    
+}
+
+.row #selectImg{
+    width: 100%;
+    height: 40vh;
 }
 
 /*Food image*/
