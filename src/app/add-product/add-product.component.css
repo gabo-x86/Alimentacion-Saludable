@@ -65,7 +65,7 @@ button{
 .col-md-4 .btn-success:hover{
     background-color: #232F48;
 }*/
-.custom-file-input::-webkit-file-upload-button {
+/*.custom-file-input::-webkit-file-upload-button {
     visibility: hidden;
     display: flex;
     position: absolute;
@@ -86,6 +86,10 @@ button{
 }
 .custom-file-input:hover::before {
     border-color: #2C3C5B;
+}*/
+
+#archivo{
+    border-radius: 0;
 }
 
 .col-md-4 img{
@@ -102,4 +106,9 @@ button{
     resize: none;
 }.errores{
     color: #FF0F00;
+}
+
+#fileUploadContainer{
+    display: flex;
+    align-items: center;
 }
