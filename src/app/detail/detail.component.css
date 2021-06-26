@@ -57,3 +57,7 @@ p{
     text-align: center;
 }
 
+.col-md-9 p{
+    overflow: hidden;
+}
+
