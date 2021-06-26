@@ -7,6 +7,7 @@ import { ProductService } from './../services/product.service';
 
 import { DomSanitizer } from '@angular/platform-browser';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-add-product',
@@ -41,8 +42,10 @@ export class AddProductComponent implements OnInit {
   public vitaminK;
   public vitaminB7;
 
+  public outLimit;
+  public theresPicture;
   constructor(public formBuilder: FormBuilder, private productService: ProductService, private router: Router, private sanitizer: DomSanitizer, private storage: AngularFireStorage) { 
-    
+    this.theresPicture=false;
   }
 
   ngOnInit() {
@@ -50,6 +53,11 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmit(){
+    //console.log(Math.floor((this.prevFile.length+2) / 3) * 4);
+    /*var input = document.getElementById('archivo');
+    var file = input.files;
+    console.log(file.size);*/
+
     const Swal = require('sweetalert2');
     let product={
       name: this.formularioRegistroProducto.value.productName.toUpperCase(),
@@ -79,6 +87,8 @@ export class AddProductComponent implements OnInit {
       image: this.prevFile
     }
     product.name=this.removeTrailingSpaces(product.name);
+
+    if(this.outLimit==false || this.theresPicture!=false){
 
     if(!this.isInvalid('productName') && !this.isInvalid('productType') &&  !this.isInvalid('description') 
     && !this.isInvalid('energeticValue') && !this.isInvalid('carbohydrates')  && !this.isInvalid('protein') 
@@ -154,7 +164,7 @@ export class AddProductComponent implements OnInit {
         timer: 2000
       })
     }
-
+    }
   }
 
 
@@ -264,12 +274,24 @@ export class AddProductComponent implements OnInit {
     }
 
     capFile(event): any{//Mostrar vista previa
+      //this.files=[]; POSIBLE SOLUCIÓN
       const file = event.target.files[0];
       this.extraerBase64(file).then((image: any)=>{
         this.prevFile = image.base;
       });
       this.files.push(file);
-      //console.log()
+
+      
+      //Control imagen
+      if(file.size>5000000){
+        this.outLimit=true;
+        console.log("TE PASASTE EN EL TAM DE TU IMAGEN");
+      }else{
+        this.outLimit=false;
+        console.log("TODO OK CON TU IMAGEN")
+      }
+      
+      this.theresPicture=true;
     }
 
     extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
@@ -329,4 +351,5 @@ export class AddProductComponent implements OnInit {
       }
       return str;
     }
+
 }
