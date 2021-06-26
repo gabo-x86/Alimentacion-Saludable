@@ -44,6 +44,7 @@ export class AddProductComponent implements OnInit {
 
   public outLimit;
   public theresPicture;
+  public isCorrectFormat;
   constructor(public formBuilder: FormBuilder, private productService: ProductService, private router: Router, private sanitizer: DomSanitizer, private storage: AngularFireStorage) { 
     this.theresPicture=false;
   }
@@ -88,7 +89,7 @@ export class AddProductComponent implements OnInit {
     }
     product.name=this.removeTrailingSpaces(product.name);
 
-    if(this.outLimit==false || this.theresPicture!=false){
+    if(this.outLimit==false && this.theresPicture!=false && this.isCorrectFormat==true){
 
     if(!this.isInvalid('productName') && !this.isInvalid('productType') &&  !this.isInvalid('description') 
     && !this.isInvalid('energeticValue') && !this.isInvalid('carbohydrates')  && !this.isInvalid('protein') 
@@ -282,16 +283,20 @@ export class AddProductComponent implements OnInit {
       this.files.push(file);
 
       
-      //Control imagen
+      //Control tamaño archivo
       if(file.size>5000000){
         this.outLimit=true;
-        //console.log("TE PASASTE EN EL TAM DE TU IMAGEN");
       }else{
         this.outLimit=false;
-        //console.log("TODO OK CON TU IMAGEN")
       }
-      
+
+      //Control si hay imagen
       this.theresPicture=true;
+
+      //Control dimensiones archivo
+      if(file.type=='image/png' || file.type=='image/bmp' || file.type=='image/jpeg' || file.type=='image/jpg'){
+        this.isCorrectFormat=true;
+      }else this.isCorrectFormat=false;
     }
 
     extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {

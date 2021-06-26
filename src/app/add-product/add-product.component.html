@@ -61,6 +61,7 @@
                     </div>                    
                     <h6 class="errores" color="danger" *ngIf="outLimit==true">Tamaño máximo de archivo es 5Mb</h6>
                     <h6 class="errores" color="danger" *ngIf="theresPicture==false" style="padding-top: 1em;">No hay imagen seleccionada</h6>
+                    <h6 class="errores" color="danger" *ngIf="isCorrectFormat==false" style="padding-top: 1em;">Solo se admite imágenes jpg, png y bmp</h6>
                 </div>
                 <div class="col-md-8" id="fileUploadContainer">
                     <input (change)="capFile($event)" type="file" accept=".jpg, .png, .bmp" class="custom-file-input" id='archivo'>
