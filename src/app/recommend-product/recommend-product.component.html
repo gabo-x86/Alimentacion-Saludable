@@ -13,13 +13,16 @@
             
             <div class="form-group">
                 <label>Alimento<a style="color: red;">*</a> </label>
-                <select formControlName="productName" class="form-control" [(ngModel)]="currentData" (change)='bringRecommendedData()'>
+                <select formControlName="productName" class="form-control" [(ngModel)]="currentData" (change)='bringRecommendedData()' (click)='theresProductSelected()'>
                     <option disabled selected>Seleccione un alimento</option>
                     <option *ngFor="let product of productList" [ngValue]="product">{{ product.name }}</option>
                 </select>
             </div>
-            <label class="errores" color="danger" *ngIf="isInvalid('productName')">
+            <!-- <label class="errores" color="danger" *ngIf="isInvalid('productName')">
                     <h6 *ngIf="hasErrorControl('productName', 'required')">Este campo es obligatorio</h6>
+            </label> -->
+            <label class="errores" color="danger" *ngIf="productSelected==false">
+                <h6>Este campo es obligatorio</h6>
             </label>
             <br>
 

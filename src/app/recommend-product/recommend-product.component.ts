@@ -32,6 +32,8 @@ export class RecommendProductComponent implements OnInit {
 
   alphaFactor;
 
+  public productSelected;
+
   constructor(public formBuilder: FormBuilder, public productService: ProductService, public recommendService: RecommendService, private router: Router) { 
     this.currentData={
       name: "",
@@ -99,10 +101,11 @@ export class RecommendProductComponent implements OnInit {
   
 
   onSubmit(){
-    //console.log("LOG: >>>>> "+this.ageMin);
-    const Swal = require('sweetalert2');
+    
+    const Swal = require('sweetalert2');    
     let recommend = {
-      category: this.currentData.name.toString(),
+      //this.currentData.name.toString()
+      category: this.formularioRecomendacionProducto.value.productName.name,
       portion: this.formularioRecomendacionProducto.value.recommendedPortion,
       ageMin: this.formularioRecomendacionProducto.value.lowRankAge,
       ageMax: this.formularioRecomendacionProducto.value.topRankAge,
@@ -112,7 +115,7 @@ export class RecommendProductComponent implements OnInit {
       heightMax: this.formularioRecomendacionProducto.value.topRankHeight
     }
     
-
+    //console.log("debug>>>>"+this.isInvalid('productName'));
     if(this.ageMin!=null && this.ageMax!=null && this.weightMin!=null && 
       this.weightMax!=null && this.heightMin!=null && this.heightMax!=null){
 
@@ -254,7 +257,6 @@ export class RecommendProductComponent implements OnInit {
 
 
   numericOnly(event): boolean { // restrict e,+,-,E characters in  input type number
-    debugger
     const charCode = (event.which) ? event.which : event.keyCode;
     if (charCode == 101 || charCode == 69 || charCode == 45 || charCode == 43 || charCode == 46 || charCode == 44) {
       return false;
@@ -273,6 +275,10 @@ export class RecommendProductComponent implements OnInit {
     }
   }
 
-  
+  theresProductSelected(){
+    if(this.formularioRecomendacionProducto.value.productName.name==''){
+      this.productSelected=false;
+    }else this.productSelected=true;
+  }
 
 }

@@ -285,10 +285,10 @@ export class AddProductComponent implements OnInit {
       //Control imagen
       if(file.size>5000000){
         this.outLimit=true;
-        console.log("TE PASASTE EN EL TAM DE TU IMAGEN");
+        //console.log("TE PASASTE EN EL TAM DE TU IMAGEN");
       }else{
         this.outLimit=false;
-        console.log("TODO OK CON TU IMAGEN")
+        //console.log("TODO OK CON TU IMAGEN")
       }
       
       this.theresPicture=true;
