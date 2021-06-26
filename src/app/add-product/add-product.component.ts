@@ -78,6 +78,7 @@ export class AddProductComponent implements OnInit {
       vitaminB7: this.formularioRegistroProducto.value.vitaminB7,
       image: this.prevFile
     }
+    product.name=this.removeTrailingSpaces(product.name);
 
     if(!this.isInvalid('productName') && !this.isInvalid('productType') &&  !this.isInvalid('description') 
     && !this.isInvalid('energeticValue') && !this.isInvalid('carbohydrates')  && !this.isInvalid('protein') 
@@ -153,10 +154,6 @@ export class AddProductComponent implements OnInit {
         timer: 2000
       })
     }
-
-    console.log(product);
-    
-    console.log("HECHO");
 
   }
 
@@ -324,5 +321,12 @@ export class AddProductComponent implements OnInit {
       }
       return true;
   
+    }
+
+    removeTrailingSpaces(str){
+      while(str[str.length-1]==' '){
+        str=str.substring(0,str.length-1);
+      }
+      return str;
     }
 }
