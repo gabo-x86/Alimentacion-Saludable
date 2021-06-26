@@ -165,6 +165,14 @@ export class AddProductComponent implements OnInit {
         timer: 2000
       })
     }
+    }else{
+      Swal.fire({//FALTA AGREGARLO EN LOS CRITERIOS DE ACEPTACIÓN!!!!!!!!!!!!!!!!!!!
+        position: 'top-center',
+        type: 'success',
+        title: 'Llene todos los campos obligatorios (*)',
+        showConfirmButton:false,
+        timer: 2000
+      })
     }
   }
 
