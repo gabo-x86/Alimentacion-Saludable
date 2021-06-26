@@ -30,10 +30,10 @@ export class UsuarioComponentComponent implements OnInit {
     this.cacheUser = JSON.parse( localStorage.getItem("user") );
     
     if (!localStorage.getItem('foo')) { 
-      localStorage.setItem('foo', 'no reload') 
-      location.reload() 
+      localStorage.setItem('foo', 'no reload') ;
+      location.reload();
     } else {
-      localStorage.removeItem('foo') 
+      localStorage.removeItem('foo') ;
     }
   }
 

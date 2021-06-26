@@ -12,7 +12,7 @@
         <div class="col-md-3">
             <img src={{productSelected.image}} alt="" id="selectImg"/>
             <div class="back-button">
-                <img *ngIf="recommendedView=='true'" src="../../assets/icon-backButton.png" alt="" routerLink="/usuario-component">
+                <img *ngIf="recommendedView=='true'" src="../../assets/icon-backButton.png" alt="" routerLink="/usuario-component" (click)="showValues()">
                 <img *ngIf="recommendedView=='false'" src="../../assets/icon-backButton.png" alt="" routerLink="/">
                 <h2>{{productSelected.name}}</h2>
             </div>
@@ -22,29 +22,29 @@
             <p>{{productSelected.description}}</p>
             <div class="row">
                 <div class="col-md-6">
-                    <p><strong>Energía:</strong> {{productSelected.energy*recommendSelected["portion"]/100}} kcal</p>
-                    <p><strong>Carbohidratos:</strong> {{productSelected.carbohydrates*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Proteínas:</strong> {{productSelected.protein*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Grasas:</strong> {{productSelected.grease*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Colesterol:</strong> {{productSelected.cholesterol*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Sodio:</strong> {{productSelected.sodium*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Fibra:</strong> {{productSelected.fiber*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Calcio:</strong> {{productSelected.calcium*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Vitamina A:</strong> {{productSelected.vitaminA*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Vitamina B1:</strong> {{productSelected.vitaminB1*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Vitamina B2:</strong> {{productSelected.vitaminB2*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Energía:</strong> {{energy}} kcal</p>
+                    <p><strong>Carbohidratos:</strong> {{carbohydrates}} mg</p>
+                    <p><strong>Proteínas:</strong> {{protein}} mg</p>
+                    <p><strong>Grasas:</strong> {{grease}} mg</p>
+                    <p><strong>Colesterol:</strong> {{cholesterol}} mg</p>
+                    <p><strong>Sodio:</strong> {{sodium}} mg</p>
+                    <p><strong>Fibra:</strong> {{fiber}} mg</p>
+                    <p><strong>Calcio:</strong> {{calcium}} mg</p>
+                    <p><strong>Vitamina A:</strong> {{vitaminA}} mg</p>
+                    <p><strong>Vitamina B1:</strong> {{vitaminB1}} mg</p>
+                    <p><strong>Vitamina B2:</strong> {{vitaminB2}} mg</p>
                 </div>
                 <div class="col-md-6">
-                    <p><strong>Vitamina B3:</strong> {{productSelected.vitaminB3*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Vitamina B5:</strong> {{productSelected.vitaminB5*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Vitamina B6:</strong> {{productSelected.vitaminB6*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Vitamina B7:</strong> {{productSelected.vitaminB7*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Vitamina B9:</strong> {{productSelected.vitaminB9*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Vitamina B12:</strong> {{productSelected.vitaminB12*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Vitamina C:</strong> {{productSelected.vitaminC*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Vitamina D:</strong> {{productSelected.vitaminD*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Vitamina E:</strong> {{productSelected.vitaminE*recommendSelected["portion"]/100}} mg</p>
-                    <p><strong>Vitamina K:</strong> {{productSelected.vitaminK*recommendSelected["portion"]/100}} mg</p>
+                    <p><strong>Vitamina B3:</strong> {{vitaminB3}} mg</p>
+                    <p><strong>Vitamina B5:</strong> {{vitaminB5}} mg</p>
+                    <p><strong>Vitamina B6:</strong> {{vitaminB6}} mg</p>
+                    <p><strong>Vitamina B7:</strong> {{vitaminB7}} mg</p>
+                    <p><strong>Vitamina B9:</strong> {{vitaminB9}} mg</p>
+                    <p><strong>Vitamina B12:</strong> {{vitaminB12}} mg</p>
+                    <p><strong>Vitamina C:</strong> {{vitaminC}} mg</p>
+                    <p><strong>Vitamina D:</strong> {{vitaminD}} mg</p>
+                    <p><strong>Vitamina E:</strong> {{vitaminE}} mg</p>
+                    <p><strong>Vitamina K:</strong> {{vitaminK}} mg</p>
                 </div>
             </div>
 
