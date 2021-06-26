@@ -183,7 +183,7 @@ export class AddProductComponent implements OnInit {
           timer: 2000
         })
         this.productService.insertProduct(product as Product);//Insetar registro en la BD
-        this.onUpload();//Insertar imagen en la BD
+        //this.onUpload();//Insertar imagen en la BD
         lock=true;
         this.router.navigate(['/']);
 

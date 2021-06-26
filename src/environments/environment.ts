@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyD5R-HOEmuHHiLfUJxjc6dVavt3k3_D1lk",
-    authDomain: "datosalimentos.firebaseapp.com",
-    databaseURL: "https://datosalimentos-default-rtdb.firebaseio.com",
-    projectId: "datosalimentos",
-    storageBucket: "datosalimentos.appspot.com",
-    messagingSenderId: "915371198218",
-    appId: "1:915371198218:web:4b30a097ade1cb32f39cf3",
-    measurementId: "G-2KTBV16N93"
+    apiKey: "AIzaSyA5VO_8PSk2kM0hk-2XATNEBgCl-2kSqHI",
+    authDomain: "datosalimentos2.firebaseapp.com",
+    databaseURL: "https://datosalimentos2-default-rtdb.firebaseio.com",
+    projectId: "datosalimentos2",
+    storageBucket: "datosalimentos2.appspot.com",
+    messagingSenderId: "140824983765",
+    appId: "1:140824983765:web:538add4d45db15cc7bca5c",
+    measurementId: "G-HKLCF1PELP"
   }
 };
 
