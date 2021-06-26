@@ -12,7 +12,8 @@
         <div class="col-md-3">
             <img src={{productSelected.image}} alt=""/>
             <div class="back-button">
-                <img src="../../assets/icon-backButton.png" alt="" routerLink="/">
+                <img *ngIf="recommendedView=='true'" src="../../assets/icon-backButton.png" alt="" routerLink="/usuario-component">
+                <img *ngIf="recommendedView=='false'" src="../../assets/icon-backButton.png" alt="" routerLink="/">
                 <h2>{{productSelected.name}}</h2>
             </div>
         </div>

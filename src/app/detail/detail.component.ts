@@ -10,13 +10,13 @@ export class DetailComponent implements OnInit {
   public productSelected;
   public recommendSelected;
   public isRecommend;
+  public recommendedView;
 
   constructor(private router:Router) {
   }
 
   ngOnInit(): void {
     this.getProduct();
-
     // if(localStorage.getItem('recommendSelected')=="undefined" || localStorage.getItem('recommendSelected')==null || localStorage.getItem('recommendSelected')==undefined){
     //   this.recommend=false;
     // }else{
@@ -28,6 +28,7 @@ export class DetailComponent implements OnInit {
     this.productSelected = JSON.parse( localStorage.getItem("productSelected"));
     this.recommendSelected = JSON.parse( localStorage.getItem("recommendSelected"));
     this.isRecommend = localStorage.getItem("isRecommend").toString();
+    this.recommendedView = localStorage.getItem('recommendedView').toString();
   }
 
 
