@@ -9,12 +9,12 @@
 
     <div class="form-group">
       <label>Correo Electrónico<a style="color:rgb(192, 17, 17);">*</a></label><br />
-      <input type="email" formControlName="email" class="form-control" autofocus pattern="[\w]{1,}[\w.+-]{0,}@[\w-]{1,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$">
+      <input type="email" formControlName="email" class="form-control" autofocus pattern="[\w]{1,}[\w.+-]{0,}@[\w-]{1,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" (keypress)="charValidator($event)">
     </div><br />
 
     <div class="form-group">
       <label>Contraseña<a style="color:rgb(192, 17, 17);">*</a></label> <br/>
-      <input type="password" formControlName="password" class="form-control">
+      <input type="password" formControlName="password" class="form-control" (keypress)="charValidator($event)">
     </div><br /><br/>
 
     <div class="form-group" class="center-content">

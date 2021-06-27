@@ -94,6 +94,12 @@ export class IniciarSesionComponent implements OnInit {
       password: ['',[Validators.required, Validators.minLength(7), Validators.maxLength(16), Validators.pattern(/(?:\D*\d){3}\D*/)]]
     })
   }
+
+  charValidator(event){
+    if(event.charCode == 13){
+      return false;
+    }else return true;
+  }
   
 }
 
