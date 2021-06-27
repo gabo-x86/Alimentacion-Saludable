@@ -332,7 +332,7 @@ export class AddProductComponent implements OnInit {
 
     validarDecimales(e, event) {
       const charCode = (event.which) ? event.which : event.keyCode;
-      if (charCode == 101 || charCode == 69 || charCode == 45 || charCode == 43 || charCode == 44) {
+      if (charCode == 101 || charCode == 69 || charCode == 45 || charCode == 43 || charCode == 44 || charCode==13) {
         return false;
       }else{
         if(e!=null){
@@ -345,12 +345,11 @@ export class AddProductComponent implements OnInit {
 
 
     validarSimbolos(event): boolean { // restrict e,+,-,E characters in  input type number
-      debugger
       const charCode = (event.which) ? event.which : event.keyCode;
       if (charCode == 33 || charCode == 63 || charCode == 60 || charCode == 62 ||
          charCode == 93 || charCode == 91 || charCode == 64 || charCode == 35 ||
          charCode == 36 || charCode == 37 || charCode == 94 || charCode == 38 || 
-         charCode == 42 || charCode == 40 || charCode == 41 || charCode == 95 ) {
+         charCode == 42 || charCode == 40 || charCode == 41 || charCode == 95 || charCode==13) {
         return false;
       }
       return true;
@@ -362,6 +361,12 @@ export class AddProductComponent implements OnInit {
         str=str.substring(0,str.length-1);
       }
       return str;
+    }
+
+    charValidator(event){
+      if(event.charCode == 13){
+        return false;
+      }else return true;
     }
 
 }

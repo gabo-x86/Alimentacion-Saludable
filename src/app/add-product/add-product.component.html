@@ -14,7 +14,7 @@
                 <div class="col-md-7">
                     <div class="form-group">
                         <label>Nombre del alimento <a style="color: red;">*</a> </label>
-                        <input type="text" formControlName ="productName" class="form-control">
+                        <input type="text" formControlName ="productName" class="form-control" (keypress)="charValidator($event)">
                     </div>
                     <label class="errores" color="danger" *ngIf="isInvalid('productName')">
                         <h6 *ngIf="hasErrorControl('productName', 'minlength')">
