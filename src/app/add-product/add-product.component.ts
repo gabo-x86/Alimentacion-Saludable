@@ -349,7 +349,7 @@ export class AddProductComponent implements OnInit {
       if (charCode == 33 || charCode == 63 || charCode == 60 || charCode == 62 ||
          charCode == 93 || charCode == 91 || charCode == 64 || charCode == 35 ||
          charCode == 36 || charCode == 37 || charCode == 94 || charCode == 38 || 
-         charCode == 42 || charCode == 40 || charCode == 41 || charCode == 95 || charCode==13) {
+         charCode == 42 || charCode == 40 || charCode == 41 || charCode == 95 || charCode==13 || charCode==191 || charCode==161) {
         return false;
       }
       return true;
