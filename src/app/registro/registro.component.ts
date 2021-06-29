@@ -195,13 +195,19 @@ export class RegistroComponent implements OnInit {
     //console.log(this.formularioRegistro.value);
   }
   numericOnly(event): boolean { // restrict e,+,-,E characters in  input type number
-    debugger
     const charCode = (event.which) ? event.which : event.keyCode;
-    if (charCode == 101 || charCode == 69 || charCode == 45 || charCode == 43 || charCode == 46 || charCode == 44) {
+    if (charCode == 101 || charCode == 69 || charCode == 45 || charCode == 43 || charCode == 46 || charCode == 44 || charCode==13) {
       return false;
     }
     return true;
 
+  }
+
+  restrictEnter(event){
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if(charCode == 13){
+      return false;
+    }else return true;
   }
   
 

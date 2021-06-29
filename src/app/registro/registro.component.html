@@ -9,7 +9,7 @@
 
       <div class="form-group">
         <label>Alias <label class="signos">*</label> </label>
-        <input type="text" formControlName="alias" class="form-control" ng-trim="false">
+        <input type="text" formControlName="alias" class="form-control" ng-trim="false" (keypress)="restrictEnter($event)">
       </div>
       <label class="errores" color="danger" *ngIf="isInvalid('alias')">
         <h6 *ngIf="hasErrorControl('alias', 'minlength')">
@@ -24,7 +24,7 @@
 
       <div class="form-group">
         <label>Contraseña <label class="signos">*</label></label><br>
-        <input type="password" formControlName="password" class="form-control">
+        <input type="password" formControlName="password" class="form-control" (keypress)="restrictEnter($event)">
       </div>
       <label class="errores" color="danger" *ngIf="isInvalid('password')">
         <h6 *ngIf="hasErrorControl('password', 'minlength')">
@@ -39,7 +39,7 @@
 
       <div class="form-group">
         <label>Confirmar contraseña<label class="signos">*</label></label><br>
-        <input type="password" formControlName="ConfirmarPassword" class="form-control">
+        <input type="password" formControlName="ConfirmarPassword" class="form-control" (keypress)="restrictEnter($event)">
       </div>
       <label class="errores" color="danger" *ngIf="isInvalid('ConfirmarPassword')">
         <h6 *ngIf="confirmPasswordMatch('password','ConfirmarPassword')">Las contraseñas deben ser idénticas</h6>
@@ -49,7 +49,7 @@
       <!--!!!!!!-->
       <div class="form-group">
         <label for="mail">Correo Electronico<label class="signos">*</label></label><br>
-        <input type="email" id="mail" formControlName="email" class="form-control" placeholder="Ej.: usuario@servidor.com" pattern="[\w]{1,}[\w.+-]{0,}@[\w-]{1,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$">
+        <input type="email" id="mail" formControlName="email" class="form-control" placeholder="Ej.: usuario@servidor.com" pattern="[\w]{1,}[\w.+-]{0,}@[\w-]{1,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" (keypress)="restrictEnter($event)">
       </div>
       <label class="errores" color="danger" *ngIf="isInvalid('email')">
         <h6 *ngIf="hasErrorControl('email', 'required')">Este campo es obligatorio</h6>
@@ -63,7 +63,7 @@
         <div class="col-xs-6 col-sm-6 col-md-6">
           <div class="form-group">
             <label for="nombre" class="col-form-label col-sm-4">Nombre <label class="signos">*</label></label>
-            <input type="text" formControlName="nombre" class="form-control">
+            <input type="text" formControlName="nombre" class="form-control" (keypress)="restrictEnter($event)">
 
           </div>
 
@@ -84,7 +84,7 @@
         <div class="col-xs-6 col-sm-6 col-md-6">
           <div class="form-group">
             <label for="apellido" class="col-form-label col-sm-4">Apellido(s) <label class="signos">*</label></label>
-            <input type="text" formControlName="apellido" class="form-control">
+            <input type="text" formControlName="apellido" class="form-control" (keypress)="restrictEnter($event)">
           </div>
           <label class="errores" color="danger" *ngIf="isInvalid('apellido')">
             <h6 *ngIf="hasErrorControl('apellido', 'minlength')">
